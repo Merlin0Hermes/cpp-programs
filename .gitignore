@@ -14,3 +14,5 @@ x86/
 bin/
 obj/
 
+test/
+
