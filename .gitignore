@@ -14,5 +14,3 @@ x86/
 bin/
 obj/
 
-# Visual Studio Code
-.vscode/
