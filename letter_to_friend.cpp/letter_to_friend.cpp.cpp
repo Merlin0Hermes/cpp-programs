@@ -27,5 +27,10 @@ int main()
 		cout << "If you see " << friend_name << " please ask her to call me.\n";
 
 	cout << "I hear you just had a birthday and you are " << age << " years old.\n";
-	
+	if (age < 12)
+		cout << "Next year you will be " << age + 1 << ".\n";
+	else if (age == 17)
+		cout << "Next year you will be able to vote.\n";
+	else if (age > 70)
+		cout << "I hope you are enjoying retirement.\n";	
 }
