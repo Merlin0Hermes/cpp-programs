@@ -18,4 +18,6 @@ int main()
 	cout << "Product: " << val1 * val2 << "\n";
 	cout << "Ratio: " << val1 / val2 << "\n";
 
+	return 0;
+
 }
