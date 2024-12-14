@@ -2,8 +2,8 @@
 
 int main()
 {
-	int val1, val2, smaller, larger;
-	cout << "Enter two integers: ";
+	double val1, val2, smaller, larger;
+	cout << "Enter two floating point values: ";
 	cin >> val1 >> val2;
 
 	if (val1 >= val2)
