@@ -36,4 +36,6 @@ int main()
 
 	cout << "Yours sincerely\n\n\n";
 	cout << "Jack the Ripper.\n";
+
+	return 0;
 }
