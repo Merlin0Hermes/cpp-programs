@@ -3,7 +3,7 @@
 int main()
 {
 	string first_name;
-	cout << "Enter the name: ";
+	cout << "Enter the name of the person you want to write to\n ";
 	cin >> first_name;
-	cout << "Hello " << first_name << "\n";
+	cout << "Dear " << first_name << "," << "\n";
 }
