@@ -20,11 +20,11 @@ int main()
 	}
 	else if (opt == "*" || opt == "mul")
 	{
-		cout << a << "*" << b << " = " << a * b;
+		cout << a << " * " << b << " = " << a * b;
 	}
 	else if (opt == "/" || opt == "div")
 	{
-		cout << a << "/" << b << " = " << a / b;
+		cout << a << " / " << b << " = " << a / b;
 	}
 
 	return 0;
