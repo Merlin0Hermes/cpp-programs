@@ -24,7 +24,7 @@ int main()
 	cout << "How many one-dollars do you have? ";
 	cin >> one_dollars;
 
-	cout << "You have " << pennies << " pennis.\n";
+	cout << "\nYou have " << pennies << " pennis.\n";
 	cout << "You have " << nickels << " nickels.\n";
 	cout << "You have " << dimes << " dimes.\n";
 	cout << "You have " << quarters << " quarters.\n";
