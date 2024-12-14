@@ -33,7 +33,7 @@ int main()
 
 	cout << "The value of all you coins is "
 		<< one_dollars * 100 + half_dollars * 50 + quarters * 25 + dimes * 10 + nickels * 5 + pennies
-		<< " cents.\n"
+		<< " cents.\n";
 
 	return 0;
 
