@@ -7,7 +7,11 @@ int main()
 	char opt;
 	double a, b;
 	cout << "Enter operations and two numbers: ";
-	cin << opt << a << b;
+	cin >> opt >> a >> b;
+
+
+
+
 
 
 }
