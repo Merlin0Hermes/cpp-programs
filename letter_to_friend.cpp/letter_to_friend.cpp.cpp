@@ -6,6 +6,9 @@ int main()
 	int age;
 	cout << "Enter the name and age of the person you want to write to: ";
 	cin >> first_name >> age;
+
+	if (age <= 0 || age >= 110)
+		simple_error("you're kidding!\n");
 	
 	cout << "Enter the name of the other friend: ";
 	cin >> friend_name;
