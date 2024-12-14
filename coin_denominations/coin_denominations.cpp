@@ -31,6 +31,10 @@ int main()
 	cout << "You have " << half_dollars << " half-dollars.\n";
 	cout << "You have " << one_dollars << " one-dollars.\n";
 
+	cout << "The value of all you coins is "
+		<< one_dollars * 100 + half_dollars * 50 + quarters * 25 + dimes * 10 + nickels * 5 + pennies
+		<< " cents.\n"
+
 	return 0;
 
 
