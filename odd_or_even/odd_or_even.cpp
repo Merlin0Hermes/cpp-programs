@@ -4,5 +4,14 @@
 
 int main()
 {
+	int num;
 
+	cout << "Enter a number: ";
+
+	if (num % 2 == 0)
+		cout << "The value " << num << " is an even number.\n";
+	else
+		cout << "The value " << num << " is an odd number.\n";
+
+	return 0;
 }
