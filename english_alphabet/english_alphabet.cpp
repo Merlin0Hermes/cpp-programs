@@ -7,7 +7,7 @@ int main()
 	int i = 0;
 	while (i <= 26)
 	{
-		cout << char('a' + 1) << '\t' << int('a' + 1) << '\n';
+		cout << char('a' + i) << '\t' << int('a' + 1) << '\n';
 	}
 
 	return 0;
