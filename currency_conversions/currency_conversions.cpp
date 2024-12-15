@@ -30,6 +30,7 @@ int main()
 
 		default:
 			cout << "I don't know this currency!\n";
+			break;
 	}	
 	
 	return 0;
