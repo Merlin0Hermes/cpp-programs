@@ -23,19 +23,19 @@ int main()
 
 	switch (currency)
 	{
-		case 'y':
+		case 'y': case 'Y':
 			cout << amount << " yen is $" << amount * yen_to_dol << '\n';
 			break;
-		case 'e':
+		case 'e': case 'E':
 			cout << amount << " euro is $" << amount * euro_to_dol << '\n';
 			break;
-		case 'p':
+		case 'p': case 'P':
 			cout << amount << " pound is $" << amount * pound_to_dol << '\n';
 			break;
-		case 'u':
+		case 'u': case 'U':
 			cout << amount << " yuan is $" << amount * yuan_to_dol << '\n';
 			break;
-		case 'k':
+		case 'k': case 'K':
 			cout << amount << " kroner is $" << amount * kroner_to_dol << '\n';
 			break;
 
