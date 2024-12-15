@@ -2,7 +2,7 @@
 
 int main()
 {
-	int num1, num2;
+	double num1, num2;
 
 	cout << "Enter two integers: ";
 	while (cin >> num1 >> num2)
