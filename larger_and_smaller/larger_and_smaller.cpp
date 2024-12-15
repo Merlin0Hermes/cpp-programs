@@ -36,14 +36,8 @@ int main()
 			continue;
 		}
 
-		if (true_val < min_val)
-		{
-			min_val = true_val;
-		}
-		if (true_val > max_val)
-		{
-			max_val = true_val;
-		}
+		max_val = max(true_val, max_val);
+		min_val = min(true_val, min_val);
 		
 		cout << '\n' << num << unit << '\n';
 		if (min_val == true_val)
