@@ -16,10 +16,9 @@ int main()
 
 	for (string word : words)
 	{
-		int flag;
+		int flag = 0;
 		for (string dislike: disliked)
 		{
-			flag = 0;
 			if (word == dislike)
 			{
 				flag = 1;
