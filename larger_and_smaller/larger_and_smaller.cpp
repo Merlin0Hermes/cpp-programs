@@ -5,10 +5,12 @@ int main()
 	constexpr double in_to_m = 0.0254;
 	constexpr double ft_to_m = 0.3048;
 	constexpr double cm_to_m = 0.01;
-	double num;
+	
 
 	cout << "Enter an number with unit (cm, m, in, ft)\n";
 
+	vector<double> values;
+	double num;
 	int n = 0;
 	double min_val = INFINITY, max_val = -INFINITY, sum = 0;
 	string unit = "";
@@ -37,6 +39,7 @@ int main()
 			cout << "Unknown unit!\n";
 			continue;
 		}
+		values.push_back(true_val);
 
 		max_val = max(true_val, max_val);
 		min_val = min(true_val, min_val);
@@ -55,6 +58,12 @@ int main()
 	cout << "Smallest value: " << min_val << 'm' << '\n';
 	cout << "Number of values: " << n << '\n';
 	cout << "Sum of values: " << sum << 'm' << '\n';
+
+	cout << "All values entered in metres.\n";
+	for (double d : values)
+	{
+		cout << d << '\n';
+	}
 
 	
 	return 0;
