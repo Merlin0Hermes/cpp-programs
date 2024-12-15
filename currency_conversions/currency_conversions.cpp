@@ -16,20 +16,21 @@ int main()
 	cout << "Enter the amount of currency: ";
 	cin >> amount;
 
-	if (currency == 'y')
+	switch (currency)
 	{
-		cout << amount << " yen is $" << amount * yen_to_dol << '\n';
-	}
-	else if (currency == 'e')
-	{
-		cout << amount << " euro is $" << amount * euro_to_dol << '\n';
-	}
-	else if (currency == 'p')
-	{
-		cout << amount << " pound is $" << amount * pnd_to_dol << '\n';
-	}
-	else
-	{
-		cout << "I don't know this currency!\n";
-	}
+		case 'y':
+			cout << amount << " yen is $" << amount * yen_to_dol << '\n';
+			break;
+		case 'e':
+			cout << amount << " euro is $" << amount * euro_to_dol << '\n';
+			break;
+		case 'p':
+			cout << amount << " pound is $" << amount * pnd_to_dol << '\n';
+			break;
+
+		default:
+			cout << "I don't know this currency!\n";
+	}	
+	
+	return 0;
 }
