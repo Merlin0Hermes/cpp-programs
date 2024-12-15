@@ -9,7 +9,10 @@ int main()
 	constexpr double pnd_to_dol = 1.26;
 
 	char currency;
-	cout << "Enter if yen, euro, or pound (y, e, p): ";
+	cout << "euro: e\n" << "kroner: k\n" << "pound: p\n";
+	cout << "yen: y\n" << "yuan: u\n";
+	cout << "\nSelect the currency: ";
+	
 	cin >> currency;
 
 	double amount;
