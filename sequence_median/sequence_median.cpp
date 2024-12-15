@@ -12,7 +12,7 @@ int main()
 
 	sort(numbers);
 
-	double median;
+	double median = 0;
 	int n = numbers.size();
 
 	if (n >= 2 && n % 2 == 0)
