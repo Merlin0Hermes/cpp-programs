@@ -2,26 +2,30 @@
 
 int main()
 {
-	double num1, num2;
+	double num;
 
-	cout << "Enter two integers: ";
-	while (cin >> num1 >> num2)
+	cout << "Enter an integer\n";
+	double min_val = INFINITY, max_val = -INFINITY;
+
+	while (cin >> num)
 	{
-		if (num1 == num2)
+		
+		if (num < min_val)
 		{
-			cout << "The numbers are equal.\n";
+			min_val = num;
 		}
-		else
+		if (num > max_val)
 		{
-			cout << "The smaller value is: " << min(num1, num2) << '\n';
-			cout << "The larger value is: " << max(num1, num2) << '\n';
-
-			if (max(num1, num2) - min(num1, num2) < 1.0 / 100)
-			{
-				cout << "The numbers are almost equal.\n";
-			}
+			max_val = num;
 		}
+		
+		cout << '\n' << num << '\n';
+		if (min_val == num)
+			cout << "The smallest so far.\n";
+		if (max_val == num)
+			cout << "The largest so far.\n";
 
+		
 	}
 	
 	return 0;
