@@ -4,25 +4,42 @@ int main()
 {
 	double num;
 
-	cout << "Enter an integer\n";
-	double min_val = INFINITY, max_val = -INFINITY;
+	cout << "Enter an number with unit (cm, m, in, ft)\n";
+	double min_val = INFINITY, max_val = -INFINITY, true_val = 0;
+	string unit = "";
 
-	while (cin >> num)
+	while (cin >> num >> unit)
 	{
-		
-		if (num < min_val)
+		if (unit == "cm")
 		{
-			min_val = num;
+			true_val = num / 100;
 		}
-		if (num > max_val)
+		else if (unit == "in")
 		{
-			max_val = num;
+			true_val = (num * 2.54) / 100;
+		}
+		else if (unit == "ft")
+		{
+			true_val = num * 12 * 2.54 / 100;
+		}
+		else
+		{
+			true_val = num;
+		}
+
+		if (true_val < min_val)
+		{
+			min_val = true_val;
+		}
+		if (true_val > max_val)
+		{
+			max_val = true_val;
 		}
 		
-		cout << '\n' << num << '\n';
-		if (min_val == num)
+		cout << '\n' << num << unit << '\n';
+		if (min_val == true_val)
 			cout << "The smallest so far.\n";
-		if (max_val == num)
+		if (max_val == true_val)
 			cout << "The largest so far.\n";
 
 		
