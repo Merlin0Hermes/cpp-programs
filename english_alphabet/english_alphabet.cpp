@@ -8,6 +8,7 @@ int main()
 	while (i <= 26)
 	{
 		cout << char('a' + i) << '\t' << int('a' + 1) << '\n';
+		++i;
 	}
 
 	return 0;
