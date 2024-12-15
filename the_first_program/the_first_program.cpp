@@ -2,10 +2,16 @@
 
 int square(int n)
 {
-
+	int result = 0;
+	for (int i = 0; i < n; i++)
+	{
+		result += n;
+	}
+	return result;
 }
 
 int main()
 {
+	
 
 }
