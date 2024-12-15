@@ -12,19 +12,29 @@ int main()
 		words.push_back(word);
 	}
 
-	string disliked = "brocolli";
+	vector<string> disliked = {"brocolli", "cabbage", "salad"};
 
 	for (string word : words)
 	{
-		if (word == disliked)
+		int flag;
+		for (string dislike: disliked)
+		{
+			flag = 0;
+			if (word == dislike)
+			{
+				flag = 1;
+				break;
+			}
+		}	
+		if (flag == 1)
 		{
 			cout << "BLEEP ";
+
 		}
 		else
 		{
 			cout << word << ' ';
 		}
-			
 	}
 	cout << '\n';
 }
