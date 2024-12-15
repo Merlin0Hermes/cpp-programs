@@ -8,6 +8,8 @@ int main()
 	double num;
 
 	cout << "Enter an number with unit (cm, m, in, ft)\n";
+
+	int n;
 	double min_val = INFINITY, max_val = -INFINITY, sum = 0;
 	string unit = "";
 
@@ -45,8 +47,15 @@ int main()
 		if (max_val == true_val)
 			cout << "The largest so far.\n";
 
-		
+		n++;
+		sum += true_val;
 	}
+
+	cout << "\nLargest value: " << max_val << '\n';
+	cout << "Smallest value: " << min_val << '\n';
+	cout << "Number of values: " << n << '\n';
+	cout << "Sum of values: " << sum << 'm' << '\n';
+
 	
 	return 0;
 }
