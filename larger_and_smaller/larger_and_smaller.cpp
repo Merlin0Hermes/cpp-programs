@@ -59,7 +59,8 @@ int main()
 	cout << "Number of values: " << n << '\n';
 	cout << "Sum of values: " << sum << 'm' << '\n';
 
-	cout << "All values entered in metres.\n";
+	sort(values);
+	cout << "\nAll values entered in metres.\n";
 	for (double d : values)
 	{
 		cout << d << '\n';
