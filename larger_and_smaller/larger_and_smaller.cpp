@@ -51,8 +51,8 @@ int main()
 		sum += true_val;
 	}
 
-	cout << "\nLargest value: " << max_val << '\n';
-	cout << "Smallest value: " << min_val << '\n';
+	cout << "\nLargest value: " << max_val << 'm' << '\n';
+	cout << "Smallest value: " << min_val << 'm' << '\n';
 	cout << "Number of values: " << n << '\n';
 	cout << "Sum of values: " << sum << 'm' << '\n';
 
