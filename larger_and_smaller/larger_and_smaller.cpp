@@ -7,8 +7,16 @@ int main()
 	cout << "Enter two integers: ";
 	while (cin >> num1 >> num2)
 	{
-		cout << "the smaller value is: " << min(num1, num2) << '\n';
-		cout << "the larger value is: " << max(num1, num2) << '\n';
+		if (num1 == num2)
+		{
+			cout << "The numbers are equal.\n";
+		}
+		else
+		{
+			cout << "The smaller value is: " << min(num1, num2) << '\n';
+			cout << "The larger value is: " << max(num1, num2) << '\n';
+		}
+
 	}
 	
 	return 0;
