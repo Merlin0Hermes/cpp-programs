@@ -1,1 +1,3 @@
-## Repository for practice programs using C++.
+## cpp-programs
+
+A repository for practice programs using C++.
