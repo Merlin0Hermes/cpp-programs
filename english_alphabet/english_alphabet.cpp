@@ -5,9 +5,9 @@
 int main()
 {
 	int i = 0;
-	while (i <= 26)
+	while (i < 26)
 	{
-		cout << char('a' + i) << '\t' << int('a' + 1) << '\n';
+		cout << char('a' + i) << '\t' << int('a' + i) << '\n';
 		++i;
 	}
 
