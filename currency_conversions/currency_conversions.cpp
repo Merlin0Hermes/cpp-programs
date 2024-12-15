@@ -6,7 +6,9 @@ int main()
 {
 	constexpr double yen_to_dol = 0.0065;
 	constexpr double euro_to_dol = 1.05;
-	constexpr double pnd_to_dol = 1.26;
+	constexpr double pound_to_dol = 1.26;
+	constexpr double yuan_to_dol = 0.14;
+	constexpr double kroner_to_dol = 0.09;
 
 	char currency;
 	cout << "euro: e\n" << "kroner: k\n" << "pound: p\n";
@@ -28,7 +30,13 @@ int main()
 			cout << amount << " euro is $" << amount * euro_to_dol << '\n';
 			break;
 		case 'p':
-			cout << amount << " pound is $" << amount * pnd_to_dol << '\n';
+			cout << amount << " pound is $" << amount * pound_to_dol << '\n';
+			break;
+		case 'u':
+			cout << amount << " yuan is $" << amount * yuan_to_dol << '\n';
+			break;
+		case 'k':
+			cout << amount << " kroner is $" << amount * kroner_to_dol << '\n';
 			break;
 
 		default:
