@@ -9,6 +9,13 @@ int main()
 		cout << char('a' + i) << '\t' << int('a' + i) << '\t';
 		cout << char('A' + i) << '\t' << int('A' + i) << '\n';
 	}
+	
+	cout << '\n';
+	for (int i = 0; i < 9; ++i)
+	{
+		cout << char('0' + i) << '\t' << int('0' + i) << '\n';
+	}
+
 
 	return 0;
 }
