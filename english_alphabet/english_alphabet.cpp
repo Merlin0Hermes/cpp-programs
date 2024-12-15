@@ -16,6 +16,5 @@ int main()
 		cout << char('0' + i) << '\t' << int('0' + i) << '\n';
 	}
 
-
 	return 0;
 }
