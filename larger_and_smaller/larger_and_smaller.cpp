@@ -9,7 +9,7 @@ int main()
 
 	cout << "Enter an number with unit (cm, m, in, ft)\n";
 
-	int n;
+	int n = 0;
 	double min_val = INFINITY, max_val = -INFINITY, sum = 0;
 	string unit = "";
 
