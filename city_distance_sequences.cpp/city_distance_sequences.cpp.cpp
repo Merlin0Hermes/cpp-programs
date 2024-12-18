@@ -4,20 +4,24 @@
 
 int main()
 {
-	vector<double> distances;
+	
 	double dist = 0, total = 0, smallest = INFINITY, largest = -INFINITY, mean;
 
 	cout << "Enter distances between cities\n";
-	for (; cin >> dist; distances.push_back(dist))
+
+	int i = 0;
+	for (vector<double> distances; cin >> dist; distances.push_back(dist))
 	{
 		total += dist;
 		smallest = min(smallest, dist);
 		largest = max(largest, dist);
+		i++;
 	}
 
-	cout << "Total distance: " << total << '\n';
+	cout << "\nTotal distance: " << total << '\n';
 	cout << "Largest distance: " << largest << '\n';
 	cout << "Smallest distance: " << smallest << '\n';
+	cout << "Mean distance: " << total / i << '\n';
 
 
 	return 0;
