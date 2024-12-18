@@ -17,7 +17,7 @@ int main()
 	{
 		if (input.size() == 1)
 		{
-			for (int i = 0; i < 9; i++)
+			for (int i = 0; i <= 9; i++)
 			{
 				if (input == numbers[i])
 				{
@@ -28,7 +28,7 @@ int main()
 		}
 		else
 		{
-			for (int i = 0; i < 9; i++)
+			for (int i = 0; i <= 9; i++)
 			{
 				if (input == words[i])
 				{
