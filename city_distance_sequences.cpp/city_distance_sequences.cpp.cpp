@@ -4,14 +4,13 @@
 
 int main()
 {
-	vector<int> distances;
-	int dist = 0, total = 0;
+	vector<double> distances;
+	double dist = 0, total = 0, smallest = INFINITY, largest = -INFINITY, mean;
 
 	cout << "Enter distances between cities\n";
 	for (; cin >> dist; distances.push_back(dist))
 	{
 		total += dist;
-		
 	}
 
 	cout << "Total distance: " << total << '\n';
