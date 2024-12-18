@@ -1,20 +1,43 @@
-// simple_calculator.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// simple calculator program
 
-#include <iostream>
+#include "../std_lib_facilities.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	char opt;
+	double num1, num2;
+
+	cout << "Enter two numbers: ";
+	cin >> num1 >> num2;
+
+	cout << "Enter the operaton (+, -, *, / )\n";
+	cout << "Enter 0 to exit.\n";
+	cin >> opt;
+
+	switch (opt)
+	{
+		case '+':
+			cout << "Sum of " << num1 << " and " << num2 << " is " << num1 + num2 << '\n';
+			break;
+		case '-':
+			cout << "Subtracting " << num1 << " from " << num2 << " is " << num1 - num2 << '\n';
+			break;
+		case '*':
+			cout << "Product of " << num1 << " and " << num2 << " is " << num1 * num2 << '\n';
+			break;
+		case '/':
+			if (num2 == 0)
+			{
+				cout << "Division by zero not possible.\n";
+				return 1;
+			}
+			cout << "Division of " << num1 << " by " << num2 << " is " << num1 / num2 << '\n';
+			break;
+		case '0':
+			return 0;
+		default:
+			cout << "Invalid Operation.\n";
+			break;
+	}
+
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
