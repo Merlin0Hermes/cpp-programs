@@ -28,8 +28,7 @@ int main()
 	cout << "\nTotal distance: " << total << '\n';
 	cout << "Largest distance: " << largest << '\n';
 	cout << "Smallest distance: " << smallest << '\n';
-	cout << "Mean distance: " << total / i << '\n';
-
+	cout << "Mean distance: " << total / size << '\n';
 
 	return 0;
 	
