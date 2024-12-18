@@ -11,11 +11,31 @@ int main()
 
 	string input;
 
+	cout << "Enter a digit as number or word\n";
+
 	while (cin >> input)
 	{
 		if (input.size() == 1)
 		{
-
+			for (int i = 0; i < 9; i++)
+			{
+				if (input == numbers[i])
+				{
+					cout << words[i] << '\n';
+					break;
+				}
+			}
+		}
+		else
+		{
+			for (int i = 0; i < 9; i++)
+			{
+				if (input == words[i])
+				{
+					cout << numbers[i] << '\n';
+					break;
+				}
+			}
 		}
 	}
 
