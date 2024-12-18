@@ -27,7 +27,7 @@ int main()
 		if (num1 == -1 || num2 == -1)
 		{
 			cout << "Invalid number.\n";
-			return 1;
+			continue;
 		}
 
 
