@@ -20,7 +20,7 @@ int main()
 
 	while (true)
 	{
-		cout << "Enter two numbers: ";
+		cout << "Enter two digits (0 - 9) or (zero to nine)\n";
 		cin >> number1 >> number2;
 		
 		num1 = number_convert(number1);
