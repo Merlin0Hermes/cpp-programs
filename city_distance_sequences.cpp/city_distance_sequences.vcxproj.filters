@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="city_distance_sequences.cpp.cpp">
+    <ClCompile Include="city_distance_sequences.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
