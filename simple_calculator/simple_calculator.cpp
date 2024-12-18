@@ -21,12 +21,17 @@ int main()
 	while (true)
 	{
 		cout << "Enter two numbers: ";
-		cin >> number1, number2;
+		cin >> number1 >> number2;
 		
 		num1 = number_convert(number1);
 		num2 = number_convert(number2);
 
-		
+		if (num1 == -1 || num2 == -1)
+		{
+			cout << "Invalid number.\n";
+			return 1;
+		}
+
 
 		cout << "Enter the operaton (+, -, *, / )\n";
 		cout << "Enter 0 to exit.\n";
@@ -73,7 +78,6 @@ int number_convert(string s)
 			if (s == numbers[i])
 			{
 				return i + 1;
-				break;
 			}
 		}
 	}
@@ -84,7 +88,6 @@ int number_convert(string s)
 			if (s == words[i])
 			{
 				return i + 1;
-				break;
 			}
 		}
 	}
