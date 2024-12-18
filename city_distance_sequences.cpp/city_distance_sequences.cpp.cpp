@@ -11,9 +11,13 @@ int main()
 	for (; cin >> dist; distances.push_back(dist))
 	{
 		total += dist;
+		smallest = min(smallest, dist);
+		largest = max(largest, dist);
 	}
 
 	cout << "Total distance: " << total << '\n';
+	cout << "Largest distance: " << largest << '\n';
+	cout << "Smallest distance: " << smallest << '\n'
 
 
 	return 0;
