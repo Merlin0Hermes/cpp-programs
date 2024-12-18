@@ -6,8 +6,12 @@ bool is_prime(int n);
 
 int main()
 {
-	const int start = 1, end = 100;
+	const int start = 1;
+	int end;
 	vector<int> primes;
+
+	cout << "Enter the maximum number: ";
+	cin >> end;
 
 	for (int i = start; i <= end; i++)
 	{
