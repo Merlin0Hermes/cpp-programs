@@ -2,15 +2,31 @@
 
 #include "../std_lib_facilities.h"
 
+const vector<string> words = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+const vector <string> numbers = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
+int number_convert(string s);
+
+
 int main()
 {
+
+
+
 	char opt;
 	double num1, num2;
+	string number1, number2;
+
 
 	while (true)
 	{
 		cout << "Enter two numbers: ";
-		cin >> num1 >> num2;
+		cin >> number1, number2;
+		
+		num1 = number_convert(number1);
+		num2 = number_convert(number2);
+
+		
 
 		cout << "Enter the operaton (+, -, *, / )\n";
 		cout << "Enter 0 to exit.\n";
@@ -46,4 +62,33 @@ int main()
 
 	return 0;
 
+}
+
+int number_convert(string s)
+{
+	if (s.size() == 1)
+	{
+		for (int i = 0; i <= 9; i++)
+		{
+			if (s == numbers[i])
+			{
+				return i + 1;
+				break;
+			}
+		}
+	}
+	else
+	{
+		for (int i = 0; i <= 9; i++)
+		{
+			if (s == words[i])
+			{
+				return i + 1;
+				break;
+			}
+		}
+	}
+
+	return -1;
+	
 }
