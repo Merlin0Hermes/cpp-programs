@@ -17,7 +17,7 @@ int main()
 
 	cout << "Total distance: " << total << '\n';
 	cout << "Largest distance: " << largest << '\n';
-	cout << "Smallest distance: " << smallest << '\n'
+	cout << "Smallest distance: " << smallest << '\n';
 
 
 	return 0;
