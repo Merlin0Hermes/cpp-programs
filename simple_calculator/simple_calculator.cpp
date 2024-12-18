@@ -11,8 +11,6 @@ int number_convert(string s);
 int main()
 {
 
-
-
 	char opt;
 	double num1, num2;
 	string number1, number2;
@@ -68,6 +66,7 @@ int main()
 	return 0;
 
 }
+
 
 int number_convert(string s)
 {
