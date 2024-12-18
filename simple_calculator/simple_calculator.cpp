@@ -50,7 +50,7 @@ int main()
 				if (num2 == 0)
 				{
 					cout << "Division by zero not possible.\n";
-					return 1;
+					continue;
 				}
 				cout << "Division of " << num1 << " by " << num2 << " is " << num1 / num2 << '\n';
 				break;
@@ -72,7 +72,7 @@ int number_convert(string s)
 {
 	if (s.size() == 1)
 	{
-		for (int i = 0; i <= 9; i++)
+		for (int i = 0; i <= numbers.size(); i++)
 		{
 			if (s == numbers[i])
 			{
@@ -82,7 +82,7 @@ int number_convert(string s)
 	}
 	else
 	{
-		for (int i = 0; i <= 9; i++)
+		for (int i = 0; i <= words.size(); i++)
 		{
 			if (s == words[i])
 			{
