@@ -77,7 +77,7 @@ int number_convert(string s)
 		{
 			if (s == numbers[i])
 			{
-				return i + 1;
+				return i;
 			}
 		}
 	}
@@ -87,7 +87,7 @@ int number_convert(string s)
 		{
 			if (s == words[i])
 			{
-				return i + 1;
+				return i;
 			}
 		}
 	}
