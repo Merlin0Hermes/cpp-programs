@@ -39,4 +39,6 @@ int main()
 		}
 	}
 
+	cout << "The number you have chosen is not between 1 and 100";
+
 }
