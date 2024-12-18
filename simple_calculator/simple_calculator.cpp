@@ -1,4 +1,4 @@
-// simple calculator program
+// simple calculator program (for digits only)
 
 #include "../std_lib_facilities.h"
 
