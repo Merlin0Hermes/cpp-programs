@@ -8,7 +8,7 @@ int main()
 	char answer;
 
 	cout << "Think of a number between 1 and 100: ";
-	cout << "\nEnter y or n\n";
+	cout << "\nEnter y or n\n\n";
 
 	int guess;
 	while (low <= high)
@@ -29,7 +29,7 @@ int main()
 			
 			if (answer == 'y')
 			{
-				cout << "Great! I guessed you number :)\n";
+				cout << "\nGreat! I guessed you number :)\n";
 				return 0;
 			}
 			else if (answer == 'n')
@@ -41,4 +41,5 @@ int main()
 
 	cout << "The number you have chosen is not between 1 and 100";
 
+	return 0;
 }
