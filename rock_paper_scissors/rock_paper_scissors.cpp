@@ -31,31 +31,25 @@ int main()
 	string user_choice;
 
 
-	for (int i = 0; i < max_turns; i++)
+	for (int i = 0; i < max_turns; )
 	{
 		cout << "\nEnter rock, paper, or scissors: ";
 		cin >> user_choice;
 		string machine_choice = choices[random_values[i] % 3];
 
-
-		switch (user_choice[0])
+		try 
 		{
-			case 'r':
-				determine_points('r', machine_choice[0]);
-				break;
-			case 'p':
-				determine_points('p', machine_choice[0]);
-				break;
-			case 's':
-				determine_points('s', machine_choice[0]);
-				break;
+			determine_points(user_choice[0], machine_choice[0]);
 
-			default:
-				cout << "Invalid choice!\n";
-				continue;
+		}
+		catch (const invalid_argument& e)
+		{
+			cout << "Error: " << e.what() << '\n';
+			continue;
 		}
 
 		cout << "Machine chose: " << machine_choice << '\n';
+		i++;
 
 	}
 
@@ -85,6 +79,10 @@ int main()
 void determine_points(char player, char machine)
 {
 
+	if (player != 'r' and player != 'p' and player != 's')
+		throw invalid_argument("Invalid choice entered.");
+
+
 	vector<char> win = { 'r', 'p', 's' };
 	vector<char> lose = { 's', 'r', 'p' };
 
@@ -93,12 +91,13 @@ void determine_points(char player, char machine)
 		if (player == win[i] and machine == lose[i])
 		{
 			user_points++;
-			break;
+			return;
 		}
 		if (machine == win[i] and player == lose[i])
 		{
 			machine_points++;
-			break;
+			return;
 		}
 	}
+	
 }
