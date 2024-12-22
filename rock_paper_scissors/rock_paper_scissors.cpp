@@ -4,8 +4,7 @@
 
 
 int user_points = 0, machine_points = 0;
-vector<char> win = { 'r', 'p', 's' };
-vector<char> lose = { 's', 'r', 'p' };
+
 
 void determine_points(char player, char machine);
 
@@ -13,6 +12,8 @@ void determine_points(char player, char machine);
 int main()
 {
 	vector<int> random_values;
+
+	vector<string> choices = { "rock", "paper", "scissors" };
 
 	const int max_turns = 5;
 
@@ -27,7 +28,6 @@ int main()
 	}
 
 
-
 	string user_choice;
 
 
@@ -35,19 +35,19 @@ int main()
 	{
 		cout << "\nEnter rock, paper, or scissors: ";
 		cin >> user_choice;
-		char machine_choice = win[random_values[i] % 3];
+		string machine_choice = choices[random_values[i] % 3];
 
 
 		switch (user_choice[0])
 		{
 			case 'r':
-				determine_points('r', machine_choice);
+				determine_points('r', machine_choice[0]);
 				break;
 			case 'p':
-				determine_points('p', machine_choice);
+				determine_points('p', machine_choice[0]);
 				break;
 			case 's':
-				determine_points('s', machine_choice);
+				determine_points('s', machine_choice[0]);
 				break;
 
 			default:
@@ -55,15 +55,10 @@ int main()
 				continue;
 		}
 
-		cout << "Machine chose: ";
-		if (machine_choice == 'r')
-			cout << "rock\n";
-		else if (machine_choice == 'p')
-			cout << "paper\n";
-		else if (machine_choice == 's')
-			cout << "scissors\n";
+		cout << "Machine chose: " << machine_choice << '\n';
 
 	}
+
 
 	cout << "\nHuman points: " << user_points << '\n';
 	cout << "Machine points: " << machine_points << '\n';
@@ -89,6 +84,10 @@ int main()
 
 void determine_points(char player, char machine)
 {
+
+	vector<char> win = { 'r', 'p', 's' };
+	vector<char> lose = { 's', 'r', 'p' };
+
 	for (int i = 0; i < 3; i++)
 	{
 		if (player == win[i] and machine == lose[i])
