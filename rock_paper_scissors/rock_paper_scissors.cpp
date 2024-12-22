@@ -26,15 +26,14 @@ int main()
 		random_values.push_back(temp);
 	}
 
-	
-	
+
 
 	string user_choice;
-	int i = 0;
 
-	while (true)
+
+	for (int i = 0; i < max_turns; i++)
 	{
-		cout << "Enter rock, paper, or scissors: ";
+		cout << "\nEnter rock, paper, or scissors: ";
 		cin >> user_choice;
 		char machine_choice = win[random_values[i] % 3];
 
@@ -55,23 +54,38 @@ int main()
 				cout << "Invalid choice!\n";
 				continue;
 		}
-		i++;
 
-		if (i == max_turns)
-		{
-			break;
-		}
+		cout << "Machine chose: ";
+		if (machine_choice == 'r')
+			cout << "rock\n";
+		else if (machine_choice == 'p')
+			cout << "paper\n";
+		else if (machine_choice == 's')
+			cout << "scissors\n";
 
 	}
 
-	cout << "Human points: " << user_points << '\n';
+	cout << "\nHuman points: " << user_points << '\n';
 	cout << "Machine points: " << machine_points << '\n';
 
+	if (user_points > machine_points)
+	{
+		cout << "\nHuman wins!!\n";
+	}
+	else if (machine_points > user_points)
+	{
+		cout << "\nMachine wins!!\n";
+	}
+	else
+	{
+		cout << "\nIt is a draw!!\n";
+	}
 
 
 
 	return 0;
 }
+
 
 void determine_points(char player, char machine)
 {
