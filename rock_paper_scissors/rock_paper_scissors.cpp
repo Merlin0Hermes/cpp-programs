@@ -5,7 +5,6 @@
 
 int user_points = 0, machine_points = 0;
 
-
 void determine_points(char player, char machine);
 
 
@@ -15,12 +14,12 @@ int main()
 
 	vector<string> choices = { "rock", "paper", "scissors" };
 
-	const int max_turns = 5;
+	const int max_turns = 10;
 
 	cout << "Enter " << max_turns << " random numbers.\n";
 	cout << "Enter q to exit.\n";
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < max_turns; i++)
 	{
 		int temp;
 		cin >> temp;
@@ -29,7 +28,6 @@ int main()
 
 
 	string user_choice;
-
 
 	for (int i = 0; i < max_turns; )
 	{
@@ -40,7 +38,6 @@ int main()
 		try 
 		{
 			determine_points(user_choice[0], machine_choice[0]);
-
 		}
 		catch (const invalid_argument& e)
 		{
@@ -69,7 +66,6 @@ int main()
 	{
 		cout << "\nIt is a draw!!\n";
 	}
-
 
 
 	return 0;
