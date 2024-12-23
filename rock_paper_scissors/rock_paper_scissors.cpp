@@ -74,26 +74,6 @@ int main()
 }
 
 
-void print_results()
-{
-	cout << "\nHuman points: " << user_points << '\n';
-	cout << "Machine points: " << machine_points << '\n';
-
-	if (user_points > machine_points)
-	{
-		cout << "\nHuman wins!!\n";
-	}
-	else if (machine_points > user_points)
-	{
-		cout << "\nMachine wins!!\n";
-	}
-	else
-	{
-		cout << "\nIt is a draw!!\n";
-	}
-}
-
-
 void determine_points(char player, char machine)
 {
 
@@ -118,4 +98,24 @@ void determine_points(char player, char machine)
 		}
 	}
 	
+}
+
+
+void print_results()
+{
+	cout << "\nHuman points: " << user_points << '\n';
+	cout << "Machine points: " << machine_points << '\n';
+
+	if (user_points > machine_points)
+	{
+		cout << "\nHuman wins!!\n";
+	}
+	else if (machine_points > user_points)
+	{
+		cout << "\nMachine wins!!\n";
+	}
+	else
+	{
+		cout << "\nIt is a draw!!\n";
+	}
 }
