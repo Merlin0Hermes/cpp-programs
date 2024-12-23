@@ -25,8 +25,6 @@ int main()
 		cin >> temp;
 		random_values.push_back(temp);
 	}
-
-
 	
 
 	while (true)
