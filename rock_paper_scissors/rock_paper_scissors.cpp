@@ -27,35 +27,52 @@ int main()
 	}
 
 
-	string user_choice;
+	
 
-	for (int i = 0; i < max_turns; )
+	while (true)
 	{
-		cout << "\nEnter rock, paper, or scissors: ";
-		cin >> user_choice;
-		string machine_choice = choices[random_values[i] % 3];
+		string user_choice;
+		for (int i = 0; i < max_turns; )
+		{
+			cout << "\nEnter rock, paper, or scissors: ";
+			cin >> user_choice;
+			string machine_choice = choices[random_values[i] % 3];
 
-		try 
-		{
-			determine_points(user_choice[0], machine_choice[0]);
+			try
+			{
+				determine_points(user_choice[0], machine_choice[0]);
+			}
+			catch (const invalid_argument& e)
+			{
+				cout << "Error: " << e.what() << '\n';
+				continue;
+			}
+
+			cout << "Machine chose: " << machine_choice << '\n';
+			i++;
+
 		}
-		catch (const invalid_argument& e)
+		print_results();
+
+		cout << "Play Again? (y or n): ";
+		cin >> user_choice;
+
+		if (user_choice == "n")
 		{
-			cout << "Error: " << e.what() << '\n';
+			break;
+		}
+		else if (user_choice == "y")
+		{
 			continue;
 		}
-
-		cout << "Machine chose: " << machine_choice << '\n';
-		i++;
+		else
+		{
+			simple_error("Invalid choice");
+		}
 
 	}
-
-	print_results();
-
-
-
-
 	return 0;
+
 }
 
 
