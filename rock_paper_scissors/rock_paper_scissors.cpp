@@ -6,7 +6,7 @@
 int user_points = 0, machine_points = 0;
 
 void determine_points(char player, char machine);
-
+void print_results();
 
 int main()
 {
@@ -50,7 +50,17 @@ int main()
 
 	}
 
+	print_results();
 
+
+
+
+	return 0;
+}
+
+
+void print_results()
+{
 	cout << "\nHuman points: " << user_points << '\n';
 	cout << "Machine points: " << machine_points << '\n';
 
@@ -66,9 +76,6 @@ int main()
 	{
 		cout << "\nIt is a draw!!\n";
 	}
-
-
-	return 0;
 }
 
 
