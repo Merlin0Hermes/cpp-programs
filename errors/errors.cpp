@@ -7,8 +7,8 @@ int main()
 {
 	try
 	{
-		// code here
-			keep_window_open();
+		Cout << "Success!\n";
+		keep_window_open();
 		return 0;
 	}
 	catch (exception& e)
