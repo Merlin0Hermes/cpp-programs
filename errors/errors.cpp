@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		cout << "Success" << "\n";
+		cout << success << '\n';
 		return 0;
 	}
 	catch (exception& e)
