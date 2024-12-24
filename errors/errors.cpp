@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		vector<char> v(5); for (int i = 0; i <= v.size(); ++i); cout << "Success!\n";
+		int i = 0; int j = 9; while (i < 10) ++j; if (j < i) cout << "Success!\n";
 		return 0;
 	}
 	catch (exception& e)
