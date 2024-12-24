@@ -7,6 +7,7 @@ int main()
 {
 	try
 	{
+		bool cond = true;
 		if (cond) cout << "Success!\n"; else cout << "Fail!\n";
 		return 0;
 	}
