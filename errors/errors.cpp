@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		if (true) cout << "Success!\n"; else cout << "Fail!\n";
+		int x = 2000; char c = x; if (c == 2000) cout << "Success!\n";
 		return 0;
 	}
 	catch (exception& e)
