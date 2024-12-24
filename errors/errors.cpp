@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		int i = 0; while (i < 10) ++j; if (j < i) cout << "Success!\n";
+		int i = 0, j = 0; while (i < 10) ++i; if (j < i) cout << "Success!\n";
 		return 0;
 	}
 	catch (exception& e)
