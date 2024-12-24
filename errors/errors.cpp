@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		cout << "Success!\n";
+		cout << "Success!\n;
 		keep_window_open();
 		return 0;
 	}
