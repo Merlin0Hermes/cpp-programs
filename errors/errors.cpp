@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		int x = 2000; int c = x; if (c == 2000) cout << "Success!\n";
+		string s = "Success!\n"; for (int i = 0; i < 10; ++i) cout << s[i];
 		return 0;
 	}
 	catch (exception& e)
