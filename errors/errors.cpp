@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		cout << "Success" << '\n';
+		int res = 7; vector<int> v(10); v[5] = res; cout << "Success!\n";
 		return 0;
 	}
 	catch (exception& e)
