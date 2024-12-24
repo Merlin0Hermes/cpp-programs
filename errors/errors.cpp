@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		int i = 0, j = 0; while (i < 10) ++i; if (j < i) cout << "Success!\n";
+		int x = 4; double d = 5 / (x–2); if (d = 2 * x + 0.5) cout << "Success!\n";
 		return 0;
 	}
 	catch (exception& e)
