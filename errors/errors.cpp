@@ -7,8 +7,7 @@ int main()
 {
 	try
 	{
-		                                          // logical error here? 
-		vector<char> v(5); for (int i = 0; i <= v.size(); ++i); cout << "Success!\n";
+		string s = "Success!\n"; for (int i = 0; i < 6; ++i) cout << s[i];
 		return 0;
 	}
 	catch (exception& e)
