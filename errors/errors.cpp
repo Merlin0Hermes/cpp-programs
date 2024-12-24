@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		bool c = true; if (c) cout << "Success!\n"; else cout << "Fail!\n";
+		string s = "ape"; boo c = "fool"<s; if (c) cout << "Success!\n";
 		return 0;
 	}
 	catch (exception& e)
