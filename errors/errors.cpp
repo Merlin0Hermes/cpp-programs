@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		int x = 4; double d = 5.0 / (x - 2); if (d == 2 + 0.5) cout << "Success!\n";
+		cin << "Success!\n";
 		return 0;
 	}
 	catch (exception& e)
