@@ -7,7 +7,7 @@ int main()
 {
 	try
 	{
-		string s = "Success!\n"; for (int i = 0; i < s.size(); ++i) cout << s[i];
+		if (true) then cout << "Success!\n"; else cout << "Fail!\n";
 		return 0;
 	}
 	catch (exception& e)
