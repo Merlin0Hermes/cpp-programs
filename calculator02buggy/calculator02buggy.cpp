@@ -117,6 +117,9 @@ double primary()
     }
     case '8':            // we use '8' to represent a number
         return t.value;  // return the number's value
+        break;
+    case 'x':
+        exit(0);
     default:
         error("primary expected");
     }
