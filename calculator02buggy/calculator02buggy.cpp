@@ -165,7 +165,7 @@ double expression()
             t = ts.get();
             break;
         case '-':
-            left += term();    // evaluate Term and subtract
+            left -= term();    // evaluate Term and subtract
             t = ts.get();
             break;
         default:
