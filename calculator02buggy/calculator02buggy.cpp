@@ -181,15 +181,15 @@ int main()
 try
 {
     while (cin) {
+
+        double val = expression();
         Token t = ts.get();
-        double val;
 
         if (t.kind == 'q') break; // 'q' for quit
         if (t.kind == ';')        // ';' for "print now"
             cout << "=" << val << '\n';
         else
-            ts.putback(t);
-        val = expression();
+            ts.putback(t);;
     }
     keep_window_open();
 }
