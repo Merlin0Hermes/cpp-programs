@@ -184,6 +184,9 @@ double expression()
 int main()
 try
 {
+    cout << "Welcome to our simple calculator.\n";
+    cout << "Please enter expressions using floating-point numbers.\n"; 
+
     while (cin) {
 
         double val = expression();
