@@ -187,7 +187,7 @@ try
     cout << "Welcome to our simple calculator.\n";
     cout << "Please enter expressions using floating-point numbers.\n"; 
     cout << "operators: +, -, *, / \n";
-    cout << "x for exit.\n= for printing.\n";
+    cout << "x for exit.\n= for printing.\n\n";
 
     while (cin) {
 
