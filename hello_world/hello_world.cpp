@@ -1,9 +1,7 @@
-#include "../std_lib_facilities.h"
+#include <iostream>
 
 int main()
 {
-	cout << "Hello, programming!\n";
-	cout << "Here we go!\n";
-	keep_window_open();
+	std::cout << "Hello, World!\n";
 	return 0;
 }
