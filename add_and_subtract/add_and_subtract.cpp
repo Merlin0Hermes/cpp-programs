@@ -13,5 +13,8 @@ int main()
 	int b{ };
 	std::cin >> b;
 
+	std::cout << a << " + " << b << " = " << a + b << "\n";
+	std::cout << a << " - " << b << " = " << a - b << "\n";
+
 	return 0;
 }
