@@ -9,8 +9,8 @@ int main()
 	int num{ };
 	std::cin >> num;
 
-	std::cout << "Double of that number is " << num * 2 << "\n";
-	std::cout << "Triple of that number is " << num * 3 << "\n";
+	std::cout << "Double of " << num << " is " << num * 2 << "\n";
+	std::cout << "Triple of " << num << " is " << num * 3 << "\n";
 
 	return 0;
 }
