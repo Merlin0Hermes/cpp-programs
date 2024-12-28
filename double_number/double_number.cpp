@@ -1,3 +1,5 @@
+// program to accept a number from user and print the double of that number
+
 #include <iostream>
 
 int main()
