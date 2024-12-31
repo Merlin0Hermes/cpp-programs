@@ -3,7 +3,7 @@
 
 int read_number()
 {
-	std::cout << "Enter an integer: ";
+	std::cout << "Enter an integer to add: ";
 
 	int num{ };
 	std::cin >> num;
