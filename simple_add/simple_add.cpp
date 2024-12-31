@@ -5,6 +5,7 @@ void write_answer(int n);
 
 int main()
 {
+	std::cout << "Adds two numbers.\n";
 
 	return 0;
 }
@@ -18,4 +19,10 @@ int read_number()
 	std::cin >> num;
 
 	return num;
+}
+
+
+void write_answer(int n)
+{
+	std::cout << "Answer: " << n << "\n";
 }
