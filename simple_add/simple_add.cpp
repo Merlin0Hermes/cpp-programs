@@ -8,3 +8,14 @@ int main()
 
 	return 0;
 }
+
+
+int read_number()
+{
+	std::cout << "Enter an integer: ";
+	
+	int num { };
+	std::cin >> num;
+
+	return num;
+}
