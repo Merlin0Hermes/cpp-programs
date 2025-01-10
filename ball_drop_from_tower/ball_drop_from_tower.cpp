@@ -12,5 +12,23 @@ double height_at_second(int second)
 
 int main()
 {
+	std::cout << "Enter the height of the tower in metres: ";
+	double tower_height;
+	std::cin >> tower_height;
+
+	double current_height = tower_height;
+	int i {};
+
+	while (current_height >= 0)
+	{
+		std::cout << "At " << i << " seconds, the ball is at height: " << current_height << " metres.\n";
+		i++;
+		current_height = tower_height - height_at_second(i);
+	}
+
+	std::cout << "At " << i << " seconds, the ball is on the ground.\n";
+
+
+
 	return 0;
 }
