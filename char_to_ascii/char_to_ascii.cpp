@@ -2,7 +2,10 @@
 
 #include <iostream>
 
-
+int char_to_int(int ch)
+{
+	return ch;
+}
 
 int main()
 {
@@ -10,7 +13,7 @@ int main()
 	std::cout << "Enter a single character: ";
 	std::cin >> ch;
 
-	std::cout << "You entered '" << ch << "' , which has ASCII code " << ch * 1 << ".\n";
+	std::cout << "You entered '" << ch << "' , which has ASCII code " << char_to_int(ch) << ".\n";
 
 	return 0;
 }
