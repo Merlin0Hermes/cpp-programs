@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-int char_to_int(int ch)
+int char_to_int(char ch)
 {
 	return ch;
 }
