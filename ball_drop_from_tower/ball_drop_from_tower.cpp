@@ -17,17 +17,16 @@ int main()
 	std::cin >> tower_height;
 
 	double current_height = tower_height;
-	int i {};
+	int second {};
 
 	while (current_height >= 0)
 	{
-		std::cout << "At " << i << " seconds, the ball is at height: " << current_height << " metres.\n";
-		i++;
-		current_height = tower_height - height_at_second(i);
+		std::cout << "At " << second << " seconds, the ball is at height: " << current_height << " metres.\n";
+		second++;
+		current_height = tower_height - height_at_second(second);
 	}
 
-	std::cout << "At " << i << " seconds, the ball is on the ground.\n";
-
+	std::cout << "At " << second << " seconds, the ball is on the ground.\n";
 
 
 	return 0;
