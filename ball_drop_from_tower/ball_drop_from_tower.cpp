@@ -10,13 +10,21 @@ double height_at_second(int second)
 	return distance;
 }
 
-int main()
+
+double get_height()
 {
 	std::cout << "Enter the height of the tower in metres: ";
-	double tower_height;
-	std::cin >> tower_height;
+	double height;
+	std::cin >> height;
+	return height;
+}
 
-	double current_height = tower_height;
+
+int main()
+{
+
+	double tower_height{ get_height() };
+	double current_height{ tower_height };
 	int second {};
 
 	while (current_height >= 0)
