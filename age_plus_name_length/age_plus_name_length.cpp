@@ -3,6 +3,7 @@
 // spaces are counted
 
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 int get_age()
