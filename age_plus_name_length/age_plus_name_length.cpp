@@ -5,16 +5,28 @@
 #include <iostream>
 #include <string>
 
-int main()
+int get_age()
 {
-
-	std::cout << "Enter your full name: ";
-	std::string name{};
-	std::getline(std::cin >> std::ws, name);
-
 	std::cout << "Enter you age: ";
 	int age{};
 	std::cin >> age;
+	return age;
+}
+
+std::string get_name()
+{
+	std::cout << "Enter your full name: ";
+	std::string name{};
+	std::getline(std::cin >> std::ws, name);
+	return name;
+}
+
+int main()
+{
+
+	std::string name { get_name() };
+
+	int age{ get_age() };
 
 	std::cout << "Your age + length of name is: ";
 	std::cout << static_cast<int>(name.length()) + age << "\n";
