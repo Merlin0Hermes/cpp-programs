@@ -1,18 +1,46 @@
-# Visual Studio
-.vs/
-*.suo
+# Build directories
+/build/
+/bin/
+/Debug/
+/Release/
+
+# CodeLite project files
+*.project
+*.workspace
+
+# CodeLite IDE specific files
+.codelite/
+
+# IDE files
+*.cproject
 *.user
-*.userosscache
-*.sln.docstates
 
-# Build results
-[Dd]ebug/
-[Rr]elease/
-x64/
-x86/
-[Aa][Rr][Mm]/
-bin/
-obj/
+# Object files and executables
+*.o
+*.a
+*.so
+*.exe
+*.out
 
-test/
+# Debugging files
+*.gdb
+*.dSYM/
+*.dbg
 
+# Temporary files
+*.swp
+*.swo
+*.bak
+*~ 
+
+# CMake files (if using CMake)
+CMakeCache.txt
+CMakeFiles/
+CMakeLists.txt.user
+
+# Dependency files (e.g. from GCC)
+*.d
+
+# Miscellaneous system files
+.DS_Store
+Thumbs.db
