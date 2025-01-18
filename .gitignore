@@ -33,14 +33,9 @@
 *.bak
 *~ 
 
-# CMake files (if using CMake)
+# CMake files
 CMakeCache.txt
 CMakeFiles/
 CMakeLists.txt.user
 
-# Dependency files (e.g. from GCC)
-*.d
 
-# Miscellaneous system files
-.DS_Store
-Thumbs.db
