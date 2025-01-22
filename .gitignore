@@ -1,41 +1,49 @@
+# Qt Creator specific files
+*.pro.user
+*.pro.user.*
+*.pro.user.*.user
+*.pro.user.*.user.*
+
 # Build directories
-/build/
-/bin/
-/Debug/
-/Release/
-
-# CodeLite project files
-*.project
-*.workspace
-
-# CodeLite IDE specific files
-.codelite/
-
-# IDE files
-*.cproject
-*.user
-
-# Object files and executables
+build-*/
 *.o
-*.a
+*.obj
+*.moc
+*.cpp~ 
+*.h~ 
 *.so
+*.dll
 *.exe
-*.out
-
-# Debugging files
-*.gdb
+*.a
+*.lib
 *.dSYM/
-*.dbg
+*.pdb
+
+# Qt specific files
+*.qmlc
+*.qmlproject.user
+*.qmlproject.user.*
+
+# CMake specific files (if using CMake)
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+*.cmake
 
 # Temporary files
+*.tmp
+*.log
 *.swp
 *.swo
 *.bak
-*~ 
+*.orig
 
-# CMake files
-CMakeCache.txt
-CMakeFiles/
-CMakeLists.txt.user
+# IDE specific files
+*.user
+*.userprefs
+*.kdev4
+*.kdev4.*
+*.kdev4.user
 
 
