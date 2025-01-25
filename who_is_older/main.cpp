@@ -7,8 +7,9 @@
 
 std::string get_name(std::string_view message);
 int get_age(std::string_view message);
-void print_result(std::string_view older_name, int old_age,
-                  std::string_view younger_name, int young_age);
+
+void print_result(std::string_view name1, int age1,
+                  std::string_view name2, int age2);
 
 int main()
 {
@@ -19,27 +20,22 @@ int main()
     std::string person_two = get_name("Enter the name of person #2: ");
     int person_two_age = get_age("Enter the age of " + person_two + ": ");
 
-    if (person_one_age > person_two_age)
-    {
-        print_result(person_one, person_one_age, person_two, person_two_age);
-    }
-    else if (person_two_age > person_one_age)
-    {
-        print_result(person_two, person_two_age, person_one, person_one_age);
-    }
-    else
-    {
-        std::cout << "Both are the same age.\n";
-    }
-
+    print_result(person_one, person_one_age, person_two, person_two_age);
 
     return 0;
 }
 
-void print_result(std::string_view older_name, int old_age,
-                  std::string_view younger_name, int young_age)
+void print_result(std::string_view name1, int age1,
+                  std::string_view name2, int age2)
 {
-    std::cout << older_name << " (age " << old_age << ") is older than " << younger_name << " (age " << young_age << ").\n";
+    if (age1 > age2)
+        std::cout << name1 << " (age " << age1 << ") is older than " << name2 << " (age " << age2 << ").\n";
+    else if (age2 > age1)
+        std::cout << name2 << " (age " << age2 << ") is older than " << name1 << " (age " << age1 << ").\n";
+    else
+        std::cout << name1 << " (age " << age1 << ") is of same age as " << name2 << " (age " << age2 << ").\n";
+
+
 }
 
 
