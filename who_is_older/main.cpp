@@ -6,17 +6,30 @@
 #include <iomanip>
 
 std::string get_name(std::string_view message);
+int get_age(std::string_view message);
 
 int main()
 {
 
     std::string person_one = get_name("Enter the name of person #1: ");
-    std::string person_two = get_name("Enter the name of person #2: ");
+    int person_one_age = get_age("Enter the age of " + person_one + ": ");
 
-    std::cout << person_one << "\n" << person_two;
+    std::string person_two = get_name("Enter the name of person #2: ");
+    int person_two_age = get_age("Enter the age of " + person_two + ": ");
+
 
 
     return 0;
+}
+
+int get_age(std::string_view message)
+{
+
+    std::cout << message;
+    int age;
+    std::cin >> age;
+
+    return age;
 }
 
 std::string get_name(std::string_view message)
