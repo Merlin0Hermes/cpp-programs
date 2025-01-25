@@ -51,7 +51,7 @@ int get_age(std::string_view person)
 
 std::string get_name(int num)
 {
-    std::cout << "Enter the age of person #" << num << ": ";
+    std::cout << "Enter the name of person #" << num << ": ";
     std::string name;
     std::getline(std::cin >> std::ws, name);
 
