@@ -19,6 +19,6 @@ int main()
     {
         std::cout << number << " is odd.\n";
     }
-
+    return 0;
 
 }
