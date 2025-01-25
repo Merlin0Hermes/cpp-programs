@@ -14,11 +14,11 @@ void print_result(std::string_view name1, int age1,
 int main()
 {
 
-    std::string person_one { get_name(1) };
-    int person_one_age { get_age(person_one) };
+    const std::string person_one { get_name(1) };
+    const int person_one_age { get_age(person_one) };
 
-    std::string person_two { get_name(2) };
-    int person_two_age { get_age(person_two) };
+    const std::string person_two { get_name(2) };
+    const int person_two_age { get_age(person_two) };
 
     print_result(person_one, person_one_age, person_two, person_two_age);
 
