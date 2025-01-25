@@ -5,8 +5,8 @@
 #include <string_view>
 #include <iomanip>
 
-std::string get_name(std::string_view message);
-int get_age(std::string_view message);
+std::string get_name(int num);
+int get_age(std::string_view person);
 
 void print_result(std::string_view name1, int age1,
                   std::string_view name2, int age2);
@@ -14,11 +14,11 @@ void print_result(std::string_view name1, int age1,
 int main()
 {
 
-    std::string person_one = get_name("Enter the name of person #1: ");
-    int person_one_age = get_age("Enter the age of " + person_one + ": ");
+    std::string person_one { get_name(1) };
+    int person_one_age { get_age(person_one) };
 
-    std::string person_two = get_name("Enter the name of person #2: ");
-    int person_two_age = get_age("Enter the age of " + person_two + ": ");
+    std::string person_two { get_name(2) };
+    int person_two_age { get_age(person_two) };
 
     print_result(person_one, person_one_age, person_two, person_two_age);
 
@@ -39,19 +39,19 @@ void print_result(std::string_view name1, int age1,
 }
 
 
-int get_age(std::string_view message)
+int get_age(std::string_view person)
 {
 
-    std::cout << message;
+    std::cout << "Enter the age of " << person << ": ";
     int age;
     std::cin >> age;
 
     return age;
 }
 
-std::string get_name(std::string_view message)
+std::string get_name(int num)
 {
-    std::cout << message;
+    std::cout << "Enter the age of person #" << num << ": ";
     std::string name;
     std::getline(std::cin >> std::ws, name);
 
