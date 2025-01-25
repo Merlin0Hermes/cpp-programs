@@ -1,9 +1,15 @@
 #include <iostream>
 
-using namespace std;
+constexpr bool is_even(int num)
+{
+    return num % 2 == 0;
+}
 
 int main()
 {
-    cout << "Hello World!" << endl;
-    return 0;
+    std::cout << "Enter an integer: ";
+    int number;
+    std::cin >> number;
+
+
 }
