@@ -1,23 +1,33 @@
 #include <iostream>
 #include <cstdint>
 
-int main()
+bool is_palindrome(std::int64_t n)
 {
-    std::int64_t n{ }, reverse { }, original{ };
+    std::int64_t reverse{ }, original{ n };
     int digit{ };
-    std::cout << "Enter the number: ";
-    std::cin >> original;
-
-    n = original;
 
     while (n != 0)
     {
-        reverse = reverse * 10 + n % 10;
+        digit = n % 10;
+        reverse = reverse * 10 + digit;
         n /= 10;
     }
 
-    if (original == reverse)
-        std::cout << original << " is a palindrome.\n";
+    return reverse == original;
+}
+
+
+int main()
+{
+    std::cout << "Enter a number: ";
+    std::int64_t number{ };
+    std::cin >> number;
+
+
+    if (is_palindrome(number))
+        std::cout << number << " is a palindrome.\n";
     else
-        std::cout << original << " is not a palindrome.\n";
+        std::cout << number << " is not a palindrome.\n";
+
+    return 0;
 }
