@@ -18,6 +18,7 @@ build-*/
 *.lib
 *.dSYM/
 *.pdb
+*.out
 
 # Qt specific files
 *.qmlc
