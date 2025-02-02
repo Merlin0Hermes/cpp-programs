@@ -11,5 +11,10 @@ std::int64_t factorial(int n)
 
 int main()
 {
+    std::cout << "Enter a number: ";
+    int num;
+    std::cin >> num;
+
+    std::cout << "Factorial of " << num << " is " << factorial(num) << "\n";
     return 0;
 }
