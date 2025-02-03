@@ -30,7 +30,10 @@ std::string_view getQuantityPhrase(int n)
 
 }
 
-// Write the function getApplesPluralized() here
+std::string_view getApplesPluralized(int n)
+{
+    return (n == 1) ? "apple" : "apples";
+} 
 
 int main()
 {
