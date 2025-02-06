@@ -2,13 +2,15 @@
 
 #include <iostream>
 
+int** get_matrix(int rows, int cols);
+void delete_matrix(int **matrix, int rows);
+
+
 int main()
 {
-    constexpr int rows = 3, cols = 3;
-    int **matrix = new int*[rows];
+    const int rows = 3, cols = 3;
 
-    for (int i = 0; i < cols; i++)
-        matrix[i] = new int[cols];
+    int **matrix = get_matrix(rows, cols);
 
     std::cout << "Enter matrix: ";
     for (int i = 0; i < rows; i++)
@@ -30,10 +32,26 @@ int main()
         std::cout << "\n";
     }
 
+    delete_matrix(matrix, rows);
+
+    return 0;      
+}
+
+
+int** get_matrix(int rows, int cols)
+{
+    int **matrix = new int*[rows];
+
+    for (int i = 0; i < cols; i++)
+        matrix[i] = new int[cols];   
+
+    return matrix; 
+}
+
+
+void delete_matrix(int **matrix, int rows)
+{
     for (int i = 0; i < rows; i++)
         delete[] matrix[i];
     delete[] matrix;
-
-
-    return 0;      
 }
