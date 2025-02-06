@@ -2,10 +2,10 @@
 
 #include <iostream>
 
-int** create_matrix(int rows, int cols);
-void delete_matrix(int **matrix, int rows);
-int** get_matrix(int rows, int cols);
-int** add_matrices(int **marix1, int **matrix2);
+int** create_matrix(int rows, int cols); // allocates memory for a rows * cols matrix
+void delete_matrix(int **matrix, int rows); // deallocates memory for a matrix 
+int** get_matrix(int rows, int cols);   // allocates memory for a matrix and fill the matrix with user inputted values
+int** add_matrices(int **marix1, int **matrix2); // adds two matrices together and returns a newly allocated matrix with results
 
 
 
@@ -72,3 +72,4 @@ int** get_matrix(int rows, int cols)
     }
     return matrix;
 }
+
