@@ -5,7 +5,7 @@
 int** create_matrix(int rows, int cols); // allocates memory for a rows * cols matrix
 void delete_matrix(int **matrix, int rows); // deallocates memory for a matrix 
 int** get_matrix(int rows, int cols);   // allocates memory for a matrix and fill the matrix with user inputted values
-int** add_matrices(int **marix1, int **matrix2); // adds two matrices together and returns a newly allocated matrix with results
+int** add_matrices(int **marix1, int **matrix2, int rows, int cols); // adds two matrices together and returns a newly allocated matrix with results
 void print_matrix(int **matrix, int rows, int cols); // prints a given matrix
 
 
@@ -13,22 +13,22 @@ int main()
 {
     const int rows = 3, cols = 3;
 
-    int **matrix = create_matrix(rows, cols);
+    std::cout << "Enter first matrix: ";
+    int **matrix1 = get_matrix(rows, cols);
 
-    std::cout << "Enter matrix: ";
+    std::cout << "Enter second matrix: ";
+    int **matrix2 = get_matrix(rows, cols);
+
+    int **result = add_matrices(matrix1, matrix2, rows, cols);
 
 
 
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < cols; j++)
-        {
-            std::cout << matrix[i][j] << "\t";
-        }
-        std::cout << "\n";
-    }
 
-    delete_matrix(matrix, rows);
+
+    delete_matrix(matrix1, rows);
+    delete_matrix(matrix2, rows);
+    delete_matrix(result, rows);
+
 
     return 0;      
 }
