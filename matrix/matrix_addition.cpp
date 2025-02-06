@@ -84,6 +84,7 @@ int** add_matrices(int **matrix1, int **matrix2, int rows, int cols)
             result[i][j] = matrix1[i][j] + matrix2[i][j];
         }
     }
+    return result;
 
 }
 
