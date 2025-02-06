@@ -11,19 +11,26 @@ void print_matrix(int **matrix, int rows, int cols); // prints a given matrix
 
 int main()
 {
-    const int rows = 3, cols = 3;
+    std::cout << "Enter the size of matrix (rows columns): ";
+    int rows, cols;
+    std::cin >> rows >> cols;
 
     std::cout << "Enter first matrix: ";
     int **matrix1 = get_matrix(rows, cols);
 
+    std::cout << "You entered: \n";
+    print_matrix(matrix1, rows, cols);
+
     std::cout << "Enter second matrix: ";
     int **matrix2 = get_matrix(rows, cols);
 
+    std::cout << "You entered: \n";
+    print_matrix(matrix2, rows, cols);
+
     int **result = add_matrices(matrix1, matrix2, rows, cols);
 
-
-
-
+    std::cout << "Sum of matrices: \n";
+    print_matrix(result, rows, cols);
 
     delete_matrix(matrix1, rows);
     delete_matrix(matrix2, rows);
