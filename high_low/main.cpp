@@ -61,7 +61,6 @@ void play_guessing_game(int min, int max, int guesses, int number)
     std::cout << "Sorry, you lose. The correct number was " << number << ".\n";
 }
 
-// prompts the user if they want to play the game again.
 bool play_again()
 {
     while (true)
