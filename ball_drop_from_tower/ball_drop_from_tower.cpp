@@ -1,41 +1,58 @@
-// Program to simulate a ball being dropped from a tower.
-// Displays the height at each second and when the ball hits the ground
-
 #include <iostream>
 
-double height_at_second(int second)
+// Gets tower height from user and returns it
+double getTowerHeight()
 {
-	constexpr double gravity = 9.8;
-	double distance = gravity * second * second / 2;
-	return distance;
+	std::cout << "Enter the height of the tower in meters: ";
+	double towerHeight{};
+	std::cin >> towerHeight;
+	return towerHeight;
 }
 
-
-double get_height()
+// Returns the current ball height after "seconds" seconds
+double calculateBallHeight(double towerHeight, int seconds)
 {
-	std::cout << "Enter the height of the tower in metres: ";
-	double height;
-	std::cin >> height;
-	return height;
+	const double gravity { 9.8 };
+
+	// Using formula: s = (u * t) + (a * t^2) / 2
+	// here u (initial velocity) = 0, so (u * t) = 0
+	const double fallDistance { gravity * (seconds * seconds) / 2.0 };
+	const double ballHeight { towerHeight - fallDistance };
+
+	// If the ball would be under the ground, place it on the ground
+	if (ballHeight < 0.0)
+		return 0.0;
+
+	return ballHeight;
 }
 
+// Prints ball height above ground
+void printBallHeight(double ballHeight, int seconds)
+{
+	if (ballHeight > 0.0)
+		std::cout << "At " << seconds << " seconds, the ball is at height: " << ballHeight << " meters\n";
+	else
+		std::cout << "At " << seconds << " seconds, the ball is on the ground.\n";
+}
+
+// Calculates the current ball height and then prints it
+// This is a helper function to make it easier to do this
+void calculateAndPrintBallHeight(double towerHeight, int seconds)
+{
+	const double ballHeight{ calculateBallHeight(towerHeight, seconds) };
+	printBallHeight(ballHeight, seconds);
+}
 
 int main()
 {
+	const double towerHeight{ getTowerHeight() };
 
-	double tower_height{ get_height() };
-	double current_height{ tower_height };
-	int second {};
-
-	while (current_height >= 0)
-	{
-		std::cout << "At " << second << " seconds, the ball is at height: " << current_height << " metres.\n";
-		second++;
-		current_height = tower_height - height_at_second(second);
-	}
-
-	std::cout << "At " << second << " seconds, the ball is on the ground.\n";
-
+	calculateAndPrintBallHeight(towerHeight, 0);
+	calculateAndPrintBallHeight(towerHeight, 1);
+	calculateAndPrintBallHeight(towerHeight, 2);
+	calculateAndPrintBallHeight(towerHeight, 3);
+	calculateAndPrintBallHeight(towerHeight, 4);
+	calculateAndPrintBallHeight(towerHeight, 5);
 
 	return 0;
 }
