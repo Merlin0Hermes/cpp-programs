@@ -10,6 +10,10 @@ bool isPrime(int x)
     {
         return false;
     }
+    else if ((x != 2) && (x % 2 == 0))
+    {
+        return false;
+    }
 
     for (int i{ 2 }; i < x; ++i)
     {
