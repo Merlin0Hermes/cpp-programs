@@ -8,8 +8,7 @@
 
 void fizzbuzz(int n)
 {
-    constexpr int limit{ 20 };
-    for (int i{ 1 }; i <= limit; ++i)
+    for (int i{ 1 }; i <= n; ++i)
     {
 
         if (i % 3 == 0)
@@ -33,5 +32,5 @@ void fizzbuzz(int n)
 
 int main()
 {
-    fizzbuzz(5);
+    fizzbuzz(150);
 }
