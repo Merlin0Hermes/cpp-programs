@@ -15,13 +15,14 @@ int main()
 
     while (true)
     {
+        
         play_guessing_game(min, max, guesses, target_number);
 
         if (!(play_again()))
             break;
 
         std::cout << "Would you like to configure settings? (y/n) ";
-        int choice{};
+        char choice{};
         std::cin >> choice;
         
         if (choice == 'y')
@@ -35,9 +36,10 @@ int main()
 
 void play_guessing_game(int min, int max, int guesses, int number)
 {
-    std::cout << "Let's play a game. I'm thinking of a number between 1 and 100. You have 7 tries to guess what it is.\n";
+    std::cout << "Let's play a game. I'm thinking of a number between " << min  
+        << " and " << max << "." << " You have " << guesses << " tries to guess what it is.\n";
 
-    for (int i = min; i <= guesses; ++i)
+    for (int i = 1; i <= guesses; ++i)
     {
         std::cout << "Guess #" << i << ": ";
         int guess{};
