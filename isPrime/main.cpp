@@ -3,6 +3,7 @@
 
 #include <cassert> // for assert
 #include <iostream>
+#include <cmath>
 
 bool isPrime(int x)
 {
@@ -15,7 +16,8 @@ bool isPrime(int x)
         return false;
     }
 
-    for (int i{ 2 }; i < x; ++i)
+    int square_root = std::sqrt(x);
+    for (int i{ 2 }; i <= square_root; ++i)
     {
         if (x % i == 0)
         {
