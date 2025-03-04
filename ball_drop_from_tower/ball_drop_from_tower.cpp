@@ -51,12 +51,17 @@ int main()
 {
 	const double towerHeight{ getTowerHeight() };
 
-	calculateAndPrintBallHeight(towerHeight, 0);
-	calculateAndPrintBallHeight(towerHeight, 1);
-	calculateAndPrintBallHeight(towerHeight, 2);
-	calculateAndPrintBallHeight(towerHeight, 3);
-	calculateAndPrintBallHeight(towerHeight, 4);
-	calculateAndPrintBallHeight(towerHeight, 5);
+	int seconds = 0;
+	while (true)
+	{
+		calculateAndPrintBallHeight(towerHeight, seconds);
 
+		if (calculateBallHeight(towerHeight, seconds) == 0)
+		{
+			break;
+		}
+
+		++seconds;
+	}
 	return 0;
 }
