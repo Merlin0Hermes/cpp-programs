@@ -13,20 +13,21 @@ void fizzbuzz(int n)
 
         if (i % 3 == 0)
         {
-            std::cout << "fizz\n";
+            std::cout << "fizz";
         }
         if (i % 5 == 0)
         {
-            std::cout << "buzz\n";
+            std::cout << "buzz";
         }
         if (i % 7 == 0)
         {
-            std::cout << "pop\n";
+            std::cout << "pop";
         }
         if (!(i % 3 == 0 || i % 5 == 0 || i % 7 == 0))
         {
-            std::cout << i << "\n";
+            std::cout << i;
         }
+        std::cout << "\n";
     }
 }
 
