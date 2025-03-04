@@ -3,15 +3,14 @@
 #include <iostream>
 #include "../Random.h"
 
-void play_guessing_game(int max, int min, int guesses, int number);
-bool play_again();
-void change_limits(int &min, int &max, int &guesses);
+void play_guessing_game(int max, int min, int guesses, int number); // runs one iteration of the game with given settings.
+bool play_again(); // prompts the user if they want to play again.
+void change_limits(int &min, int &max, int &guesses); // let the user change the settings of the game
 
 
 int main()
 {
     int min { 1 }, max { 100 }, guesses { 7 };
-
 
     while (true)
     {
@@ -30,7 +29,6 @@ int main()
 
     }
     return 0;
-
 }
 
 
@@ -63,7 +61,7 @@ void play_guessing_game(int min, int max, int guesses, int number)
     std::cout << "Sorry, you lose. The correct number was " << number << ".\n";
 }
 
-
+// prompts the user if they want to play the game again.
 bool play_again()
 {
     while (true)
@@ -77,7 +75,6 @@ bool play_again()
         else if (choice == 'y')
             return true;
     }
-
 }
 
 
