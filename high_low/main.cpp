@@ -11,11 +11,11 @@ void change_limits(int &min, int &max, int &guesses);
 int main()
 {
     int min { 1 }, max { 100 }, guesses { 7 };
-    int target_number { Random::get(min, max)};
+
 
     while (true)
     {
-        
+        int target_number { Random::get(min, max)};        
         play_guessing_game(min, max, guesses, target_number);
 
         if (!(play_again()))
