@@ -72,6 +72,9 @@ std::optional<int> getNumberOfLegs(Animal animal)
         case chicken:
         case duck:
             return 2;
+
+        default:
+            return std::nullopt;
     }
 }
 
