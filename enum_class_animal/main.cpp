@@ -60,10 +60,10 @@ std::string_view getAnimalName(Animal animal)
 
 std::optional<int> getNumberOfLegs(Animal animal)
 {
+    using enum Animal;
+    
     switch(animal)
     {
-        using enum Animal;
-
         case pig:
         case goat:
         case cat:
