@@ -1,10 +1,10 @@
 // program to practice find and remove errors
-
-#include "../std_lib_facilities.h"
+#include <iostream>
 
 
 int main()
 {
+	using namespace std;
 	try
 	{
 		cout << "Success!\n";
