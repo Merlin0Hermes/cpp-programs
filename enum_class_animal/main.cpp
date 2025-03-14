@@ -15,6 +15,21 @@ enum class Animal
 
 std::optional<int> getNumberOfLegs(Animal animal);
 std::string_view getAnimalName(Animal animal);
+void printNumberOfLegs(Animal animal);
+
+std::ostream& operator<<(std::ostream& out, Animal animal);
+
+
+int main()
+{
+    Animal cat { Animal::cat };
+    Animal chicken { Animal::chicken };
+
+    printNumberOfLegs(cat );
+    printNumberOfLegs( chicken );
+
+    return 0;
+}
 
 
 std::ostream& operator<<(std::ostream& out, Animal animal)
@@ -22,9 +37,6 @@ std::ostream& operator<<(std::ostream& out, Animal animal)
     out << getAnimalName(animal);
     return out;
 }
-
-
-
 
 
 
