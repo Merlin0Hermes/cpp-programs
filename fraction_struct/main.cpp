@@ -4,8 +4,8 @@
 
 struct Fraction
 {
-    int numerator{ };
-    int denominator{ };
+    int numerator{ 0 };
+    int denominator{ 1 };
 };
 
 std::istream& operator>>(std::istream& in, Fraction& fraction)
