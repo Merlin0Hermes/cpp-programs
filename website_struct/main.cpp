@@ -39,7 +39,7 @@ std::ostream& operator<<(std::ostream& out, AdRevenue ar)
 }
 
 
-void print_values(AdRevenue ar) // also prints total earnings by multiplying everything
+void print_values(const AdRevenue& ar) // also prints total earnings by multiplying everything
 {
     std::cout << "\n" << ar << "\n";
     double total_earnings { ar.ads_watched * (ar.percent_clicked / 100) * ar.average_earnings };
