@@ -51,7 +51,9 @@ void print_fraction(Fraction fraction)
 int main()
 {
     Fraction fraction1 { get_fraction() };
+    std::cout << "\n";
     Fraction fraction2 { get_fraction() };
+    std::cout << "\n";
     print_fraction( multiply_fractions(fraction1, fraction2) );
 
     return 0;
