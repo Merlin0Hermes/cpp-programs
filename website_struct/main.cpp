@@ -29,7 +29,7 @@ AdRevenue generate_struct()
     return ar;
 }
 
-std::ostream& operator<<(std::ostream& out, AdRevenue ar)
+std::ostream& operator<<(std::ostream& out, const AdRevenue& ar)
 {
     out << "Number of ads watched: " << ar.ads_watched << "\n";
     out << "Percentage of users that clicked on ads: " << ar.percent_clicked << "%\n";
