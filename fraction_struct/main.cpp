@@ -27,6 +27,19 @@ std::ostream& operator<<(std::ostream& out, const Fraction& fraction)
 
 Fraction get_fraction()
 {
+    Fraction fraction;
+    std::cin >> fraction;
+    return fraction;
+}
 
+Fraction operator*(const Fraction& f1, const Fraction& f2)
+{
+    Fraction result { f1.numerator + f2.numerator, f1.denominator + f2.denominator };
+    return result;
+}
+
+int main()
+{
+    Fraction fraction { get_fraction() };
 }
 
