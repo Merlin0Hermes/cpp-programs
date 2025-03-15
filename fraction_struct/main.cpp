@@ -19,6 +19,12 @@ std::istream& operator>>(std::istream& in, Fraction& fraction)
     return in;
 }
 
+std::ostream& operator<<(std::ostream& out, const Fraction& fraction)
+{
+    out << fraction.numerator << "/" << fraction.denominator;
+    return out;
+}
+
 Fraction get_fraction()
 {
 
