@@ -6,6 +6,12 @@
 
 class Point3d
 {
+
+private:
+    int m_x {};
+    int m_y {};
+    int m_z {};
+    
 public:
     void setValues(int x, int y, int z)
     {
@@ -18,11 +24,6 @@ public:
     {
         std::cout << "<" << m_x << ", " << m_y << ", " << m_z << ">";
     }
-
-private:
-    int m_x {};
-    int m_y {};
-    int m_z {};
 
 };
 
