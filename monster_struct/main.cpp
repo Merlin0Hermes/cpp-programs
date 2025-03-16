@@ -34,8 +34,14 @@ std::string_view get_monster_type_string(MonsterType monster)
         case slime: return "Slime";
 
         default: return "???";
-
     }
+}
+
+
+const std::ostream& operator<<(std::ostream& out, MonsterType mt)
+{
+    out << get_monster_type_string(mt);
+    return out;
 }
 
 
