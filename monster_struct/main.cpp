@@ -49,3 +49,12 @@ void print_monster(Monster monster)
 {
     std::cout << "This " << monster.type << " is named " << monster.name << " and has " << monster.health << " health.\n";
 }
+
+
+int main()
+{
+    print_monster(Monster {"Torg", MonsterType::ogre, 145});
+    print_monster(Monster {"Blurp", MonsterType::slime, 23});
+
+    return 0;
+}
