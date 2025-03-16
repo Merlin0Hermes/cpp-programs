@@ -1,3 +1,15 @@
+#include <iostream>
+
+template <typename T>
+struct Triad
+{
+    T x { };
+    T y { };
+    T z { };
+};
+
+
+
 int main()
 {
 	Triad t1{ 1, 2, 3 }; // note: uses CTAD to deduce template arguments
