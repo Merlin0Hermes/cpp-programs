@@ -22,7 +22,7 @@ struct Monster
 };
 
 
-std::string_view get_monster_type_string(MonsterType monster)
+constexpr std::string_view get_monster_type_string(MonsterType monster)
 {
     using enum MonsterType;
     switch (monster) 
