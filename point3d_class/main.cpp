@@ -11,7 +11,8 @@ private:
     int m_x {};
     int m_y {};
     int m_z {};
-    
+
+
 public:
     void setValues(int x, int y, int z)
     {
@@ -23,6 +24,11 @@ public:
     void print() const
     {
         std::cout << "<" << m_x << ", " << m_y << ", " << m_z << ">";
+    }
+
+    bool isEqual(Point3d p) const
+    {
+        return (m_x == p.m_x) && (m_y == p.m_y) && (m_z == p.m_z);
     }
 
 };
