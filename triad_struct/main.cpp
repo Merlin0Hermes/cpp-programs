@@ -8,7 +8,8 @@ struct Triad
     T z { };
 };
 
-
+template <typename T>
+Triad(T, T, T) -> Triad<T>;
 
 int main()
 {
