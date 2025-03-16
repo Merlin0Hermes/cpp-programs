@@ -16,9 +16,9 @@ enum class MonsterType
 
 struct Monster
 {
-    std::string name;
-    MonsterType type;
-    int health;
+    std::string name { "unknown"};
+    MonsterType type { MonsterType::dragon};
+    int health       { 100 };
 };
 
 
