@@ -38,7 +38,7 @@ std::string_view get_monster_type_string(MonsterType monster)
 }
 
 
-const std::ostream& operator<<(std::ostream& out, MonsterType mt)
+std::ostream& operator<<(std::ostream& out, MonsterType mt)
 {
     out << get_monster_type_string(mt);
     return out;
@@ -47,5 +47,5 @@ const std::ostream& operator<<(std::ostream& out, MonsterType mt)
 
 void print_monster(Monster monster)
 {
-
+    std::cout << "This " << monster.type << " is named " << monster.name << " and has " << monster.health << " health.\n";
 }
