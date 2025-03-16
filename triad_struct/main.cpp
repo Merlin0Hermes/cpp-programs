@@ -3,18 +3,18 @@
 template <typename T>
 struct Triad
 {
-    T x { };
-    T y { };
-    T z { };
+    T first { };
+    T second { };
+    T third { };
 };
 
 template <typename T>
 Triad(T, T, T) -> Triad<T>;
 
 template <typename T>
-std::ostream& operator<<(std::ostream& out, const Triad<T>& triad)
+std::ostream& operator<<(std::ostream& out, const Triad<T>& t)
 {
-    out << "[" << triad.x << ", " << triad.y << ", " << triad.z << "]";
+    out << "[" << t.first << ", " << t.second << ", " << t.third << "]";
     return out;
 }
 
