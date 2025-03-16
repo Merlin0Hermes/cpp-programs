@@ -18,6 +18,12 @@ std::ostream& operator<<(std::ostream& out, const Triad<T>& triad)
     return out;
 }
 
+template <typename T>
+void print(const Triad<T>& triad)
+{
+    std::cout << triad;
+}
+
 int main()
 {
 	Triad t1{ 1, 2, 3 }; // note: uses CTAD to deduce template arguments
@@ -25,6 +31,8 @@ int main()
 
 	Triad t2{ 1.2, 3.4, 5.6 }; // note: uses CTAD to deduce template arguments
 	print(t2);
+
+    std::cout << "\n";
 
 	return 0;
 }
