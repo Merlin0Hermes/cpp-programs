@@ -45,7 +45,7 @@ std::ostream& operator<<(std::ostream& out, MonsterType mt)
 }
 
 
-void print_monster(Monster monster)
+void print_monster(const Monster& monster)
 {
     std::cout << "This " << monster.type << " is named " << monster.name << " and has " << monster.health << " health.\n";
 }
