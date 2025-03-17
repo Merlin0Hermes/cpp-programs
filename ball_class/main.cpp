@@ -18,7 +18,6 @@ public:
     std::string_view color() const { return m_color; }
     double radius() const { return m_radius; }
 
-    void print(const Ball& ball);
 };
 
 void print(const Ball& ball)
