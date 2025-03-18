@@ -9,6 +9,19 @@ private:
     double m_radius {10.0};
 
 public:
+    Ball() = default;
+
+    Ball(std::string_view color)
+    :m_color(color)
+    {
+    
+    }
+
+    Ball(double radius)
+    :m_radius(radius)
+    {
+    }
+
     Ball(std::string_view color, double radius)
     :m_color { color }
     ,m_radius { radius }
