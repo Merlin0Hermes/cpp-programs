@@ -9,24 +9,13 @@ private:
     double m_radius {10.0};
 
 public:
-    Ball()
-    {
-        print();
-    }
-
-    Ball(std::string_view color)
-        :m_color(color)
-    {
-        print();
-    }
 
     Ball(double radius)
-        :m_radius(radius)
+        :Ball("black", radius)
     {
-        print();
     }
 
-    Ball(std::string_view color, double radius)
+    Ball(std::string_view color="black", double radius=10.0)
         :m_color { color }
         ,m_radius { radius }
     {  
