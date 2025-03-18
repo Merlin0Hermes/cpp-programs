@@ -9,34 +9,41 @@ private:
     double m_radius {10.0};
 
 public:
-    Ball() = default;
+    Ball()
+    {
+        print();
+    }
 
     Ball(std::string_view color)
-    :m_color(color)
+        :m_color(color)
     {
-    
+        print();
     }
 
     Ball(double radius)
-    :m_radius(radius)
+        :m_radius(radius)
     {
+        print();
     }
 
     Ball(std::string_view color, double radius)
-    :m_color { color }
-    ,m_radius { radius }
+        :m_color { color }
+        ,m_radius { radius }
     {  
+        print();
     }
 
     std::string_view color() const { return m_color; }
     double radius() const { return m_radius; }
 
+    void print()
+    {
+        std::cout << "Ball(" << m_color << ", " << m_radius << ")\n";
+    }
+
+
 };
 
-void print(const Ball& ball)
-{
-    std::cout << "Ball(" << ball.color() << ", " << ball.radius() << ")\n";
-}
 
 
 
@@ -46,6 +53,5 @@ int main()
     Ball blue{ "blue" };
     Ball twenty{ 20.0 };
     Ball blueTwenty{ "blue", 20.0 };
-
     return 0;
 }
