@@ -5,8 +5,8 @@
 class Ball 
 {
 private:
-    std::string m_color {"blue"};
-    double m_radius {};
+    std::string m_color {"black"};
+    double m_radius {10.0};
 
 public:
     Ball(std::string_view color, double radius)
