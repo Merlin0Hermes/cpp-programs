@@ -29,11 +29,10 @@ void print(const Ball& ball)
 
 int main()
 {
-	Ball blue { "blue", 10.0 };
-	print(blue);
+    Ball def{};
+    Ball blue{ "blue" };
+    Ball twenty{ 20.0 };
+    Ball blueTwenty{ "blue", 20.0 };
 
-	Ball red { "red", 12.0 };
-	print(red);
-
-	return 0;
+    return 0;
 }
