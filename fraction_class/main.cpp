@@ -13,7 +13,7 @@ public:
     {
     }
 
-    Fraction getFraction()
+    void getFraction()
     {
         std::cout << "Enter a value for numerator: ";
         std::cin >> numerator;
