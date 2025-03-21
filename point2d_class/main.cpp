@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 
 class Point2d
@@ -20,9 +21,12 @@ public:
     }
 
 
-    double distanceTo()
+    double distanceTo(const Point2d& other) const
     {
-        // TODO
+        double x1 = m_x, y1 = m_y;
+        double x2 = other.m_x, y2 = other.m_y;
+
+        return std::sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
     }
 
 private:
