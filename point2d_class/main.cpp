@@ -23,10 +23,8 @@ public:
 
     double distanceTo(const Point2d& other) const
     {
-        double x1 = m_x, y1 = m_y;
-        double x2 = other.m_x, y2 = other.m_y;
-
-        return std::sqrt((x1 - x2)*(x1 - x2) + (y1 - y2)*(y1 - y2));
+        return std::sqrt((m_x - other.m_x)*(m_x - other.m_x) + 
+                            (m_y - other.m_y)*(m_y - other.m_y));
     }
 
 private:
