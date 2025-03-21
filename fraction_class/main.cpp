@@ -1,41 +1,52 @@
 #include <iostream>
 
-struct Fraction
+class Fraction
 {
+private:
     int numerator{ 0 };
     int denominator{ 1 };
+
+public:
+    explicit Fraction(int x=0, int y=1)
+    :numerator { x }
+    ,denominator { y }
+    {
+    }
+
+    Fraction getFraction()
+    {
+        std::cout << "Enter a value for numerator: ";
+        std::cin >> numerator;
+        std::cout << "Enter a value for denominator: ";
+        std::cin >> denominator;
+    }
+
+    Fraction multiply(Fraction other)
+    {
+        return Fraction{numerator * other.numerator, denominator * other.denominator };
+    }
+
+    void print()
+    {
+        std::cout << numerator << "/" << denominator << "\n";
+    }
+
+
 };
 
-Fraction getFraction()
-{
-    Fraction temp{};
-    std::cout << "Enter a value for numerator: ";
-    std::cin >> temp.numerator;
-    std::cout << "Enter a value for denominator: ";
-    std::cin >> temp.denominator;
-    std::cout << '\n';
 
-    return temp;
-}
-
-Fraction multiply(const Fraction& f1, const Fraction& f2)
-{
-    return { f1.numerator * f2.numerator, f1.denominator * f2.denominator };
-}
-
-void printFraction(const Fraction& f)
-{
-    std::cout << f.numerator << '/' << f.denominator << '\n';
-}
 
 int main()
 {
-    Fraction f1{ getFraction() };
-    Fraction f2{ getFraction() };
+    Fraction f1{};
+    f1.getFraction();
+
+    Fraction f2{};
+    f2.getFraction();
 
     std::cout << "Your fractions multiplied together: ";
 
-    printFraction(multiply(f1, f2));
+    f1.multiply(f2).print();
 
     return 0;
 }
