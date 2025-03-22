@@ -13,9 +13,9 @@ public:
     { 
     }
 
-    R first() { return m_first; }
-    S second() { return m_second; }
-    T third() { return m_third; }
+    const R& first() const { return m_first; }
+    const S& second() const { return m_second; }
+    const T& third() const { return m_third; }
 
 
 
