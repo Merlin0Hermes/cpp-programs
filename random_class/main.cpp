@@ -2,9 +2,10 @@
 #include <random>
 #include <iostream>
 
-namespace Random
+class Random
 {
-	inline std::mt19937 generate()
+private:
+	static std::mt19937 generate()
 	{
 		std::random_device rd{};
 
@@ -16,14 +17,15 @@ namespace Random
 		return std::mt19937{ ss };
 	}
 
-	inline std::mt19937 mt{ generate() }; // generates a seeded std::mt19937 and copies it into our global object
+	static inline std::mt19937 mt{ generate() }; // generates a seeded std::mt19937 and copies it into our global object
 
+public:
 	// Generate a random int between [min, max] (inclusive)
-	inline int get(int min, int max)
+	static int get(int min, int max)
 	{
 		return std::uniform_int_distribution{min, max}(mt);
 	}
-}
+};
 
 int main()
 {
