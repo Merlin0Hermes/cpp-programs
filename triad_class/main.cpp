@@ -17,6 +17,8 @@ public:
     const S& second() const { return m_second; }
     const T& third() const { return m_third; }
 
+    void print() const;
+
 
 
 private:
@@ -25,6 +27,12 @@ private:
     T m_third{};
 
 };
+
+template <typename R, typename S, typename T>
+void Triad<R, S, T>::print() const
+{
+    std::cout << "[" << m_first << ", " << m_second << ", " << m_third << "]";
+}
 
 
 
