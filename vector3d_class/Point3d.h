@@ -1,8 +1,6 @@
 #ifndef POINT3D_H
 #define POINT3D_H
 
-#include <iostream>
-
 class Vector3d;
 
 class Point3d

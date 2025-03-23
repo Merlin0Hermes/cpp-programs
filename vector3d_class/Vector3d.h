@@ -1,7 +1,6 @@
 #ifndef VECTOR3D_H
 #define VECTOR3D_H
 
-#include <iostream>
 #include "Point3d.h"
 
 class Vector3d
