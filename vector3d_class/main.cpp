@@ -17,6 +17,8 @@ public:
 	{
 		std::cout << "Vector(" << m_x << ", " << m_y << ", " << m_z << ")\n";
 	}
+
+    friend class Point3d;
 };
 
 class Point3d
