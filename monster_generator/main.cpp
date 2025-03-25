@@ -1,23 +1,24 @@
 #include <string>
 
-enum class MonsterType
-{
-    dragon,
-    goblin,
-    ogre,
-    orc,
-    skeleton,
-    troll,
-    vampire,
-    zombie,
-    max_monster_types
-
-};
-
 class Monster
 {
+
+    enum Type
+    {
+        dragon,
+        goblin,
+        ogre,
+        orc,
+        skeleton,
+        troll,
+        vampire,
+        zombie,
+        max_monster_types,
+           
+    };
+
 private:
-    MonsterType type{};
+    Type type{};
     std::string name{"???"};
     std::string roar{"???"};
     int hit_points{};
