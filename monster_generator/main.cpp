@@ -1,3 +1,5 @@
+#include <string>
+
 enum class MonsterType
 {
     dragon,
@@ -8,6 +10,16 @@ enum class MonsterType
     troll,
     vampire,
     zombie,
-    maxMonsterTypes,
-    
+    max_monster_types
+
+};
+
+class Monster
+{
+private:
+    MonsterType type{};
+    std::string name{"???"};
+    std::string roar{"???"};
+    int hit_points{};
+
 };
