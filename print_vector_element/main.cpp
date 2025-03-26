@@ -1,7 +1,15 @@
 #include <iostream>
 #include <vector>
 
-// Write your printElement function here
+
+template<typename T>
+void printElement(const std::vector<T> arr, int index)
+{
+    if (index > arr.size() - 1)
+        std::cerr << "Invalid Index\n";
+    else
+        std::cout << "The element has value " << arr[index] << "\n";
+}
 
 int main()
 {
