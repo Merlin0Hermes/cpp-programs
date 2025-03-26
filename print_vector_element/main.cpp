@@ -3,7 +3,7 @@
 
 
 template<typename T>
-void printElement(const std::vector<T> arr, int index)
+void printElement(const std::vector<T>& arr, int index)
 {
     if (index > arr.size() - 1)
         std::cerr << "Invalid Index\n";
