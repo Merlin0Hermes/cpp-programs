@@ -21,14 +21,20 @@ int get_number(std::string_view prompt)
 {
 
     int number{};
-    do 
+    while (true)
     {
-        std::cin.clear();
-        ignore_line();
         std::cout << prompt;
         std::cin  >> number;
+        
+        if (!std::cin)
+        {
+            std::cin.clear();
+            ignore_line();
+        }
+        else 
+            break;
 
-    } while(!std::cin);
+    }
 
     ignore_line();
     return number;
