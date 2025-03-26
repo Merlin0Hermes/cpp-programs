@@ -20,23 +20,19 @@ void ignore_line()
 int get_number(std::string_view prompt)
 {
 
-    int number{};
-    while (true)
+    int num{};
+    do
     {
         std::cout << prompt;
-        std::cin  >> number;
+        std::cin  >> num;
         
         if (!std::cin)
-        {
             std::cin.clear();
-            ignore_line();
-        }
-        else 
-            break;
+        ignore_line();
 
-    }
-    ignore_line();
-    return number;
+    } while (num < 1 || num > 9);
+    
+    return num;
 }
 
 
