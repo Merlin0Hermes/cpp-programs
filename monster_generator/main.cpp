@@ -40,6 +40,15 @@ private:
 };
 
 
+namespace MonsterGenerator
+{
+    Monster generate()
+    {
+        return Monster{ Monster::skeleton, "Bones", "*rattle*", 4};
+    }
+}
+
+
 std::string_view Monster::get_type_string(Type type)
 {
     switch (type)
