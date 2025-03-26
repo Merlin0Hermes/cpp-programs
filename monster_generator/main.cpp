@@ -2,6 +2,7 @@
 
 class Monster
 {
+public:
     enum Type
     {
         dragon,
@@ -32,3 +33,11 @@ private:
     int m_hit_points{};
 
 };
+
+
+int main()
+{
+	Monster skeleton{ Monster::skeleton, "Bones", "*rattle*", 4 };
+
+	return 0;
+}
