@@ -17,10 +17,10 @@ void ignore_line()
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
-int get_number(std::string_view prompt)
+template <typename T>
+T get_number(std::string_view prompt, T low, T high)
 {
-
-    int num{};
+    T num{};
     do
     {
         std::cout << prompt;
@@ -30,8 +30,8 @@ int get_number(std::string_view prompt)
             std::cin.clear();
         ignore_line();
 
-    } while (num < 1 || num > 9);
-    
+    } while (num < low || num > high);
+
     return num;
 }
 
@@ -50,12 +50,12 @@ std::optional<std::size_t> get_index(const std::vector<T>& arr, T element)
 
 int main()
 {
-    int num { get_number("Enter a number between 1 and 9: ") };
+    auto num { get_number("Enter a number between 1 and 9: ", 1, 9) };
 
     std::vector arr{ 4, 6, 7, 3, 8, 2, 1, 9 };
     print_array(arr);
 
-    std::optional<int> index { get_index(arr, num) };
+    std::optional<std::size_t> index { get_index(arr, num) };
     if (index)
         std::cout << "The number " << num << " has index " << *index << "\n";
     else
