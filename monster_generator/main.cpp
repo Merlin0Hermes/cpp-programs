@@ -60,7 +60,14 @@ std::string_view Monster::get_type_string(Type type)
 
 void Monster::print(const Monster& monster)
 {
-   
+    if (monster.m_hit_points <= 0)
+    {
+        std::cout << monster.m_name << " the " << monster.m_type << " is dead.\n";
+        return;
+    }
+
+    std::cout << monster.m_name << " the " << monster.m_type << " has " 
+        << m_hit_points << " hit points and says " << monster.m_roar << "\n";
 }
 
 
