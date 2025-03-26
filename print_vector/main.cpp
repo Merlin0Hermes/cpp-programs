@@ -49,9 +49,12 @@ std::optional<T> get_index(const std::vector<T>& arr, T element)
 
 int main()
 {
-    std::vector arr{ 4, 6, 7, 3, 8, 2, 1, 9 };
+    int num { get_number("Enter a number between 1 and 9: ") };
 
-    print_array(arr); // use function template to print array
+    std::vector arr{ 4, 6, 7, 3, 8, 2, 1, 9 };
+    print_array(arr);
+
+    std::cout << "The number " << num << " has index " << *get_index(arr, num);
 
     return 0;
 }
