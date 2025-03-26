@@ -42,9 +42,42 @@ private:
 
 namespace MonsterGenerator
 {
+    std::string_view get_name(int num)
+    {
+        switch (num)
+        {
+            case 0: return "Blarg";
+            case 1: return "Moog";
+            case 2: return "Pksh";
+            case 3: return "Mort";
+            case 4: return "Tyrn";
+            case 5: return "Hans";
+
+            default: return "???";
+
+        }
+    }
+
+    std::string_view get_roar(int num)
+    {
+        switch (num)
+        {
+            case 0: return "*ROAR*";
+            case 1: return "*peep*";
+            case 2: return "*squeal*";
+            case 3: return "*whine*";
+            case 4: return "*growl*";
+            case 5: return "*burp*";
+
+            default: return "???";
+
+        }
+    }
+
+
     Monster generate()
     {
-        return Monster{ Monster::skeleton, "Bones", "*rattle*", 4};
+        return Monster{ Monster::skeleton, get_name(0), get_roar(0), 4};
     }
 }
 
