@@ -2,6 +2,8 @@
 #include <string_view>
 #include <iostream>
 
+#include "../Random.h"
+
 class Monster
 {
 public:
@@ -42,8 +44,9 @@ private:
 
 namespace MonsterGenerator
 {
-    std::string_view get_name(int num)
+    std::string_view get_name()
     {
+        int num { Random::get(0, 5) };
         switch (num)
         {
             case 0: return "Blarg";
@@ -58,8 +61,9 @@ namespace MonsterGenerator
         }
     }
 
-    std::string_view get_roar(int num)
+    std::string_view get_roar()
     {
+        int num { Random::get(0, 5) };
         switch (num)
         {
             case 0: return "*ROAR*";
@@ -77,7 +81,7 @@ namespace MonsterGenerator
 
     Monster generate()
     {
-        return Monster{ Monster::skeleton, get_name(0), get_roar(0), 4};
+        return Monster{ Monster::skeleton, get_name(), get_roar(), Random::get(1, 100) };
     }
 }
 
