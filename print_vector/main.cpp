@@ -36,11 +36,11 @@ int get_number(std::string_view prompt)
 }
 
 template <typename T>
-std::optional<T> search_array(const std::vector<T>& arr, T target)
+std::optional<T> get_index(const std::vector<T>& arr, T element)
 {
     for (std::size_t i {}; i < arr.size(); ++i)
     {
-        if (arr[i] == target)
+        if (arr[i] == element)
             return i;
     }
     return {};
