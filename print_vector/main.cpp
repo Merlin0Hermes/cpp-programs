@@ -2,6 +2,7 @@
 #include <vector>
 #include <string_view>
 #include <limits>
+#include <optional>
 
 template <typename T>
 void print_array(const T& arr)
@@ -33,6 +34,18 @@ int get_number(std::string_view prompt)
     return number;
 
 }
+
+template <typename T>
+std::optional<T> search_array(const std::vector<T>& arr, T target)
+{
+    for (std::size_t i {}; i < arr.size(); ++i)
+    {
+        if (arr[i] == target)
+            return i;
+    }
+    return {};
+}
+
 
 int main()
 {
