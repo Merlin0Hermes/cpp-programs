@@ -27,7 +27,7 @@ public:
     { }
 
     std::string_view get_type_string(Type);
-    void print(const Monster& monster);
+    void print();
 
 
 private:
@@ -58,22 +58,26 @@ std::string_view Monster::get_type_string(Type type)
     }
 }
 
-void Monster::print(const Monster& monster)
+void Monster::print()
 {
-    if (monster.m_hit_points <= 0)
+    if (m_hit_points <= 0)
     {
-        std::cout << monster.m_name << " the " << monster.m_type << " is dead.\n";
+        std::cout << m_name << " the " << m_type << " is dead.\n";
         return;
     }
 
-    std::cout << monster.m_name << " the " << monster.m_type << " has " 
-        << m_hit_points << " hit points and says " << monster.m_roar << "\n";
+    std::cout << m_name << " the " << m_type << " has " 
+        << m_hit_points << " hit points and says " << m_roar << "\n";
 }
 
 
 int main()
 {
 	Monster skeleton{ Monster::skeleton, "Bones", "*rattle*", 4 };
+	skeleton.print();
+
+	Monster vampire{ Monster::vampire, "Nibblez", "*hiss*", 0 };
+	vampire.print();
 
 	return 0;
 }
