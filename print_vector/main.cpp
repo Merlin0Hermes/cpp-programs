@@ -61,7 +61,7 @@ int main()
 
     std::optional<int> index { get_index(arr, num) };
     if (index)
-        std::cout << "The number " << num << " has index " << *get_index(arr, num) << "\n";
+        std::cout << "The number " << num << " has index " << *index << "\n";
     else
         std::cout << "The number " << num << " was not found\n";
 
