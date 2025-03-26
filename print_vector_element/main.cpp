@@ -5,7 +5,7 @@
 template<typename T>
 void printElement(const std::vector<T>& arr, int index)
 {
-    if (index > arr.size() - 1)
+    if (index < 0 || index >= static_cast<int>(arr.size()))
         std::cerr << "Invalid Index\n";
     else
         std::cout << "The element has value " << arr[index] << "\n";
