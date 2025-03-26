@@ -8,7 +8,7 @@ void printElement(const std::vector<T>& arr, int index)
     if (index < 0 || index >= static_cast<int>(arr.size()))
         std::cerr << "Invalid Index\n";
     else
-        std::cout << "The element has value " << arr[static_cast<std::size_t>(index)] << "\n";
+        std::cout << "The element has value " << arr.data()[index] << "\n";
 }
 
 int main()
