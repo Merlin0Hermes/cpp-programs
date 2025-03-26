@@ -1,5 +1,6 @@
 #include <string>
 #include <string_view>
+#include <iostream>
 
 class Monster
 {
@@ -25,6 +26,9 @@ public:
     ,m_hit_points{ hit_points }
     { }
 
+    std::string_view get_type_string(Type);
+    void print(const Monster& monster);
+
 
 private:
 
@@ -34,6 +38,30 @@ private:
     int m_hit_points{};
 
 };
+
+
+std::string_view Monster::get_type_string(Type type)
+{
+    switch (type)
+    {
+        case dragon: return "dragon";
+        case goblin: return "goblin";
+        case ogre: return "ogre";
+        case orc: return "orc";
+        case skeleton: return "skeleton";
+        case troll: return "troll";
+        case vampire: return "vampire";
+        case zombie: return "zombie";
+
+        default: return "???";
+
+    }
+}
+
+void Monster::print(const Monster& monster)
+{
+   
+}
 
 
 int main()
