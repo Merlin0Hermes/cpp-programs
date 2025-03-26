@@ -1,3 +1,22 @@
+#include <iostream>
+#include <vector>
+
+template <typename T>
+T findMax(const std::vector<T>& arr)
+{
+    if (arr.empty())
+        return {};
+
+    T max{ arr[0] };
+    for (std::size_t i { }; i < arr.size(); ++i)
+    {
+        if (arr[i] > max)
+            max = arr[i];
+    }
+    return max;
+}
+
+
 int main()
 {
     std::vector data1 { 84, 92, 76, 81, 56 };
