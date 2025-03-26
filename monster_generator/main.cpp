@@ -81,7 +81,9 @@ namespace MonsterGenerator
 
     Monster generate()
     {
-        return Monster{ Monster::skeleton, get_name(), get_roar(), Random::get(1, 100) };
+        return Monster{ static_cast<Monster::Type>(Random::get(0, Monster::max_monster_types - 1))
+            , get_name(), get_roar(), Random::get(1, 100) 
+        };
     }
 }
 
