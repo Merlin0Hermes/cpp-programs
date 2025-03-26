@@ -35,14 +35,13 @@ int get_number(std::string_view prompt)
             break;
 
     }
-
     ignore_line();
     return number;
-
 }
 
+
 template <typename T>
-std::optional<T> get_index(const std::vector<T>& arr, T element)
+std::optional<std::size_t> get_index(const std::vector<T>& arr, T element)
 {
     for (std::size_t i {}; i < arr.size(); ++i)
     {
@@ -60,7 +59,11 @@ int main()
     std::vector arr{ 4, 6, 7, 3, 8, 2, 1, 9 };
     print_array(arr);
 
-    std::cout << "The number " << num << " has index " << *get_index(arr, num);
+    std::optional<int> index { get_index(arr, num) };
+    if (index)
+        std::cout << "The number " << num << " has index " << *get_index(arr, num) << "\n";
+    else
+        std::cout << "The number " << num << " was not found\n";
 
     return 0;
 }
