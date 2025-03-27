@@ -9,11 +9,17 @@ int main()
     std::string target{};
     std::cin >> target;
 
+    bool found { false };
     for (auto name: names)
     {
         if (name == target)
+        {
             std::cout << target << " was found.\n";
+            found = true;
+        }
     }
+    if (!found)
+        std::cout << target << " was not found.\n";
 
     return 0;
 }
