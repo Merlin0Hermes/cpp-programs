@@ -5,33 +5,34 @@
 
 
 #include <iostream>
+#include <vector>
+#include <string_view>
+#include <cassert>
 
 void fizzbuzz(int n)
 {
+    const std::vector<std::string_view> words {"fizz", "buzz", "pop", "bang", "jazz", "pow", "boom"};
+    const std::vector<int> divisors {3, 5, 7, 11, 13, 17, 19}; // mapping between words and divisors
+
+    assert(words.size() == divisors.size());
+
     for (int i{ 1 }; i <= n; ++i)
     {
-        bool printed{ false };
-        if (i % 3 == 0)
+        bool outputted { false };
+        for (std::size_t j{ }; j < divisors.size(); ++j)
         {
-            std::cout << "fizz";
-            printed = true;
+            if (i % divisors[j] == 0)
+            {
+                std::cout << words[j];
+                outputted = true;
+            } 
         }
-        if (i % 5 == 0)
-        {
-            std::cout << "buzz";
-            printed = true;
-        }
-        if (i % 7 == 0)
-        {
-            std::cout << "pop";
-            printed = true;
-        }
-        if (!(printed))
-        {
+        if (!outputted)
             std::cout << i;
-        }
         std::cout << "\n";
     }
+
+
 }
 
 int main()
