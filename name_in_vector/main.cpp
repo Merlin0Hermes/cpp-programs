@@ -5,7 +5,8 @@
 
 int main()
 {
-    std::vector<std::string_view> names { "Alex", "Betty", "Caroline", "Dave", "Emily", "Fred", "Greg", "Holly"};
+    static const std::vector<std::string_view> names { "Alex", "Betty", "Caroline", "Dave",
+                "Emily", "Fred", "Greg", "Holly"};
 
     std::cout << "Enter a name: ";
     std::string target{};
