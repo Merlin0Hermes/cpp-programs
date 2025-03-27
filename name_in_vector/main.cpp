@@ -17,11 +17,13 @@ int main()
     {
         if (name == target)
         {
-            std::cout << target << " was found.\n";
             found = true;
+            break;
         }
     }
-    if (!found)
+    if (found)
+        std::cout << target << " was found.\n";
+    else
         std::cout << target << " was not found.\n";
 
     return 0;
