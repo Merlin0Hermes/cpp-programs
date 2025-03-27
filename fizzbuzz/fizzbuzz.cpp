@@ -11,8 +11,8 @@
 
 void fizzbuzz(int n)
 {
-    const std::vector<std::string_view> words {"fizz", "buzz", "pop", "bang", "jazz", "pow", "boom"};
-    const std::vector<int> divisors {3, 5, 7, 11, 13, 17, 19}; // mapping between words and divisors
+    static const std::vector<std::string_view> words {"fizz", "buzz", "pop", "bang", "jazz", "pow", "boom"};
+    static const std::vector<int> divisors {3, 5, 7, 11, 13, 17, 19}; // mapping between words and divisors
 
     assert(words.size() == divisors.size());
 
