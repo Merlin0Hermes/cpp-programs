@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+#include <cassert>
 
 namespace Items
 {
@@ -7,7 +9,7 @@ namespace Items
         health_potion,
         torch,
         arrow,
-        
+
         max_items
     };
 }
@@ -15,5 +17,11 @@ namespace Items
 int main()
 {
     std::vector<int> inventory {1, 5, 10};
+
+    assert(inventory.size() == Items::max_items);
+
+    std::cout << "You have " << inventory.size() << " total items\n";
+
+    return 0;
 
 }
