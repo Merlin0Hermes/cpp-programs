@@ -65,14 +65,7 @@ std::vector<T> get_vector()
         std::cin >> temp;
 
         if (temp == -1)
-        {
-            if (!arr.empty())
-                break;
-            else
-                std::cout << "Enter atleast one element.\n";
-            continue;              
-        }
-
+            break;
 
         arr.push_back(temp);
 
@@ -90,7 +83,10 @@ std::vector<T> get_vector()
 int main()
 {
     std::vector<int> vector { get_vector() };
-
-    print_min_max(vector, min_max(vector));
+    
+    if (vector.empty())
+        std::cout << "The array has no elements.\n";
+    else
+        print_min_max(vector, min_max(vector));
 
 }
