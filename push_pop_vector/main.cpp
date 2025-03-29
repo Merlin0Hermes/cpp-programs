@@ -9,7 +9,7 @@ public:
     { }
     Stack() = default;
     
-    void print_stack() const
+    void print() const
     {
         std::cout << "\t(Stack:";
 
@@ -27,14 +27,14 @@ public:
     {
         std::cout << "Push " << element;
         stack.push_back(element);
-        print_stack();
+        print();
     }
 
     void pop()
     {
         std::cout << "Pop ";
         stack.pop_back();
-        print_stack();
+        print();
     }
 
 private:
@@ -46,6 +46,7 @@ int main()
 {
     Stack stack{};
 
+    stack.print();
     stack.push(1);
     stack.push(2);
     stack.push(3);
