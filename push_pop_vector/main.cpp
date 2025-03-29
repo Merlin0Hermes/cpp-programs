@@ -18,3 +18,19 @@ void print_stack(const std::vector<T>& stack)
     std::cout << ")\n";
 }
 
+template <typename T>
+void push(std::vector<T>& stack, T element)
+{
+    std::cout << "Push " << element;
+    stack.push_back(element);
+    print_stack(stack);
+}
+
+
+int main()
+{
+    std::vector<int> why{ };
+    
+    push(why, 5);
+}
+
