@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <ostream>
 #include <vector>
 #include <iostream>
@@ -15,7 +16,7 @@ namespace Items
     };
 }
 
-std::string_view item_to_string(Items::Type item)
+std::string_view item_to_string_singular(Items::Type item)
 {
     using namespace Items;
     switch (item) 
@@ -28,23 +29,30 @@ std::string_view item_to_string(Items::Type item)
     }
 }
 
-
-std::ostream& operator<<(std::ostream& out, Items::Type item)
+std::string_view item_to_string_plural(Items::Type item)
 {
-    out << item_to_string(item);
-    return out;
+    using namespace Items;
+    switch (item) 
+    {
+        case health_potion: return "health potions";
+        case torch:         return "torches";
+        case arrow:         return "arrows";
+        
+        default:            return "???";
+    }
 }
 
 
 void print_items(const std::vector<int>& inventory)
 {
-    for (int i{0}; i < inventory.size(); i++)
+    for (std::size_t i{0}; i < inventory.size(); ++i)
     {
-        std::cout << "You have " << inventory[i] << " " << static_cast<Items::Type>(i);
-
+        std::cout << "You have " << inventory[i] << " "; 
         if (inventory[i] > 1)
-            std::cout << "s";
-        
+            std::cout << item_to_string_plural(static_cast<Items::Type>(i));
+        else 
+            std::cout << item_to_string_singular(static_cast<Items::Type>(i));
+
         std::cout << "\n";
     }
 }
