@@ -53,7 +53,7 @@ void print_min_max(const std::vector<T>& arr, std::pair<std::size_t, std::size_t
 
 }
 
-template <typename T>
+template <typename T=int>
 std::vector<T> get_vector()
 {
     std::cout << "Enter numbers to add (use -1 to stop): ";
@@ -83,16 +83,14 @@ std::vector<T> get_vector()
             continue;
         }
     }
+
+    return arr;
 }
 
 int main()
 {
-    std::vector v1 { 3, 8, 2, 5, 7, 8, 3 };
-    std::vector v2 { 5.5, 2.7, 3.3, 7.6, 1.2, 8.8, 6.6 };
+    std::vector<int> vector { get_vector() };
 
-    print_min_max(v1, min_max(v1));
-    std::cout << "\n";
-    print_min_max(v2, min_max(v2));
-
+    print_min_max(vector, min_max(vector));
 
 }
