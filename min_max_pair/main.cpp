@@ -2,6 +2,7 @@
 #include <vector>
 #include <utility>
 #include <iostream>
+#include <limits>
 
 
 // returns the index of min and max values in arr as a pair
@@ -34,7 +35,7 @@ void print_vector(const std::vector<T>& arr)
     {
         if (comma)
             std::cout << ", ";
-        
+
         std::cout << a;
         comma = true;
     }
@@ -50,6 +51,38 @@ void print_min_max(const std::vector<T>& arr, std::pair<std::size_t, std::size_t
     std::cout << "The min element has index " << pair.first << " and value " << arr[pair.first] << "\n";
     std::cout << "The max element has index " << pair.second << " and value " << arr[pair.second] << "\n";
 
+}
+
+template <typename T>
+std::vector<T> get_vector()
+{
+    std::cout << "Enter numbers to add (use -1 to stop): ";
+    std::vector<T> arr{};
+
+    while (true)
+    {
+        T temp;
+        std::cin >> temp;
+
+        if (temp == -1)
+        {
+            if (!arr.empty())
+                break;
+            else
+                std::cout << "Enter atleast one element.\n";
+            continue;              
+        }
+
+
+        arr.push_back(temp);
+
+        if (!std::cin)
+        {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
+        }
+    }
 }
 
 int main()
