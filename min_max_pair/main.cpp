@@ -29,12 +29,14 @@ void print_vector(const std::vector<T>& arr)
 {
     std::cout << "With array ( ";
 
-    std::size_t len {arr.size()};
-    for (std::size_t i{0}; i < len; ++i)
+    bool comma { false };
+    for (const auto& a: arr)
     {
-        std::cout << arr[i];
-        if (i < len - 1)
+        if (comma)
             std::cout << ", ";
+        
+        std::cout << a;
+        comma = true;
     }
     std::cout << " ):\n";
 
