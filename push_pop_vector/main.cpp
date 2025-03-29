@@ -6,15 +6,12 @@ void print_stack(const std::vector<T>& stack)
 {
     std::cout << "\t(Stack:";
 
+    for (const auto& element: stack)
+        std::cout << " " << element;
+    
     if (stack.empty())  
-        std::cout << " empty";
-    else
-    {
-        for (const auto& element: stack)
-        {
-            std::cout << " " << element;
-        }
-    }
+        std::cout << " empty"; 
+
     std::cout << ")\n";
 }
 
