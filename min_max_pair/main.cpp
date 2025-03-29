@@ -67,14 +67,14 @@ std::vector<T> get_vector()
         if (temp == -1)
             break;
 
-        arr.push_back(temp);
-
         if (!std::cin)
         {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
+
+        arr.push_back(temp);
     }
 
     return arr;
