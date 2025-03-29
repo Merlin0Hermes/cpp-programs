@@ -23,7 +23,7 @@ public:
     }
 
 
-    void push(T element)
+    void push(const T& element)
     {
         std::cout << "Push " << element;
         stack.push_back(element);
