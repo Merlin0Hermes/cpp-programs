@@ -39,9 +39,22 @@ void pop(std::vector<T>& stack)
 
 int main()
 {
-    std::vector<int> why{ };
-    
-    push(why, 5);
-    pop(why);
+    std::vector<int> stack{ };
+
+    print_stack(stack);
+
+    push(stack, 1);
+    push(stack, 2);
+    push(stack, 3);
+
+    pop(stack);
+    push(stack, 4);
+
+    pop(stack);
+    pop(stack);
+    pop(stack);
+
+    return 0;
+
 }
 
