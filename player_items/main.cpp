@@ -58,6 +58,16 @@ void print_items(const std::vector<int>& inventory)
 }
 
 
+int print_total(const std::vector<int>& inventory)
+{
+    int sum{};
+    for (auto item: inventory)
+        sum += item; 
+    
+    return sum;
+}
+
+
 int main()
 {
     std::vector<int> inventory {1, 5, 10};
@@ -66,11 +76,9 @@ int main()
 
     print_items(inventory);
 
-    int sum{};
-    for (auto item: inventory)
-        sum += item;
 
-    std::cout << "You have " << sum << " total items\n";
+
+    std::cout << "You have " << print_total(inventory) << " total items\n";
 
     return 0;
 
