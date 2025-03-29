@@ -76,8 +76,6 @@ int main()
 
     print_items(inventory);
 
-
-
     std::cout << "You have " << print_total(inventory) << " total items\n";
 
     return 0;
