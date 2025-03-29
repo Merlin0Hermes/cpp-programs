@@ -69,13 +69,12 @@ int print_total(const std::vector<int>& inventory)
 
 
 int main()
-{
+{   
     std::vector<int> inventory {1, 5, 10};
 
     assert(inventory.size() == Items::max_items);
 
     print_items(inventory);
-
     std::cout << "You have " << print_total(inventory) << " total items\n";
 
     return 0;
