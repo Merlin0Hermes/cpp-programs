@@ -1,57 +1,62 @@
 #include <iostream>
 #include <vector>
 
-template <typename T>
-void print_stack(const std::vector<T>& stack)
+template <typename T=int>
+class Stack
 {
-    std::cout << "\t(Stack:";
-
-    for (const auto& element: stack)
-        std::cout << " " << element;
+public:
+    Stack(const std::vector<T>& vector): stack{vector}
+    { }
+    Stack() = default;
     
-    if (stack.empty())  
-        std::cout << " empty"; 
+    void print_stack() const
+    {
+        std::cout << "\t(Stack:";
 
-    std::cout << ")\n";
-}
+        for (const auto& element: stack)
+            std::cout << " " << element;
+        
+        if (stack.empty())  
+            std::cout << " empty"; 
 
-
-template <typename T>
-void push(std::vector<T>& stack, T element)
-{
-    std::cout << "Push " << element;
-    stack.push_back(element);
-    print_stack(stack);
-}
+        std::cout << ")\n";
+    }
 
 
-template <typename T>
-void pop(std::vector<T>& stack)
-{
-    std::cout << "Pop ";
-    stack.pop_back();
-    print_stack(stack);
-}
+    void push(T element)
+    {
+        std::cout << "Push " << element;
+        stack.push_back(element);
+        print_stack();
+    }
+
+    void pop()
+    {
+        std::cout << "Pop ";
+        stack.pop_back();
+        print_stack();
+    }
+
+private:
+    std::vector<T> stack{ };
+};
 
 
 int main()
 {
-    std::vector<int> stack{ };
+    Stack stack{};
 
-    print_stack(stack);
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
 
-    push(stack, 1);
-    push(stack, 2);
-    push(stack, 3);
+    stack.pop();
+    stack.push(4);
 
-    pop(stack);
-    push(stack, 4);
-
-    pop(stack);
-    pop(stack);
-    pop(stack);
+    stack.pop();
+    stack.pop();
+    stack.pop();
 
     return 0;
-
 }
 
