@@ -20,7 +20,11 @@ int main()
 
     assert(inventory.size() == Items::max_items);
 
-    std::cout << "You have " << inventory.size() << " total items\n";
+    int sum{};
+    for (auto item: inventory)
+        sum += item;
+
+    std::cout << "You have " << sum << " total items\n";
 
     return 0;
 
