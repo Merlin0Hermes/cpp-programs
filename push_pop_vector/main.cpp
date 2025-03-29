@@ -29,10 +29,10 @@ void push(std::vector<T>& stack, T element)
 
 
 template <typename T>
-void pop(std::vector<T>& stack, T element)
+void pop(std::vector<T>& stack)
 {
-    std::cout << "Pop " << element;
-    stack.pop_back(element);
+    std::cout << "Pop ";
+    stack.pop_back();
     print_stack(stack);
 }
 
@@ -42,5 +42,6 @@ int main()
     std::vector<int> why{ };
     
     push(why, 5);
+    pop(why);
 }
 
