@@ -8,16 +8,22 @@
 template <typename T>
 std::pair<std::size_t, std::size_t> min_max(const std::vector<T>& arr)
 {
-    int min{}, max{};
-    std::size_t min_index{}, max_index{};
+    T min{}, max{};
+    std::size_t min_index{0}, max_index{0};
     min = max = arr[0];
     
     for (std::size_t i{0}; i < arr.size(); ++i)
     {
         if (arr[i] > max)
+        {
+            max = arr[i];
             max_index = i;
+        }
         if (arr[i] < min)
+        {
+            min = arr[i];
             min_index = i;
+        }
     }
 
     return std::pair {min_index, max_index};
