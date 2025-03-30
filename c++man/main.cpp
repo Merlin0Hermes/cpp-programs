@@ -19,6 +19,15 @@ namespace WordList
     
 }
 
+class Session
+{
+public:
+    std::string_view word() { return m_word; }
+private:
+    std::string m_word{ WordList::random_word() };
+};
+
+
 
 
 int main()
