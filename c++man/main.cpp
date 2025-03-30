@@ -22,12 +22,19 @@ namespace WordList
 class Session
 {
 public:
-    std::string_view word() { return m_word; }
+    std::string_view word() const { return m_word; }
 private:
     std::string m_word{ WordList::random_word() };
 };
 
 
+void display_state(const Session& session)
+{
+    std::cout << "\nThe word: ";
+    for (const auto& a: session.word())
+        std::cout << "_";
+    std::cout << "\n";
+}
 
 
 int main()
@@ -35,5 +42,5 @@ int main()
     std::cout << "Welcome to C++man (a variant of Hangman)\n";
     std::cout << "To win: guess the word.  To lose: run out of pluses.\n";
 
-    std::cout << "The word is: " << WordList::random_word() << "\n";
+    display_state(Session{});
 }
