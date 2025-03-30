@@ -80,17 +80,14 @@ bool Session::guessed(char letter) const
 void Session::set_guessed(char letter)
 {
     m_letters_guessed[letter - 'a'] = true;
-    set_wrong_guess(letter);
+
+    if (!letter_in_word(letter))
+        set_wrong_guess(letter);
 }
 
 
 void Session::set_wrong_guess(char letter)
 {
-    for (auto a: m_word)
-    {
-        if (a == letter)
-            return;
-    }
     --m_guesses;
     m_wrong_guesses.push_back(letter);
 }
