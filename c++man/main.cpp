@@ -1,8 +1,10 @@
 // A game similar to hangman
 
+#include <cctype>
 #include <iostream>
 #include <vector>
 #include <string_view>
+#include <limits>
 #include "../Random.h"
 
 namespace WordList
@@ -36,6 +38,26 @@ void display_state(const Session& session)
     std::cout << "\n";
 }
 
+char get_letter()
+{
+    char letter {};
+    while (true)
+    {
+        std::cout << "Enter you next letter: ";
+        std::cin >> letter;
+
+        if (!std::cin || !std::isalpha(letter)) 
+        {
+            std::cout << "That wasn't a valid input.  Try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }
+        else 
+            break;
+    }
+    std::cout << "You entered: " << letter << "\n";
+    return letter;
+}
 
 int main()
 {
@@ -43,4 +65,5 @@ int main()
     std::cout << "To win: guess the word.  To lose: run out of pluses.\n";
 
     display_state(Session{});
+    get_letter();
 }
