@@ -21,8 +21,6 @@ namespace WordList
         "tree", "umbrella", "violin", "watermelon", "yarn", "zebra",
     };
     
-    
-
     std::string_view random_word()
     {
         return words[Random::get<std::size_t>(0, words.size() - 1)];
@@ -64,7 +62,6 @@ private:
     int m_guesses {Settings::max_guesses};
     std::vector<char> m_wrong_guesses { };
 
-    
     void set_wrong_guess(char letter); // helper function for set_guessed(char letter)
 };
 
