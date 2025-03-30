@@ -13,7 +13,6 @@ namespace WordList
         "distance", "luggage"};
     
 
-
     std::string_view random_word()
     {
         return words[Random::get<std::size_t>(0, words.size() - 1)];
@@ -24,17 +23,32 @@ namespace WordList
 class Session
 {
 public:
+ 
     std::string_view word() const { return m_word; }
+    void letter_guessed(char letter)
+    {
+        m_letters_guessed[(letter % 32) - 1] = true;
+    }
+    const std::vector<bool>& letters_guessed() const { return m_letters_guessed; }
+
 private:
+    std::vector<bool> m_letters_guessed {std::vector<bool>(26)};
     std::string m_word{ WordList::random_word() };
 };
 
 
 void display_state(const Session& session)
 {
+    std::vector<bool> guessed { session.letters_guessed() };
+
     std::cout << "\nThe word: ";
     for (const auto& a: session.word())
-        std::cout << "_";
+    {
+        if (guessed[(a % 32) - 1])
+            std::cout << a;
+        else
+            std::cout << "_";
+    }
     std::cout << "\n";
 }
 
