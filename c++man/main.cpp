@@ -47,6 +47,8 @@ public:
     // return session details, won, lost, or ongoing
     Session::State utility() const;
 
+    bool letter_in_word(char c) const;
+
 private:
     std::string m_word{ WordList::random_word() };
     std::vector<bool> m_letters_guessed {std::vector<bool>(26)};
@@ -80,6 +82,16 @@ void Session::set_wrong_guess(char letter)
     }
     --m_guesses;
     m_wrong_guesses.push_back(letter);
+}
+
+bool Session::letter_in_word(char c) const
+{
+    for (auto letter: m_word)
+    {
+        if (c == letter)
+            return true;
+    }
+    return false;
 }
 
 Session::State Session::utility() const
@@ -170,6 +182,12 @@ char get_guess(const Session& s)
     }
 }
 
+
+void handle_guess(const Session& s, char c)
+{
+
+}
+
 int main()
 {
     std::cout << "Welcome to C++man (a variant of Hangman)\n";
@@ -183,5 +201,6 @@ int main()
         session.set_guessed(letter);      
     }
     display_state(session);
+    return 0;
 
 }
