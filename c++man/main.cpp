@@ -25,9 +25,13 @@ class Session
 public:
  
     std::string_view word() const { return m_word; }
-    void letter_guessed(char letter)
+    void set_guessed(char letter)
     {
         m_letters_guessed[(letter % 32) - 1] = true;
+    }
+    bool guessed(char letter) const
+    {
+        return m_letters_guessed[(letter % 32) - 1];
     }
     const std::vector<bool>& letters_guessed() const { return m_letters_guessed; }
 
@@ -39,12 +43,11 @@ private:
 
 void display_state(const Session& session)
 {
-    std::vector<bool> guessed { session.letters_guessed() };
 
     std::cout << "\nThe word: ";
     for (const auto& a: session.word())
     {
-        if (guessed[(a % 32) - 1])
+        if (session.guessed(a))
             std::cout << a;
         else
             std::cout << "_";
@@ -52,7 +55,7 @@ void display_state(const Session& session)
     std::cout << "\n";
 }
 
-char get_letter()
+char get_guess(const Session& s)
 {
     char c {};
     while (true)
@@ -76,6 +79,12 @@ char get_letter()
             continue;
         }
 
+        if (s.guessed(c))
+        {
+            std::cout << "You already guessed that word.  Try again.\n";
+            continue;
+        }
+
         return c;
     }
 }
@@ -85,7 +94,12 @@ int main()
     std::cout << "Welcome to C++man (a variant of Hangman)\n";
     std::cout << "To win: guess the word.  To lose: run out of pluses.\n";
 
-    display_state(Session{});
-    char letter {get_letter()};
-    std::cout << "You entered: " << letter << "\n";
+    Session session{};
+    while (true)
+    {
+        display_state(session);
+        char letter {get_guess(session)};
+        session.set_guessed(letter);      
+    }
+
 }
