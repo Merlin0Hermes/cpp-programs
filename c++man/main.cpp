@@ -183,9 +183,17 @@ char get_guess(const Session& s)
 }
 
 
-void handle_guess(const Session& s, char c)
+void handle_guess(Session& s, char c)
 {
-
+    s.set_guessed(c);
+    if (s.letter_in_word(c))
+    {
+        std::cout << "Yes! '" << c << "' is in the word!\n";
+    }
+    else  
+    {
+        std::cout << "No, '" << c << "' is not in the word!\n";
+    }
 }
 
 int main()
@@ -198,7 +206,7 @@ int main()
     {
         display_state(session);
         char letter {get_guess(session)};
-        session.set_guessed(letter);      
+        handle_guess(session, letter);   
     }
     display_state(session);
     return 0;
