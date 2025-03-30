@@ -82,8 +82,13 @@ void display_state(const Session& s)
     {
         std::cout << a;
     }
-
     std::cout << "\n";
+
+    if (s.guess_remaining() <= 0)
+    {
+        std::cout << "You lost!  The word was: " << s.word() << "\n";
+    }
+
 }
 
 char get_guess(const Session& s)
@@ -126,11 +131,12 @@ int main()
     std::cout << "To win: guess the word.  To lose: run out of pluses.\n";
 
     Session session{};
-    while (true)
+    while (session.guess_remaining() != 0)
     {
         display_state(session);
         char letter {get_guess(session)};
         session.set_guessed(letter);      
     }
+    display_state(session);
 
 }
