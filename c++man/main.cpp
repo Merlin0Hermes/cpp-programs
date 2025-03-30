@@ -112,9 +112,7 @@ Session::State Session::utility() const
     for (const auto& a: m_word)
     {
         if (!guessed(a))
-        {
             return Session::ongoing;
-        }
     }
     return Session::win;
 }
@@ -123,18 +121,12 @@ void display_state(const Session& s)
 {
 
     std::cout << "\nThe word: ";
-
-    bool word_known { true };
     for (const auto& a: s.word())
     {
         if (s.guessed(a))
             std::cout << a;
         else
-        {
-            std::cout << "_";
-            word_known = false;
-        }
-            
+            std::cout << "_";    
     }
 
     std::cout << "\tWrong guesses: ";
@@ -149,13 +141,9 @@ void display_state(const Session& s)
     std::cout << "\n";
 
     if (s.utility() == Session::win)
-    {
         std::cout << "You win!  The word was: " << s.word() << "\n";
-    }
     else if (s.utility() == Session::lose)
-    {
         std::cout << "You lose!  The word was: " << s.word() << "\n";
-    }
 
 }
 
@@ -198,13 +186,9 @@ void handle_guess(Session& s, char c)
 {
     s.set_guessed(c);
     if (s.letter_in_word(c))
-    {
         std::cout << "Yes! '" << c << "' is in the word!\n";
-    }
     else  
-    {
         std::cout << "No, '" << c << "' is not in the word!\n";
-    }
 }
 
 int main()
