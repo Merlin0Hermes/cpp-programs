@@ -1,6 +1,7 @@
 // A game similar to hangman
 
 #include <cctype>
+#include <csignal>
 #include <iostream>
 #include <vector>
 #include <string_view>
@@ -23,6 +24,12 @@ namespace WordList
 class Session
 {
 public:
+    enum State
+    {
+        ongoing,
+        win, 
+        lose,
+    };
 
     Session(int max=6): m_guesses { max } 
     { }
@@ -44,6 +51,7 @@ private:
     int m_guesses {6};
     std::vector<char> m_wrong_guesses { };
 
+    Session::State utility() const;
     void set_wrong_guess(char letter); // helper function for set_guessed(char letter)
 };
 
@@ -72,6 +80,19 @@ void Session::set_wrong_guess(char letter)
     m_wrong_guesses.push_back(letter);
 }
 
+Session::State Session::utility() const
+{
+    if (guess_remaining() <= 0)
+        return Session::lose;
+    for (const auto& a: m_word)
+    {
+        if (!guessed(a))
+        {
+            return Session::ongoing;
+        }
+    }
+    return Session::win;
+}
 
 void display_state(const Session& s)
 {
