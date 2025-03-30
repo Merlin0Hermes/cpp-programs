@@ -1,7 +1,5 @@
 // A game similar to hangman
 
-#include <cctype>
-#include <csignal>
 #include <iostream>
 #include <vector>
 #include <string_view>
