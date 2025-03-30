@@ -73,13 +73,13 @@ private:
 
 bool Session::guessed(char letter) const
 {
-    return m_letters_guessed[(letter % 32) - 1];
+    return m_letters_guessed[letter - 'a'];
 }
 
 
 void Session::set_guessed(char letter)
 {
-    m_letters_guessed[(letter % 32) - 1] = true;
+    m_letters_guessed[letter - 'a'] = true;
     set_wrong_guess(letter);
 }
 
