@@ -46,17 +46,24 @@ char get_letter()
         std::cout << "Enter you next letter: ";
         std::cin >> letter;
 
-        if (!std::cin || !std::isalpha(letter)) 
+        if (!std::cin) 
         {
             std::cout << "That wasn't a valid input.  Try again.\n";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
         }
-        else 
-            break;
+
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        if (!std::isalpha(letter))
+        {
+            std::cout << "That wasn't a valid input.  Try again.\n";
+            continue;
+        }
+
+        return letter;
     }
-    std::cout << "You entered: " << letter << "\n";
-    return letter;
 }
 
 int main()
@@ -65,5 +72,6 @@ int main()
     std::cout << "To win: guess the word.  To lose: run out of pluses.\n";
 
     display_state(Session{});
-    get_letter();
+    char letter {get_letter()};
+    std::cout << "You entered: " << letter << "\n";
 }
