@@ -40,11 +40,11 @@ void display_state(const Session& session)
 
 char get_letter()
 {
-    char letter {};
+    char c {};
     while (true)
     {
         std::cout << "Enter you next letter: ";
-        std::cin >> letter;
+        std::cin >> c;
 
         if (!std::cin) 
         {
@@ -56,13 +56,13 @@ char get_letter()
 
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-        if (!std::isalpha(letter))
+        if (c < 'a' || c > 'z')
         {
             std::cout << "That wasn't a valid input.  Try again.\n";
             continue;
         }
 
-        return letter;
+        return c;
     }
 }
 
