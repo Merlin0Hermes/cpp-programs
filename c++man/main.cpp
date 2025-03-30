@@ -43,7 +43,9 @@ public:
     // functions to update and return guessed letters
     void set_guessed(char letter); 
     bool guessed(char letter) const;
-    
+
+    // return session details, won, lost, or ongoing
+    Session::State utility() const;
 
 private:
     std::string m_word{ WordList::random_word() };
@@ -51,7 +53,7 @@ private:
     int m_guesses {6};
     std::vector<char> m_wrong_guesses { };
 
-    Session::State utility() const;
+    
     void set_wrong_guess(char letter); // helper function for set_guessed(char letter)
 };
 
@@ -123,6 +125,15 @@ void display_state(const Session& s)
     }
     std::cout << "\n";
 
+    if (s.utility() == Session::win)
+    {
+        std::cout << "You win!  The word was: " << s.word() << "\n";
+    }
+    else if (s.utility() == Session::lose)
+    {
+        std::cout << "You lose!  The word was: " << s.word() << "\n";
+    }
+
 }
 
 char get_guess(const Session& s)
@@ -165,7 +176,7 @@ int main()
     std::cout << "To win: guess the word.  To lose: run out of pluses.\n";
 
     Session session{};
-    while (session.guess_remaining() != 0)
+    while (session.utility() == Session::ongoing)
     {
         display_state(session);
         char letter {get_guess(session)};
