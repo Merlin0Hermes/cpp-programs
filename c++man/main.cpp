@@ -10,7 +10,7 @@
 
 namespace Settings
 {
-    constexpr int max_guesses { 6 };
+    constexpr int max_guesses { 8 };
 }
 
 namespace WordList
@@ -18,7 +18,7 @@ namespace WordList
     const std::vector<std::string_view> words {
         "mystery", "broccoli", "account", "almost", "spaghetti", "opinion", "beautiful",
         "distance", "luggage", "apple", "banana", "carrot", "dog", "elephant", 
-        "fish", "grape", "house", "ice cream", "jacket", "kite", "lemon", 
+        "fish", "grape", "house", "cream", "jacket", "kite", "lemon", 
         "monkey", "notebook", "orange", "pencil", "quilt", "rose", "sunflower", 
         "tree", "umbrella", "violin", "watermelon", "yarn", "zebra",
     };
