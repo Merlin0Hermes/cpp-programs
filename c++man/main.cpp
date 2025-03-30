@@ -8,10 +8,21 @@
 #include <limits>
 #include "../Random.h"
 
+namespace Settings
+{
+    constexpr int max_guesses { 6 };
+}
+
 namespace WordList
 {
-    const std::vector<std::string_view> words {"mystery", "broccoli","account", "almost", "spaghetti", "opinion", "beautiful",
-        "distance", "luggage"};
+    const std::vector<std::string_view> words {
+        "mystery", "broccoli", "account", "almost", "spaghetti", "opinion", "beautiful",
+        "distance", "luggage", "apple", "banana", "carrot", "dog", "elephant", 
+        "fish", "grape", "house", "ice cream", "jacket", "kite", "lemon", 
+        "monkey", "notebook", "orange", "pencil", "quilt", "rose", "sunflower", 
+        "tree", "umbrella", "violin", "watermelon", "yarn", "zebra",
+    };
+    
     
 
     std::string_view random_word()
@@ -31,7 +42,7 @@ public:
         lose,
     };
 
-    Session(int max=6): m_guesses { max } 
+    Session(int max=Settings::max_guesses): m_guesses { max } 
     { }
 
     // getters
@@ -52,7 +63,7 @@ public:
 private:
     std::string m_word{ WordList::random_word() };
     std::vector<bool> m_letters_guessed {std::vector<bool>(26)};
-    int m_guesses {6};
+    int m_guesses {Settings::max_guesses};
     std::vector<char> m_wrong_guesses { };
 
     
