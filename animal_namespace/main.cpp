@@ -1,4 +1,5 @@
 #include <ios>
+#include <iterator>
 #include <string>
 #include <string_view>
 #include <array>
@@ -59,6 +60,17 @@ std::istream& operator>>(std::istream& in, Animal::Type& a)
     
 }
 
+std::ostream& operator<<(std::ostream& out, Animal::Type a)
+{
+    return out << Animal::animals[static_cast<std::size_t>(a)].name;
+}
+
+
+void print_animals(Animal::Type type, bool failed=false)
+{
+
+}
+
 int main()
 {
     std::cout << "Enter an animal: ";
@@ -69,6 +81,6 @@ int main()
     if (std::cin)
         std::cout << "yes\n";
     else 
-        std::cout << "no\n";
+        std::cout << "The animal could not be found.\n";
     return 0;
 }
