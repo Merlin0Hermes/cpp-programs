@@ -71,9 +71,7 @@ std::ostream& operator<<(std::ostream& out, Animal::Data a)
 
 bool operator==(const Animal::Data& a, const Animal::Data& b)
 {
-    if (a.name == b.name && a.num_legs == b.num_legs && a.sound == b.sound)
-        return true;
-    return false;
+   return a.name == b.name && a.num_legs == b.num_legs && a.sound == b.sound;
 }
 
 void print_animals(Animal::Type type, bool failed=false)
