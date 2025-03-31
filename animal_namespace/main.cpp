@@ -81,6 +81,7 @@ void print_animals(Animal::Type type, bool failed=false)
     if (!failed) // print the animal user inputted
         std::cout << Animal::animals[static_cast<std::size_t>(type)]; 
 
+    std::cout << "\nHere is the data for the rest of the animals:\n";
     for (const auto& a: Animal::animals)
     {
         if (!failed && a == Animal::animals[static_cast<std::size_t>(type)])
@@ -96,9 +97,8 @@ int main()
     
     std::cin >> type;
 
-    if (std::cin)
-        std::cout << "yes\n";
-    else 
-        std::cout << "The animal could not be found.\n";
-    return 0;
+    if (!std::cin)
+        std::cout << "That animal couldn't be found.\n";
+    print_animals(type, !static_cast<bool>(std::cin));
+
 }
