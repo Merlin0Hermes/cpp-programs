@@ -19,12 +19,12 @@ void print_items(const std::array<Item, N>& items)
 
 int main()
 {
-    constexpr std::array items {
-        Item{"sword", 5},              
-        Item{"dagger", 3},
-        Item{"club", 2},
-        Item{"spear", 7}
-    };
+    constexpr std::array<Item, 4> items {{
+        {"sword", 5},              
+        {"dagger", 3},
+        {"club", 2},
+        {"spear", 7}
+    }};
     print_items(items);
     return 0;
 }
