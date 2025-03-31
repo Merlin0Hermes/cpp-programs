@@ -11,6 +11,8 @@ namespace Animal
         elephant,
         duck,
         snake,
+
+        max_animals
     };
 
     struct Data
@@ -28,6 +30,8 @@ namespace Animal
             Data{"duck", 2, "quack"},
             Data{"snake", 0, "hissss"}
     };
-    
+
+    static_assert(animals.size() == max_animals);
+
 
 }
