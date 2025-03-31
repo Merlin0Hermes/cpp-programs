@@ -1,5 +1,4 @@
 #include <ios>
-#include <iterator>
 #include <string>
 #include <string_view>
 #include <array>
@@ -70,10 +69,24 @@ std::ostream& operator<<(std::ostream& out, Animal::Data a)
     return out << "A " << a.name << " has " << a.num_legs << " legs and says " << a.sound << ".\n";
 }
 
+bool operator==(const Animal::Data& a, const Animal::Data& b)
+{
+    if (a.name == b.name && a.num_legs == b.num_legs && a.sound == b.sound)
+        return true;
+    return false;
+}
 
 void print_animals(Animal::Type type, bool failed=false)
 {
+    if (!failed) // print the animal user inputted
+        std::cout << Animal::animals[static_cast<std::size_t>(type)]; 
 
+    for (const auto& a: Animal::animals)
+    {
+        if (!failed && a == Animal::animals[static_cast<std::size_t>(type)])
+            continue; // skip the user inputted animal
+        std::cout << a;
+    }
 }
 
 int main()
@@ -82,7 +95,7 @@ int main()
     Animal::Type type{};
     
     std::cin >> type;
-    
+
     if (std::cin)
         std::cout << "yes\n";
     else 
