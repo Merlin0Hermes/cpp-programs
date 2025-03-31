@@ -8,6 +8,15 @@ struct Item
     int gold {};
 };
 
+template <std::size_t N>
+void print_items(const std::array<Item, N>& items)
+{
+    for (const auto& item: items)
+    {
+        std::cout << "A " << item.name << " costs " << item.gold << " gold.\n";
+    }    
+}
+
 int main()
 {
     constexpr std::array items {
@@ -16,11 +25,6 @@ int main()
         Item{"club", 2},
         Item{"spear", 7}
     };
-
-    for (const auto& item: items)
-    {
-        std::cout << "A " << item.name << " costs " << item.gold << " gold.\n";
-    }
-    
+    print_items(items);
     return 0;
 }
