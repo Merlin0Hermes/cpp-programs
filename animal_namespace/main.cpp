@@ -40,7 +40,7 @@ namespace Animal
 
 }
 
-std::istream& operator>>(std::istream& in, Animal::Type& a)
+std::istream& operator>>(std::istream& in, Animal::Type& t)
 {
     std::string name{};
     in >> name;
@@ -49,7 +49,7 @@ std::istream& operator>>(std::istream& in, Animal::Type& a)
     {
         if (name == Animal::animals[i].name)
         {
-            a = static_cast<Animal::Type>(i);
+            t = static_cast<Animal::Type>(i);
             return in;
         }
     }
@@ -60,9 +60,14 @@ std::istream& operator>>(std::istream& in, Animal::Type& a)
     
 }
 
-std::ostream& operator<<(std::ostream& out, Animal::Type a)
+std::ostream& operator<<(std::ostream& out, Animal::Type t)
 {
-    return out << Animal::animals[static_cast<std::size_t>(a)].name;
+    return out << Animal::animals[static_cast<std::size_t>(t)].name;
+}
+
+std::ostream& operator<<(std::ostream& out, Animal::Data a)
+{
+    return out << "A " << a.name << " has " << a.num_legs << " legs and says " << a.sound << ".\n";
 }
 
 
