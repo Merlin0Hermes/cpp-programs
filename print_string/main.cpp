@@ -24,7 +24,8 @@ void print_str_reverse(const char * str)
     const char * ptr{str};
     for (; *ptr != '\0'; ++ptr)
         ;
-    while (--ptr != (str - 1))
+
+    while (ptr-- != str)
         std::cout << *ptr;
 }
 
