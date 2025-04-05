@@ -5,10 +5,10 @@
 
 void print_str(const char * str)
 {
-    assert(*str != '\0' && "string cannot be empty.");
-    for (int i{0}; *(str + i) != '\0'; ++i)
+    while (*str != '\0')
     {
-        std::cout << *(str + i);
+        std::cout << *str;
+        ++str;
     }
 }
 
