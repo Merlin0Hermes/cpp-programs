@@ -6,7 +6,7 @@
 void print_str(const char * str)
 {
     assert(*str != '\0' && "string cannot be empty.");
-    for (int i{0}; *(str + i) != '\n'; ++i)
+    for (int i{0}; *(str + i) != '\0'; ++i)
     {
         std::cout << *(str + i);
     }
