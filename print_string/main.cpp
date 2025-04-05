@@ -1,14 +1,20 @@
 // program to print C-style string
 
-#include <cstddef>
 #include <iostream>
 #include <cassert>
 
-void print_str(char * str)
+void print_str(const char * str)
 {
     assert(*str != '\0' && "string cannot be empty.");
-    for (char* ptr{str}; *ptr != '\n'; ptr++)
+    for (int i{0}; *(str + i) != '\n'; ++i)
     {
-        std::cout << *ptr;
+        std::cout << *(str + i);
     }
+}
+
+
+int main()
+{
+    print_str("Hello, world!\n");
+    return 0;
 }
