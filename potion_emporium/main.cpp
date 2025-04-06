@@ -16,6 +16,8 @@ namespace Potion
         max_potions
     };
 
+    constexpr std::array<Type, max_potions> types {healing, mana, speed, invisibility};
+
     constexpr std::array<std::string_view, max_potions> names{
         "healing", "mana", "speed", "invisibility",
     };
@@ -26,10 +28,9 @@ namespace Potion
 void shop()
 {
     std::cout << "Here is our selection for today: \n";
-    for (std::size_t i {0}; i < Potion::max_potions; ++i)
-    {
-        std::cout << i << ") " << Potion::names[i] << " costs " << Potion::costs[i] << "\n"; 
-    }
+    for (const auto& p: Potion::types)
+        std::cout << p << ") " << Potion::names[p] << " costs " << Potion::costs[p] << "\n"; 
+
 }
 
 int main()
