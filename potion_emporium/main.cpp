@@ -1,5 +1,6 @@
 #include <iostream>
 #include <array>
+#include <limits>
 #include <string_view>
 #include <cstddef>
 #include <vector>
@@ -63,6 +64,46 @@ private:
     int m_gold{Random::get(min_gold, max_gold)};
     std::array<int, Potion::max_potions> m_inventory{};
 };
+
+void ignore_line()
+{
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
+int char_to_int(char c)
+{
+    return c - '0';
+}
+
+Potion::Type get_potion()
+{
+    while (true)
+    {
+        char choice{};
+        std::cout << "Enter the number of the potion you'd like to buy, or 'q' to quit: ";
+        std::cin >> choice;
+
+        if (!std::cin)
+        {
+            std::cin.clear();
+            ignore_line();
+            continue;
+        }
+
+        if (!std::cin.eof() && std::cin.peek() != '\n')
+        {
+            std::cout << "I didn't understand what you said.  Try again: ";
+            ignore_line();
+            continue;
+        }
+
+        if (choice == 'q')
+            return Potion::max_potions;
+
+
+        return static_cast<Potion::Type>(char_to_int(choice));
+    }   
+}
 
 
 int main()
