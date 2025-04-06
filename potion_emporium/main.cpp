@@ -38,15 +38,32 @@ void shop()
 class Player
 {
 public:
+
+    Player(std::string_view name): m_name{name} { }
+
+    std::string_view name() const { return m_name; };
+    int gold() const { return m_gold; }
+
 private:
     std::string m_name{"???"};
+    int m_gold{Random::get(80, 120)};
     std::vector<Potion::Type> m_potions{};
-    int gold{};
 };
 
 
 int main()
 {
+    std::cout << "Welcome to Roscoe's potion emporium!\n";
+
+    std::cout << "Enter you name: ";
+    std::string name{};
+    std::cin >> name;
+
+    Player player{name};
+
+    std::cout << "Hello, " << name << ", you have " << player.gold() << " gold.\n\n"; 
+
     shop();
+
     return 0;
 }
