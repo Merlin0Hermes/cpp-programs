@@ -25,7 +25,7 @@ namespace Potion
 
 void shop()
 {
-    std::cout << "Here is our selection for today: ";
+    std::cout << "Here is our selection for today: \n";
     for (std::size_t i {0}; i < Potion::max_potions; ++i)
     {
         std::cout << i << ") " << Potion::names[i] << " costs " << Potion::costs[i] << "\n"; 
