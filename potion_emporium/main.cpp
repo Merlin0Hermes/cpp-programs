@@ -3,7 +3,6 @@
 #include <limits>
 #include <string_view>
 #include <cstddef>
-#include <vector>
 #include "../Random.h"
 
 namespace Potion
@@ -23,7 +22,6 @@ namespace Potion
     constexpr std::array<std::string_view, max_potions> names{
         "healing", "mana", "speed", "invisibility",
     };
-
     constexpr std::array<int, max_potions> costs { 20, 30, 12, 50};
 }
 
@@ -31,18 +29,18 @@ namespace Potion
 class Player
 {
 public:
-
     explicit Player(std::string_view name): m_name{name} { }
 
     std::string_view name() const { return m_name; };
     int gold() const { return m_gold; }
-    int inventory(Potion::Type p) { return m_inventory[p]; }
+    int inventory(Potion::Type p) const { return m_inventory[p]; }
 
     bool buy(Potion::Type p)
     {
         if ((m_gold - Potion::costs[p]) >= 0)
         {
             m_gold -= Potion::costs[p];
+            ++m_inventory[p];
             return true;
         }
         return false;
@@ -92,16 +90,27 @@ Potion::Type get_potion()
         if (choice == 'q')
             return Potion::max_potions;
 
+        int val { char_to_int(choice) };
+        if (val >=0 && val < Potion::max_potions)
+            return static_cast<Potion::Type>(char_to_int(choice));
 
-        return static_cast<Potion::Type>(char_to_int(choice));
-    }   
+        std::cout << "I didn't understand what you said.  Try again: ";
+    }       
+}
+
+void print_inventory(const Player& player)
+{
+    std::cout << "\nYour inventory contains:\n";
+    for (const auto& p: Potion::types)
+    {
+        if (player.inventory(p) > 0)
+            std::cout << player.inventory(p) << "x potion of " << Potion::names[p] << "\n";
+    }
 }
 
 
 void shop(Player& player)
 {
-
-
     while (player.gold() > 0)
     {
         std::cout << "Here is our selection for today: \n";
@@ -112,7 +121,12 @@ void shop(Player& player)
         Potion::Type potion { get_potion() }; 
 
         if (potion == Potion::max_potions)
-            return;        
+        {
+            print_inventory(player);
+            std::cout << "You escaped with " << player.gold() << " gold remaining.\n\n";
+            std::cout << "Thanks for shopping at Roscoe's potion emporium!\n";
+            return;
+        }
 
         if (player.buy(potion))
             std::cout << "You purchased a potion of " << Potion::names[potion] 
@@ -122,7 +136,6 @@ void shop(Player& player)
         
         std::cout << '\n';
     }
-
 }
 
 
