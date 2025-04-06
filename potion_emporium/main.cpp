@@ -39,10 +39,11 @@ class Player
 {
 public:
 
-    Player(std::string_view name): m_name{name} { }
+    explicit Player(std::string_view name): m_name{name} { }
 
     std::string_view name() const { return m_name; };
     int gold() const { return m_gold; }
+    int inventory(Potion::Type p) { return m_inventory[p]; }
 
 private:
     static constexpr int min_gold{80};
@@ -50,7 +51,7 @@ private:
 
     std::string m_name{"???"};
     int m_gold{Random::get(min_gold, max_gold)};
-    std::array<int, Potion::max_potions> m_potions{};
+    std::array<int, Potion::max_potions> m_inventory{};
 };
 
 
