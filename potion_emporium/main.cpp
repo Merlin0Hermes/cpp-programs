@@ -106,6 +106,7 @@ void print_inventory(const Player& player)
         if (player.inventory(p) > 0)
             std::cout << player.inventory(p) << "x potion of " << Potion::names[p] << "\n";
     }
+    std::cout << "You escaped with " << player.gold() << " gold remaining.\n";
 }
 
 
@@ -121,13 +122,8 @@ void shop(Player& player)
         Potion::Type potion { get_potion() }; 
 
         if (potion == Potion::max_potions)
-        {
-            print_inventory(player);
-            std::cout << "You escaped with " << player.gold() << " gold remaining.\n\n";
-            std::cout << "Thanks for shopping at Roscoe's potion emporium!\n";
             return;
-        }
-
+        
         if (player.buy(potion))
             std::cout << "You purchased a potion of " << Potion::names[potion] 
                 <<  ".  You have " << player.gold() << " gold left.\n";
@@ -152,6 +148,10 @@ int main()
     std::cout << "Hello, " << name << ", you have " << player.gold() << " gold.\n\n"; 
 
     shop(player);
+
+    print_inventory(player);
+
+    std::cout << "\nThanks for shopping at Roscoe's potion emporium!\n";
 
     return 0;
 }
