@@ -27,14 +27,6 @@ namespace Potion
     constexpr std::array<int, max_potions> costs { 20, 30, 12, 50};
 }
 
-void shop()
-{
-    std::cout << "Here is our selection for today: \n";
-    for (const auto& p: Potion::types)
-        std::cout << p << ") " << Potion::names[p] << " costs " << Potion::costs[p] << "\n"; 
-
-}
-
 
 class Player
 {
@@ -80,11 +72,11 @@ Potion::Type get_potion()
     while (true)
     {
         char choice{};
-        std::cout << "Enter the number of the potion you'd like to buy, or 'q' to quit: ";
         std::cin >> choice;
 
         if (!std::cin)
         {
+            std::cout << "That is an invalid input.  Try again: ";
             std::cin.clear();
             ignore_line();
             continue;
@@ -106,6 +98,34 @@ Potion::Type get_potion()
 }
 
 
+void shop(Player& player)
+{
+
+
+    while (player.gold() > 0)
+    {
+        std::cout << "Here is our selection for today: \n";
+        for (const auto& p: Potion::types)
+            std::cout << p << ") " << Potion::names[p] << " costs " << Potion::costs[p] << "\n"; 
+
+        std::cout << "Enter the number of the potion you'd like to buy, or 'q' to quit: ";
+        Potion::Type potion { get_potion() }; 
+
+        if (potion == Potion::max_potions)
+            return;        
+
+        if (player.buy(potion))
+            std::cout << "You purchased a potion of " << Potion::names[potion] 
+                <<  ".  You have " << player.gold() << " gold left.\n";
+        else 
+            std::cout << "You can not afford that.\n";
+        
+        std::cout << '\n';
+    }
+
+}
+
+
 int main()
 {
     std::cout << "Welcome to Roscoe's potion emporium!\n";
@@ -118,7 +138,7 @@ int main()
 
     std::cout << "Hello, " << name << ", you have " << player.gold() << " gold.\n\n"; 
 
-    shop();
+    shop(player);
 
     return 0;
 }
