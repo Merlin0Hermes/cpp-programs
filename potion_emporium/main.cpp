@@ -45,9 +45,12 @@ public:
     int gold() const { return m_gold; }
 
 private:
+    static constexpr int min_gold{80};
+    static constexpr int max_gold {120};
+
     std::string m_name{"???"};
-    int m_gold{Random::get(80, 120)};
-    std::vector<Potion::Type> m_potions{};
+    int m_gold{Random::get(min_gold, max_gold)};
+    std::array<int, Potion::max_potions> m_potions{};
 };
 
 
