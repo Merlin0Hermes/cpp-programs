@@ -2,7 +2,8 @@
 #include <array>
 #include <string_view>
 #include <cstddef>
-
+#include <vector>
+#include "../Random.h"
 
 namespace Potion
 {
@@ -32,6 +33,17 @@ void shop()
         std::cout << p << ") " << Potion::names[p] << " costs " << Potion::costs[p] << "\n"; 
 
 }
+
+
+class Player
+{
+public:
+private:
+    std::string m_name{"???"};
+    std::vector<Potion::Type> m_potions{};
+    int gold{};
+};
+
 
 int main()
 {
