@@ -61,7 +61,7 @@ int main()
 
     std::cout << "Enter you name: ";
     std::string name{};
-    std::cin >> name;
+    std::getline(std::cin >> std::ws, name);
 
     Player player{name};
 
