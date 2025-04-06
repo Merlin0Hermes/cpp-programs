@@ -45,6 +45,16 @@ public:
     int gold() const { return m_gold; }
     int inventory(Potion::Type p) { return m_inventory[p]; }
 
+    bool buy(Potion::Type p)
+    {
+        if ((m_gold - Potion::costs[p]) >= 0)
+        {
+            m_gold -= Potion::costs[p];
+            return true;
+        }
+        return false;
+    }
+
 private:
     static constexpr int min_gold{80};
     static constexpr int max_gold {120};
