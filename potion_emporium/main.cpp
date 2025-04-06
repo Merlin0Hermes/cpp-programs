@@ -112,7 +112,7 @@ void print_inventory(const Player& player)
 
 void shop(Player& player)
 {
-    while (player.gold() > 0)
+    while (true)
     {
         std::cout << "Here is our selection for today: \n";
         for (const auto& p: Potion::types)
