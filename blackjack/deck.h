@@ -66,4 +66,25 @@ struct Card
 };
 
 
+class Deck
+{
+public:
+    Deck()
+    {
+        std::size_t i = 0;
+        for (auto s: Card::all_suits)
+        {
+            for (auto r: Card::all_ranks)
+            {
+                m_deck[i] = Card{r, s};
+                ++i;
+            }
+        }
+    }
+
+    inline static constexpr int deck_size {52};
+    std::array<Card, deck_size> m_deck{};
+};
+
+
 #endif
