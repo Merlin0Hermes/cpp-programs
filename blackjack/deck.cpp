@@ -8,7 +8,7 @@
 std::string_view to_symbol(Card::Rank rank)
 {
     static constexpr std::array<std::string_view, Card::max_ranks> rank_strings 
-    {"11", "2", "3",  "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"};
+    {"A", "2", "3",  "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"};
 
     return rank_strings[rank];
 }
