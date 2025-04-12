@@ -20,5 +20,12 @@ int main()
 
     std::sort(names, names + length);
 
+    std::cout << "Here is you sorted list: \n";
+    for (std::size_t i {0}; i < length; ++i)
+    {
+        std::cout << "Name #" << i + 1 << ": " << names[i] << "\n";
+    }
+
+    delete[] names;
     return 0;
 }
