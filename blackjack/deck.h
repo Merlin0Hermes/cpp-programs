@@ -56,13 +56,7 @@ struct Card
         return out;
     }
 
-    int value() const
-    {
-        static constexpr std::array<int, max_ranks> 
-            card_values{11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
-        return card_values[rank];
-    }   
-
+    int value() const; // returns value of a card based on rank
 };
 
 

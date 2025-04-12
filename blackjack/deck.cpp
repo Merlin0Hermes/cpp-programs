@@ -21,6 +21,13 @@ std::string_view to_symbol(Card::Suit suit)
     return suit_strings[suit];
 }
 
+int Card::value() const
+{
+    static constexpr std::array<int, max_ranks> 
+        card_values{11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
+    return card_values[rank];
+}   
+
 
 int main()
 {
