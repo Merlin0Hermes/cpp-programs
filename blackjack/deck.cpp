@@ -20,3 +20,19 @@ std::string_view to_symbol(Card::Suit suit)
 
     return suit_strings[suit];
 }
+
+
+int main()
+{
+    // Print one card
+    Card card { Card::rank_5, Card::suit_heart };
+    std::cout << card << '\n';
+
+    // Print all cards
+    for (auto suit : Card::all_suits)
+        for (auto rank : Card::all_ranks)
+            std::cout << Card { rank, suit } << ' ';
+    std::cout << '\n';
+
+    return 0;
+}
