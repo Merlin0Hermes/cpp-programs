@@ -1,36 +1,22 @@
+#include <iostream>
+#include <array>
+#include <string>
+#include <string_view>
+#include "deck.h"
 
-struct Card
+
+std::string_view to_symbol(Card::Rank rank)
 {
-    enum Rank 
-    {
-        rank_ace,
-        rank_2, 
-        rank_3, 
-        rank_4,
-        rank_5,
-        rank_6,
-        rank_7,
-        rank_8,
-        rank_9,
-        rank_10,
-        rank_jack,
-        rank_queen,
-        rank_king,
+    static constexpr std::array<std::string_view, Card::max_ranks> rank_strings 
+    {"11", "2", "3",  "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"};
 
-        max_ranks
-    };
+    return rank_strings[rank];
+}
 
-    enum Suit
-    {
-        suit_club,
-        suit_diamond,
-        suit_heart,
-        suit_spade,
+std::string_view to_symbol(Card::Suit suit)
+{
+    static constexpr std::array<std::string_view, Card::max_suits> suit_strings
+    {"C", "D", "H", "S"};
 
-        max_suits
-    };    
-
-    Rank rank{};
-    Suit suit{};
-};
-
+    return suit_strings[suit];
+}
