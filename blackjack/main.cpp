@@ -24,8 +24,38 @@ bool dealer_turn(Deck& deck, Player& dealer)
         dealer.score += card.value();
         std::cout << "The dealer flips a " << card << ".\tThey now have: " << dealer.score << "\n";
     }
-    return dealer.score > Settings::bust; // returns if dealer went bust
+    if (dealer.score > Settings::bust)
+    {
+        std::cout << "The dealer went bust!\n";
+        return true;
+    }
+    return false;
 }
+
+bool user_turn(Deck& deck, Player& user)
+{
+    while (true)
+    {
+        std::cout << "(h) to hit, or (s) to stand: ";
+        char choice{};
+        std::cin >> choice;
+
+        if (choice == 's')
+            break;
+
+        Card card { deck.deal_card() };
+        user.score += card.value();
+        std::cout << "You were dealt " << card << ".\tYou now have: " << user.score << "\n";
+    }
+    
+    if (user.score > Settings::bust)
+    {
+        std::cout << "You went bust!\n";
+        return true;
+    }
+    return false;
+}
+
 
 bool play_blackjack()
 {
@@ -39,10 +69,14 @@ bool play_blackjack()
     std::cout << "The dealer is showing: " << dealer.score << "\n";
     std::cout << "You have score: " << user.score << "\n";
 
-    bool bust { dealer_turn(deck, dealer) };
-    if (bust)
-        std::cout << "The dealer went bust!\n";
-
+    bool user_bust { user_turn(deck, user) };
+    if (user_bust == true)
+        return false;
+    
+    bool dealer_bust { dealer_turn(deck, dealer) };
+    if (dealer_bust == true)
+        return true;
+        
     return user.score > dealer.score;
 }
 
