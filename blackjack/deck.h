@@ -77,6 +77,7 @@ public:
     }
 
     Card deal_card(); // return the next card in deck 
+    void shuffle(); // shuffles the deck
 
 private:
     int m_current{0};

@@ -1,9 +1,10 @@
 #include <iostream>
 #include <array>
-#include <string>
+#include <algorithm>
 #include <string_view>
 #include <cassert>
 #include "deck.h"
+#include "../Random.h"
 
 
 std::string_view to_symbol(Card::Rank rank)
@@ -34,6 +35,11 @@ Card Deck::deal_card()
     assert(m_current != deck_size);
 
     return m_deck[m_current++];
+}
+
+void Deck::shuffle()
+{
+    std::shuffle(m_deck.begin(), m_deck.end(), Random::mt);
 }
 
 int main()
