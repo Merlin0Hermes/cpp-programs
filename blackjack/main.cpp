@@ -1,6 +1,8 @@
 // simplified version of blackjack game
 
+#include <ios>
 #include <iostream>
+#include <limits>
 #include "deck.h"
 
 namespace Settings
@@ -56,13 +58,46 @@ bool dealer_turn(Deck& deck, Player& dealer)
     return false;
 }
 
+void ignore_line()
+{
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
+
+char get_choice()
+{
+    while (true)
+    {
+        std::cout << "(h) to hit, or (s) to stand: ";
+        char choice{};
+        std::cin >> choice;    
+
+        if (!std::cin)
+        {
+            std::cin.clear();
+            ignore_line();
+            continue;
+        }
+
+        if (!std::cin.eof() && std::cin.peek() != '\n')
+        {
+            ignore_line();
+            continue;
+        }
+        
+        if (choice != 'h' && choice != 's')
+        {
+            ignore_line();
+            continue;
+        }
+
+        return choice;
+    }
+}
+
 bool player_hit() // returns true if player wants to hit
 {
-    std::cout << "(h) to hit, or (s) to stand: ";
-    char choice{};
-    std::cin >> choice;    
 
-    switch (choice) 
+    switch (get_choice()) 
     {
         case 'h':
             return true;
@@ -132,5 +167,4 @@ int main()
         std::cout << "It's a tie.\n";
 
     return 0;
-
 }
