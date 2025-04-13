@@ -32,17 +32,27 @@ bool dealer_turn(Deck& deck, Player& dealer)
     return false;
 }
 
+bool player_hit() // returns true if player wants to hit
+{
+    std::cout << "(h) to hit, or (s) to stand: ";
+    char choice{};
+    std::cin >> choice;    
+
+    switch (choice) 
+    {
+        case 'h':
+            return true;
+        case 's':
+            return false;
+        default:
+            return false;
+    }
+}
+
 bool user_turn(Deck& deck, Player& user)
 {
-    while (user.score < Settings::bust)
+    while ( (user.score < Settings::bust) && player_hit())
     {
-        std::cout << "(h) to hit, or (s) to stand: ";
-        char choice{};
-        std::cin >> choice;
-
-        if (choice == 's')
-            break;
-
         Card card { deck.deal_card() };
         user.score += card.value();
         std::cout << "You were dealt " << card << ".\tYou now have: " << user.score << "\n";
