@@ -34,7 +34,7 @@ bool dealer_turn(Deck& deck, Player& dealer)
 
 bool user_turn(Deck& deck, Player& user)
 {
-    while (true)
+    while (user.score < Settings::bust)
     {
         std::cout << "(h) to hit, or (s) to stand: ";
         char choice{};
