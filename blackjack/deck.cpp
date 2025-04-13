@@ -41,14 +41,3 @@ void Deck::shuffle()
     std::shuffle(m_deck.begin(), m_deck.end(), Random::mt);
     m_current = 0;
 }
-
-int main()
-{
-    Deck deck{};
-    std::cout << deck.deal_card() << ' ' << deck.deal_card() << ' ' << deck.deal_card() << '\n';
-
-    deck.shuffle();
-    std::cout << deck.deal_card() << ' ' << deck.deal_card() << ' ' << deck.deal_card() << '\n';
-
-    return 0;
-}

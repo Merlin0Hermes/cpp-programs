@@ -21,6 +21,8 @@ bool play_blackjack()
 
     std::cout << "The dealer is showing: " << dealer.score << "\n";
     std::cout << "You have score: " << user.score << "\n";
+
+    return user.score > dealer.score;
 }
 
 
