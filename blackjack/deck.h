@@ -76,6 +76,10 @@ public:
         }
     }
 
+    Card deal_card(); // return the next card in deck 
+
+private:
+    int m_current{0};
     inline static constexpr int deck_size {52};
     std::array<Card, deck_size> m_deck{};
 };

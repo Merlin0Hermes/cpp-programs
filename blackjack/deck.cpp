@@ -2,6 +2,7 @@
 #include <array>
 #include <string>
 #include <string_view>
+#include <cassert>
 #include "deck.h"
 
 
@@ -28,14 +29,16 @@ int Card::value() const
     return card_values[rank];
 }   
 
+Card Deck::deal_card()
+{
+    assert(m_current != deck_size);
+
+    return m_deck[m_current++];
+}
 
 int main()
 {
     Deck deck{};
-
-    for (auto a: deck.m_deck)
-        std::cout << a << " ";
-    std::cout << "\n";
 
     return 0;
 }
