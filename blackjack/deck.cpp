@@ -32,8 +32,7 @@ int Card::value() const
 
 Card Deck::deal_card()
 {
-    assert(m_current != deck_size);
-
+    assert(m_current != deck_size && "Deck::deal_card() ran out of cards");
     return m_deck[m_current++];
 }
 
