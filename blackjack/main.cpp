@@ -14,6 +14,24 @@ namespace Settings
 struct Player
 {
     int score{0};
+    int ace_count{0};
+
+    void add_to_score(const Card& card)
+    {
+        score += card.value();
+        if (card.rank == Card::rank_ace)
+            ++ace_count;
+        consume_ace();
+    }
+
+    void consume_ace()
+    {
+        if (score > Settings::bust && ace_count > 0)
+        {
+            score -= 10;
+            --ace_count;
+        }
+    }
 };
 
 bool dealer_turn(Deck& deck, Player& dealer)
@@ -21,7 +39,7 @@ bool dealer_turn(Deck& deck, Player& dealer)
     while(dealer.score < Settings::dealer_stop)
     {
         Card card { deck.deal_card() };
-        dealer.score += card.value();
+        dealer.add_to_score(card);
         std::cout << "The dealer flips a " << card << ".\tThey now have: " << dealer.score << "\n";
     }
     if (dealer.score > Settings::bust)
@@ -54,7 +72,7 @@ bool user_turn(Deck& deck, Player& user)
     while ( (user.score < Settings::bust) && player_hit())
     {
         Card card { deck.deal_card() };
-        user.score += card.value();
+        user.add_to_score(card);
         std::cout << "You were dealt " << card << ".\tYou now have: " << user.score << "\n";
     }
     
