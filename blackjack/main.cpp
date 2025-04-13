@@ -4,6 +4,12 @@
 #include "deck.h"
 #include "../Random.h"
 
+namespace Settings
+{
+    int player_max {21}; // value after which player will bust
+    int dealer_stop {17}; // value after which dealer can't draw any more cards
+}
+
 
 struct Player
 {
