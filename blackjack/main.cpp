@@ -6,7 +6,7 @@
 
 namespace Settings
 {
-    int player_max {21}; // value after which player will bust
+    int bust {21}; // value after which player will bust
     int dealer_stop {17}; // value after which dealer can't draw any more cards
 }
 
@@ -15,6 +15,17 @@ struct Player
 {
     int score{0};
 };
+
+bool dealer_turn(Deck& deck, Player& dealer)
+{
+    while(dealer.score < Settings::dealer_stop)
+    {
+        Card card { deck.deal_card() };
+        dealer.score += card.value();
+        std::cout << "The dealer flips a " << card << ".\tThey now have: " << dealer.score << "\n";
+    }
+    return dealer.score > Settings::bust; // returns if dealer went bust
+}
 
 bool play_blackjack()
 {
@@ -27,6 +38,10 @@ bool play_blackjack()
 
     std::cout << "The dealer is showing: " << dealer.score << "\n";
     std::cout << "You have score: " << user.score << "\n";
+
+    bool bust { dealer_turn(deck, dealer) };
+    if (bust)
+        std::cout << "The dealer went bust!\n";
 
     return user.score > dealer.score;
 }
