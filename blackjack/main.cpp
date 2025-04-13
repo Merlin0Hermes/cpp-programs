@@ -69,12 +69,11 @@ bool play_blackjack()
     std::cout << "The dealer is showing: " << dealer.score << "\n";
     std::cout << "You have score: " << user.score << "\n";
 
-    bool user_bust { user_turn(deck, user) };
-    if (user_bust == true)
+
+    if (user_turn(deck, user) == true) // check if player bust
         return false;
     
-    bool dealer_bust { dealer_turn(deck, dealer) };
-    if (dealer_bust == true)
+    if (dealer_turn(deck, dealer) == true) // check if dealer bust
         return true;
         
     return user.score > dealer.score;
