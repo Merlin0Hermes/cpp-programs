@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include "deck.h"
-#include "../Random.h"
 
 namespace Settings
 {

@@ -1,10 +1,9 @@
-#include <iostream>
 #include <array>
 #include <algorithm>
 #include <string_view>
 #include <cassert>
-#include "deck.h"
 #include "../Random.h"
+#include "deck.h"
 
 
 std::string_view to_symbol(Card::Rank rank)
