@@ -7,8 +7,8 @@
 
 namespace Settings
 {
-    int bust {21}; // value after which player will bust
-    int dealer_stop {17}; // value after which dealer can't draw any more cards
+    constexpr int bust {21}; // value after which player will bust
+    constexpr int dealer_stop {17}; // value after which dealer can't draw any more cards
 }
 
 
