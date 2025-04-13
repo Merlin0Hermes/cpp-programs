@@ -67,13 +67,8 @@ public:
     {
         std::size_t i = 0;
         for (auto s: Card::all_suits)
-        {
             for (auto r: Card::all_ranks)
-            {
-                m_deck[i] = Card{r, s};
-                ++i;
-            }
-        }
+                m_deck[i++] = Card{r, s}; 
     }
 
     Card deal_card(); // return the next card in deck 
