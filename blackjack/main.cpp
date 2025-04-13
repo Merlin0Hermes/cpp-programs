@@ -26,12 +26,19 @@ struct Player
 
     void consume_ace()
     {
-        if (score > Settings::bust && ace_count > 0)
+        while (score > Settings::bust && ace_count > 0)
         {
             score -= 10;
             --ace_count;
         }
     }
+};
+
+enum GameStatus
+{
+    lose,
+    win,
+    tie,
 };
 
 bool dealer_turn(Deck& deck, Player& dealer)
@@ -90,12 +97,15 @@ bool play_blackjack()
     Deck deck {};
     deck.shuffle();
 
-    Player dealer { deck.deal_card().value() }; // deal a card for dealer
+    Card dealer_card { deck.deal_card() }; // deal a card for dealer
+    Player dealer { dealer_card.value() };
     
-    Player user { deck.deal_card().value() + deck.deal_card().value() }; // deal two cards for user
+    Card user_card1 { deck.deal_card() };
+    Card user_card2 { deck.deal_card() };
+    Player user { user_card1.value() + user_card2.value() };
 
-    std::cout << "The dealer is showing: " << dealer.score << "\n";
-    std::cout << "You have score: " << user.score << "\n";
+    std::cout << "The dealer is showing: " << dealer_card <<" (" << dealer.score << ")" "\n";
+    std::cout << "You are showing: " << user_card1 << " " << user_card2 << " (" << user.score << ")" << "\n";
 
 
     if (user_turn(deck, user) == true) // check if player bust
