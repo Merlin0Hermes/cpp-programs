@@ -92,7 +92,7 @@ bool user_turn(Deck& deck, Player& user)
 }
 
 
-bool play_blackjack()
+GameStatus play_blackjack()
 {
     Deck deck {};
     deck.shuffle();
@@ -109,22 +109,29 @@ bool play_blackjack()
 
 
     if (user_turn(deck, user) == true) // check if player bust
-        return false;
+        return GameStatus::lose;
     
     if (dealer_turn(deck, dealer) == true) // check if dealer bust
-        return true;
+        return GameStatus::win;
+    
+    if (user.score == dealer.score)
+        return GameStatus::tie;
         
-    return user.score > dealer.score;
+    return user.score > dealer.score ? GameStatus::win : GameStatus::lose;
 }
 
 
 int main()
 {
-    bool won { play_blackjack() };
+    GameStatus result { play_blackjack() };
 
-    if (won)
+    if (result == GameStatus::win)
         std::cout << "You win!\n";
-    else
+    else if (result == GameStatus::lose)
         std::cout << "You lose!\n";
+    else if (result == GameStatus::tie)
+        std::cout << "It's a tie.\n";
+
+    return 0;
 
 }
