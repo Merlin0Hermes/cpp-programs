@@ -3,6 +3,7 @@
 #include <cassert>
 #include <iostream>
 #include <limits>
+#include <functional>
 
 void ignore_line()
 {
@@ -87,6 +88,7 @@ int divide(int a, int b)
 
 int main()
 {
+    using ArithmeticFunction = std::function<int (int, int)>;
     get_number();
     get_operator();
     get_number();
