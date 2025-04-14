@@ -5,6 +5,8 @@
 #include <limits>
 #include <functional>
 
+using ArithmeticFunction = std::function<int (int, int)>;
+
 void ignore_line()
 {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -85,10 +87,25 @@ int divide(int a, int b)
     return a / b;
 }
 
+ArithmeticFunction get_arithmetic_function(char opt)
+{
+    switch(opt)
+    {
+        case '+':
+            return &add;
+        case '-':
+            return &subtract;
+        case '*':
+            return &multiply;
+        case '/':
+            return &divide;
+        default:
+            return nullptr;
+    }
+}
 
 int main()
 {
-    using ArithmeticFunction = std::function<int (int, int)>;
     get_number();
     get_operator();
     get_number();
