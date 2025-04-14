@@ -2,6 +2,8 @@
 
 void to_binary(int n)
 {
+    if (n < 0)
+        n = -n;
     if (n == 0)
         return;
     to_binary(n / 2);
@@ -16,4 +18,7 @@ int main()
     std::cin >> num;
 
     to_binary(num);
+    std::cout << "\n";
+
+    return 0;
 }
