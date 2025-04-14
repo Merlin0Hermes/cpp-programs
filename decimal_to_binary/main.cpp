@@ -1,13 +1,36 @@
+#include <boost/dynamic_bitset/dynamic_bitset.hpp>
 #include <iostream>
+#include <cmath>
+#include <boost/dynamic_bitset.hpp>  // boost library for dynamic bitset
 
-void to_binary(int n)
+
+int bits_needed(int n)
 {
     if (n < 0)
         n = -n;
-    if (n == 0)
-        return;
-    to_binary(n / 2);
-    std::cout << n % 2;
+
+    if (n == 0 || n == 1)
+        return 1;
+
+    return static_cast<int>(std::floor(std::log2(n))) + 1;
+
+}
+
+auto to_binary(int n)
+{
+    int bit { bits_needed(n) };
+    
+    boost::dynamic_bitset<> bits(bit);
+    
+    while (n != 0)
+    {
+        --bit;
+        if (n % 2)
+            bits.set(bit);
+        n /= 2;
+    }
+
+    return bits;
 }
 
 
@@ -17,7 +40,12 @@ int main()
     int num{};
     std::cin >> num;
 
-    to_binary(num);
+    auto binary { to_binary(num) };
+    
+    for (std::size_t i{0}; i < binary.size(); ++i)
+        std::cout << binary[i];
+    
+
     std::cout << "\n";
 
     return 0;
