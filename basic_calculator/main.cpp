@@ -1,6 +1,12 @@
 // basic calculator using function pointers
 
 #include <iostream>
+#include <limits>
+
+void ignore_line()
+{
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+}
 
 int get_number()
 {
@@ -13,11 +19,35 @@ int get_number()
 
 char get_operator()
 {
-    std::cout << "Enter operator (+, -, *, /): ";
-    char opt{};
-    std::cin >> opt;
+    while (true)
+    {
+        std::cout << "Enter operator (+, -, *, /): ";
+        char opt{};
+        std::cin >> opt;    
+        
+        if (!std::cin)
+        {
+            std::cin.clear();
+            ignore_line();
+            continue;
+        }
 
-    return opt;
+        if (!std::cin.eof() && std::cin.peek() != '\n')
+        {
+            ignore_line();
+            continue;
+        }
+
+        switch (opt) 
+        {
+            case '+': case '-':
+            case '*': case '/':
+                return opt;
+            default:
+                ignore_line();
+                continue;
+        }
+    }
 }
 
 
