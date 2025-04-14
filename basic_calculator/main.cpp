@@ -99,9 +99,8 @@ ArithmeticFunction get_arithmetic_function(char opt)
             return &multiply;
         case '/':
             return &divide;
-        default:
-            return nullptr;
     }
+    return nullptr;
 }
 
 int main()
