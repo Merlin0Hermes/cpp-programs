@@ -105,9 +105,14 @@ ArithmeticFunction get_arithmetic_function(char opt)
 
 int main()
 {
-    get_number();
-    get_operator();
-    get_number();
+    int a { get_number() };
+    char opt { get_operator() };
+    int b { get_number() };
+
+    auto func { get_arithmetic_function(opt) };
+    
+    if (func)
+        std::cout << a << " " << opt << " " << b << " = " << func(a, b) << "\n";
 
     return 0;
 }
