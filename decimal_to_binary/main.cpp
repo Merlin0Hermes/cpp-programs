@@ -11,6 +11,9 @@ void to_binary(int n)
 
 int main()
 {
-    to_binary(5);
-    return 0;
+    std::cout << "Enter an integer: ";
+    int num{};
+    std::cin >> num;
+
+    to_binary(num);
 }
