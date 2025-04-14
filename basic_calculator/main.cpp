@@ -10,11 +10,21 @@ void ignore_line()
 
 int get_number()
 {
-    std::cout << "Enter an integer: ";
-    int num{};
-    std::cin >> num;
+    while (true)
+    {
+        std::cout << "Enter an integer: ";
+        int num{};
+        std::cin >> num;
 
-    return num;
+        if (!std::cin)
+        {
+            std::cin.clear();
+            ignore_line();
+            continue;
+        }
+
+        return num;
+    }
 }
 
 char get_operator()
