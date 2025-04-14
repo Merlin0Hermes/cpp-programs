@@ -1,5 +1,6 @@
 // basic calculator using function pointers
 
+#include <cassert>
 #include <iostream>
 #include <limits>
 
@@ -58,6 +59,29 @@ char get_operator()
                 continue;
         }
     }
+}
+
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int subtract(int a, int b)
+{
+    return a - b;
+}
+
+int multiply(int a, int b)
+{
+    return a * b;
+}
+
+int divide(int a, int b)
+{
+    assert(b != 0 && "can't divide by 0");
+    
+    return a / b;
 }
 
 
