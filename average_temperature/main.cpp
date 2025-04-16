@@ -18,9 +18,13 @@ int main()
       { "Winter", 263.0 } }
   };
 
-  /*
-   * Use std::sort here
-   */
+  auto func {
+    [] (const Season& a, const Season& b)
+    {
+        return a.averageTemperature < b.averageTemperature;
+    }
+  };
+  
 
   for (const auto& season : seasons)
   {
