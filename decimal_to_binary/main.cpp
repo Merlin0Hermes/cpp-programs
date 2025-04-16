@@ -1,10 +1,11 @@
 #include <boost/dynamic_bitset/dynamic_bitset.hpp>
 #include <iostream>
 #include <cmath>
+#include <cstdint>
 #include <boost/dynamic_bitset.hpp>  // boost library for dynamic bitset
 
 
-int bits_needed(unsigned int n)
+int bits_needed(std::uint64_t n)
 {
     if (n < 0)
         n = -n;
@@ -16,7 +17,7 @@ int bits_needed(unsigned int n)
 
 }
 
-auto to_binary(unsigned int n)
+auto to_binary(std::uint64_t n)
 {
     int bit { bits_needed(n) };
     
