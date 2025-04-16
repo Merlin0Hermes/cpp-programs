@@ -1,5 +1,7 @@
 #include <string>
 #include <array>
+#include <algorithm>
+#include <iostream>
 
 struct Student
 {
@@ -29,5 +31,10 @@ int main()
     } 
     };
 
+    auto best_student { std::max_element(arr.begin(), arr.end(), func) };
+
+    std::cout << best_student->name << " is the best student.\n";
+
+    return 0;
 
 }
