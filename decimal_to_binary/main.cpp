@@ -5,21 +5,20 @@
 #include <boost/dynamic_bitset.hpp>  // boost library for dynamic bitset
 
 
-int bits_needed(std::uint64_t n)
+std::size_t bits_needed(std::uint64_t n)
 {
-    if (n < 0)
-        n = -n;
 
     if (n == 0 || n == 1)
         return 1;
 
-    return static_cast<int>(std::floor(std::log2(n))) + 1;
+    std::size_t size { static_cast<std::size_t>(std::floor(std::log2(n)))};
+    return (size == 64) ? size : size + 1;
 
 }
 
 auto to_binary(std::uint64_t n)
 {
-    int bit { bits_needed(n) };
+    std::size_t bit { bits_needed(n) };
     
     boost::dynamic_bitset<> bits(bit);
     
