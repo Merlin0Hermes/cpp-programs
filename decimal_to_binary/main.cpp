@@ -4,7 +4,7 @@
 #include <boost/dynamic_bitset.hpp>  // boost library for dynamic bitset
 
 
-int bits_needed(int n)
+int bits_needed(unsigned int n)
 {
     if (n < 0)
         n = -n;
@@ -16,7 +16,7 @@ int bits_needed(int n)
 
 }
 
-auto to_binary(int n)
+auto to_binary(unsigned int n)
 {
     int bit { bits_needed(n) };
     
