@@ -12,9 +12,7 @@ public:
     :numerator { x }
     ,denominator { y }
     {
-        int gcd { std::gcd(numerator, denominator) };
-        numerator /= gcd;
-        denominator /= gcd;
+        reduce();
     }
 
     void getFraction()
