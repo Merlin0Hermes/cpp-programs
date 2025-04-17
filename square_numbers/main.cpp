@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <cctype>
+#include <cmath>
 #include <iostream>
 #include <limits>
 #include <vector>
@@ -31,6 +32,16 @@ int get_num()
     }
 }
 
+int closest_element(const std::vector<int>& vec, int n)
+{
+    return *std::min_element(vec.begin(), vec.end(),
+    [n](int a, int b)
+    {
+        return std::abs(a - n) < std::abs(b - n);
+    });
+}
+
+
 void play_game(int start, int n)
 {
     int mult { Random::get(Settings::min_mult, Settings::max_mult) };
@@ -52,7 +63,7 @@ void play_game(int start, int n)
 
         if (found == squares.end())
         {
-            std::cout << guess << " is wrong!\n";
+            std::cout << guess << " is wrong! Try " << closest_element(squares, guess) << " next time.\n";
             return;
         }
         else 
