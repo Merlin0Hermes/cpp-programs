@@ -21,28 +21,51 @@ public:
         std::cin >> denominator;
     }
 
-    Fraction multiply(Fraction other)
-    {
-        return Fraction{numerator * other.numerator, denominator * other.denominator };
-    }
+    friend Fraction operator*(const Fraction& f1, const Fraction& f2);
+    friend Fraction operator*(const Fraction& f, int n);
+    friend Fraction operator*(int n, const Fraction& f);
 
     void print()
     {
         std::cout << numerator << "/" << denominator << "\n";
     }
-
-
 };
 
+Fraction operator*(const Fraction& f1, const Fraction& f2)
+{
+    return Fraction {f1.numerator * f2.numerator, f1.denominator * f2.denominator };
+}
+
+Fraction operator*(const Fraction& f, int n)
+{
+    return Fraction {f.numerator * n, f.denominator};
+}
+
+Fraction operator*(int n, const Fraction& f)
+{
+    return Fraction { f * n };
+}
 
 
 int main()
 {
-    Fraction f1{ 1, 4 };
+    Fraction f1{2, 5};
     f1.print();
 
-    Fraction f2{ 1, 2 };
+    Fraction f2{3, 8};
     f2.print();
+
+    Fraction f3{ f1 * f2 };
+    f3.print();
+
+    Fraction f4{ f1 * 2 };
+    f4.print();
+
+    Fraction f5{ 2 * f2 };
+    f5.print();
+
+    Fraction f6{ Fraction{1, 2} * Fraction{2, 3} * Fraction{3, 4} };
+    f6.print();
 
     return 0;
 }
