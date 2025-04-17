@@ -6,6 +6,13 @@
 #include "../Random.h"
 
 
+namespace Settings 
+{
+    constexpr int min_mult{2}; // inclusive
+    constexpr int max_mult{4}; // inclusive
+}
+
+
 int get_num()
 {
     while (true)
@@ -26,7 +33,7 @@ int get_num()
 
 void play_game(int start, int n)
 {
-    int mult { Random::get(2, 4) };
+    int mult { Random::get(Settings::min_mult, Settings::max_mult) };
 
     std::vector<int> squares(n);
     
