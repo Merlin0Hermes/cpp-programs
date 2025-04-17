@@ -35,8 +35,11 @@ public:
     void reduce()
     {
         int gcd { std::gcd(numerator, denominator) };
-        numerator /= gcd;
-        denominator /= gcd;
+        if (gcd)
+        {
+            numerator /= gcd;
+            denominator /= gcd;            
+        }
     }
 };
 
