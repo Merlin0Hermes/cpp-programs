@@ -1,4 +1,5 @@
 #include <iostream>
+#include <numeric>
 
 class Fraction
 {
@@ -28,6 +29,13 @@ public:
     void print()
     {
         std::cout << numerator << "/" << denominator << "\n";
+    }
+
+    void reduce()
+    {
+        int gcd { std::gcd(numerator, denominator) };
+        numerator /= gcd;
+        denominator /= gcd;
     }
 };
 
