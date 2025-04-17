@@ -32,10 +32,11 @@ int get_num()
     }
 }
 
-int closest_element(const std::vector<int>& vec, int n)
+template<typename T>
+T closest_element(const std::vector<T>& vec, T n)
 {
     return *std::min_element(vec.begin(), vec.end(),
-    [n](int a, int b)
+    [n](T a, T b)
     {
         return std::abs(a - n) < std::abs(b - n);
     });
