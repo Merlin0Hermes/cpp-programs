@@ -29,6 +29,9 @@ public:
 
     friend std::ostream& operator<<(std::ostream& out, const Fraction& f);
 
+    friend bool operator==(const Fraction& f1, const Fraction& f2);
+    friend bool operator<(const Fraction& f1, const Fraction& f2);
+
     void print()
     {
         std::cout << m_numerator << "/" << m_denominator << "\n";
@@ -78,6 +81,19 @@ std::istream& operator>>(std::istream& in, Fraction& f)
         f = Fraction {n, d};
     return in;
 }   
+
+
+bool operator==(const Fraction& f1, const Fraction& f2)
+{
+    return (f1.m_numerator == f2.m_numerator) && (f1.m_denominator == f2.m_denominator);
+}
+
+bool operator!=(const Fraction& f1, const Fraction& f2)
+{
+    return !(f1 == f2);
+}
+
+
 
 
 int main()
