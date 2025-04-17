@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
+#include <string_view>
 #include <vector>
 
 
@@ -13,7 +14,7 @@ struct StudentGrade
 class GradeMap
 {
 public:
-    char& operator[](std::string index)
+    char& operator[](std::string_view index)
     {
         auto found { std::find_if(m_list.begin(), m_list.end(), 
         [index] (StudentGrade s){return s.name == index;}
@@ -21,7 +22,7 @@ public:
 
         if (found == m_list.end())
         {
-            m_list.push_back(StudentGrade{index});
+            m_list.emplace_back(std::string{index});
             return m_list.back().grade;
         }
         else
