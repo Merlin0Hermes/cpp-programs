@@ -4,59 +4,81 @@
 class Fraction
 {
 private:
-    int numerator{ 0 };
-    int denominator{ 1 };
+    int m_numerator{ 0 };
+    int m_denominator{ 1 };
 
 public:
-    explicit Fraction(int x=0, int y=1)
-    :numerator { x }
-    ,denominator { y }
+    explicit Fraction(int numerator=0, int denominator=1)
+    :m_numerator { numerator }
+    ,m_denominator { denominator }
     {
         reduce();
     }
 
     void getFraction()
     {
-        std::cout << "Enter a value for numerator: ";
-        std::cin >> numerator;
-        std::cout << "Enter a value for denominator: ";
-        std::cin >> denominator;
+        std::cout << "Enter a value for m_numerator: ";
+        std::cin >> m_numerator;
+        std::cout << "Enter a value for m_denominator: ";
+        std::cin >> m_denominator;
     }
 
     friend Fraction operator*(const Fraction& f1, const Fraction& f2);
     friend Fraction operator*(const Fraction& f, int n);
     friend Fraction operator*(int n, const Fraction& f);
 
+    friend std::ostream& operator<<(std::ostream& out, const Fraction& f);
+    friend std::istream& operator>>(std::istream& in, Fraction& f);
+
     void print()
     {
-        std::cout << numerator << "/" << denominator << "\n";
+        std::cout << m_numerator << "/" << m_denominator << "\n";
     }
 
     void reduce()
     {
-        int gcd { std::gcd(numerator, denominator) };
+        int gcd { std::gcd(m_numerator, m_denominator) };
         if (gcd)
         {
-            numerator /= gcd;
-            denominator /= gcd;            
+            m_numerator /= gcd;
+            m_denominator /= gcd;            
         }
     }
 };
 
 Fraction operator*(const Fraction& f1, const Fraction& f2)
 {
-    return Fraction {f1.numerator * f2.numerator, f1.denominator * f2.denominator };
+    return Fraction {f1.m_numerator * f2.m_numerator, f1.m_denominator * f2.m_denominator };
 }
 
 Fraction operator*(const Fraction& f, int n)
 {  
-    return Fraction {f.numerator * n, f.denominator};
+    return Fraction {f.m_numerator * n, f.m_denominator};
 }
 
 Fraction operator*(int n, const Fraction& f)
 {
     return Fraction { f * n };
 }
+
+std::ostream& operator<<(std::ostream& out, const Fraction& f)
+{
+    return (std::cout << f.m_numerator << "/" << f.m_denominator);
+}
+
+std::istream& operator>>(std::istream& in, Fraction& f)
+{
+    int n{}, d{};
+    char discard{};
+    in >> n >> discard >> d;
+
+    if (d == 0 || discard != '/')
+        std::cin.setstate(std::ios_base::failbit);
+
+    if (std::cin)
+        f = Fraction {n, d};
+    return in;
+}   
 
 
 int main()
