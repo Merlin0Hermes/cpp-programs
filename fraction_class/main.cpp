@@ -28,7 +28,6 @@ public:
     friend Fraction operator*(int n, const Fraction& f);
 
     friend std::ostream& operator<<(std::ostream& out, const Fraction& f);
-    friend std::istream& operator>>(std::istream& in, Fraction& f);
 
     void print()
     {
