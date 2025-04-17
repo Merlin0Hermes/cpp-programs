@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cassert>
 #include <cctype>
 #include <cmath>
 #include <iostream>
@@ -101,6 +102,7 @@ int main()
     
     std::cout << "How many? ";
     int quantiy { get_num() };
+    assert(quantiy > 0 && "Quantity can't be 0 or negative");
 
     play_game(start, quantiy);
 
