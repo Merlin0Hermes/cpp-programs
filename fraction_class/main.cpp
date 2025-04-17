@@ -17,9 +17,9 @@ public:
 
     void getFraction()
     {
-        std::cout << "Enter a value for m_numerator: ";
+        std::cout << "Enter a value for numerator: ";
         std::cin >> m_numerator;
-        std::cout << "Enter a value for m_denominator: ";
+        std::cout << "Enter a value for denominator: ";
         std::cin >> m_denominator;
     }
 
