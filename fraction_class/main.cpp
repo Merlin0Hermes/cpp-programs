@@ -38,15 +38,11 @@ public:
 
 int main()
 {
-    Fraction f1{};
-    f1.getFraction();
+    Fraction f1{ 1, 4 };
+    f1.print();
 
-    Fraction f2{};
-    f2.getFraction();
-
-    std::cout << "Your fractions multiplied together: ";
-
-    f1.multiply(f2).print();
+    Fraction f2{ 1, 2 };
+    f2.print();
 
     return 0;
 }
