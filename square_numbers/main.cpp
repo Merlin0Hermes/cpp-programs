@@ -75,6 +75,7 @@ void play_game(int start, int n)
 
     while (true)
     {
+        std::cout << "> ";
         int guess { get_num() };
 
         if (find_and_erase(squares, guess))
