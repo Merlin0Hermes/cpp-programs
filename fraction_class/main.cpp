@@ -44,16 +44,12 @@ public:
 
 Fraction operator*(const Fraction& f1, const Fraction& f2)
 {
-    Fraction fraction {f1.numerator * f2.numerator, f1.denominator * f2.denominator };
-    fraction.reduce();
-    return fraction;
+    return Fraction {f1.numerator * f2.numerator, f1.denominator * f2.denominator };
 }
 
 Fraction operator*(const Fraction& f, int n)
 {  
-    Fraction fraction {f.numerator * n, f.denominator};
-    fraction.reduce();
-    return fraction;
+    return Fraction {f.numerator * n, f.denominator};
 }
 
 Fraction operator*(int n, const Fraction& f)
