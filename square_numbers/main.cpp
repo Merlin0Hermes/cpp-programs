@@ -66,12 +66,28 @@ bool find_and_erase(std::vector<T>& vec, T element)
     return true;
 }
 
+template <typename T>
+void print_success(const std::vector<T>& vec)
+{
+    std::cout << "Nice! ";
+
+    if (vec.size() == 0)
+        std::cout << "You found all numbers, good job!\n";
+
+    std::cout << vec.size() << " number(s) left.\n";
+}
+
+template <typename T>
+void print_failure(const std::vector<T>& vec, T guess)
+{
+    std::cout << guess << " is wrong! Try " << closest_element(vec, guess) << " next time.\n";
+}
 
 void play_game(int start, int n)
 {
     int mult { Random::get(Settings::min_mult, Settings::max_mult) };
 
-    std::vector squares { generate_numbers(start, n, mult) };
+    std::vector numbers { generate_numbers(start, n, mult) };
     std::cout << "I generated " << n << " square numbers. Do you know what each number is after multiplying it by " << mult << "?\n";
 
     while (true)
@@ -79,19 +95,11 @@ void play_game(int start, int n)
         std::cout << "> ";
         int guess { get_num() };
 
-        if (find_and_erase(squares, guess))
-        {
-            if (squares.empty())
-                break;
-            std::cout << "Nice! " << squares.size() << " number(s) left.\n";
-        }
+        if (find_and_erase(numbers, guess))
+            print_success(numbers);
         else 
-        {
-            std::cout << guess << " is wrong! Try " << closest_element(squares, guess) << " next time.\n";
-            return;
-        }
-    }
-    std::cout << "Nice! You found all numbers, good job!\n";
+            print_failure(numbers, guess);
+    }   
 }
 
 
