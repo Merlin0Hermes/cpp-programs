@@ -65,7 +65,7 @@ Fraction operator*(int n, const Fraction& f)
 
 std::ostream& operator<<(std::ostream& out, const Fraction& f)
 {
-    return (std::cout << f.m_numerator << "/" << f.m_denominator);
+    return (out << f.m_numerator << "/" << f.m_denominator);
 }
 
 std::istream& operator>>(std::istream& in, Fraction& f)
