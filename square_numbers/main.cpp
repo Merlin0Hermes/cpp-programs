@@ -42,18 +42,24 @@ T closest_element(const std::vector<T>& vec, T n)
     });
 }
 
+template<typename T, typename U>
+std::vector<T> generate_numbers(T start, std::size_t n, U mult)
+{
+    std::vector<T> vec(n);
+    for (std::size_t i {0}; i < n; ++i)
+    {
+        vec[i] = ((start * start) * mult);
+        ++start;
+    }    
+    return vec;
+}
+
 
 void play_game(int start, int n)
 {
     int mult { Random::get(Settings::min_mult, Settings::max_mult) };
 
-    std::vector<int> squares(n);
-    
-    for (int i {0}; i < n; ++i)
-    {
-        squares[i] = ((start * start) * mult);
-        ++start;
-    }
+    std::vector squares { generate_numbers(start, n, mult) };
 
     std::cout << "I generated " << n << " square numbers. Do you know what each number is after multiplying it by " << mult << "?\n";
 
