@@ -1,4 +1,5 @@
 #include <cassert>
+#include <cstddef>
 #include <iostream>
 #include <utility>
 
@@ -10,7 +11,20 @@ public:
     :m_length{ length }
     {
         assert(length > 0);
-        m_array = {new int[length]{}};
+        m_array = {new int[length]};
+    }
+
+    IntArray(const IntArray& source)
+    {
+        delete[] m_array;
+        
+        assert(source.m_length > 0);
+
+        m_length = source.m_length;
+        m_array = {new int[m_length]};
+
+        for (std::size_t i {0}; i < static_cast<std::size_t>(m_length); ++i)
+            m_array[i] = source.m_array[i];
     }
 
     ~IntArray()
