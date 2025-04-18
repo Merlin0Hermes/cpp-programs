@@ -8,6 +8,7 @@ public:
     Average(int sum = 0, int total = 0): m_sum(sum), m_total(total) { }
     
     friend std::ostream& operator<< (std::ostream& out, const Average& avg);
+    Average& operator+= (std::int32_t n);
 
 private:
     std::uint32_t m_sum{};
@@ -18,6 +19,14 @@ private:
 std::ostream& operator<< (std::ostream& out, const Average& avg)
 {
     return out << (static_cast<double>(avg.m_sum) / avg.m_total);
+}
+
+Average& Average::operator+= (std::int32_t n)
+{
+    m_sum += n;
+    ++m_total;
+
+    return *this;
 }
 
 int main()
