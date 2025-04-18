@@ -30,9 +30,9 @@ private:
 };
 
 
-std::ostream& operator<<(std::ostream& out, FixedPoint2 num)
+std::ostream& operator<<(std::ostream& out, const FixedPoint2& fp)
 {
-    out << static_cast<double>(num);
+    out << static_cast<double>(fp);
     return out;
 }
 
