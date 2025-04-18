@@ -17,6 +17,9 @@ public:
 
     IntArray(const IntArray& source)
     {
+        if (this == &source)
+            return;
+
         delete[] m_array;
         
         assert(source.m_length > 0);
@@ -36,12 +39,15 @@ public:
 
     const int& operator[](int index) const;
     int& operator[](int index);
+    IntArray& operator=(const IntArray& source);
 
     friend std::ostream& operator<<(std::ostream& out, IntArray arr);
 
 private:
     int* m_array{ nullptr };
     int m_length{};
+
+
 };
 
 
@@ -69,6 +75,24 @@ int& IntArray::operator[](int index)
 {
     return const_cast<int&>(std::as_const(*this)[index]);
 }
+
+
+IntArray& IntArray::operator=(const IntArray& source)
+{
+    if (this == &source)
+        return *this;
+    assert(source.m_length > 0);
+
+    delete[] m_array;
+
+    m_length = source.m_length;
+    m_array = {new int[m_length]};
+
+    for (int i {0}; i < m_length; ++i)
+        m_array[i] = source.m_array[i];
+    return *this;
+}
+
 
 IntArray fillArray()
 {
