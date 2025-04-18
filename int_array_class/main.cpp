@@ -1,5 +1,6 @@
 #include <cassert>
 #include <iostream>
+#include <utility>
 
 
 class IntArray
@@ -17,12 +18,27 @@ public:
         delete[] m_array;
     }
 
+    const int& operator[](int index) const;
+    int& operator[](int index);
+
 private:
     int* m_array{ nullptr };
     int m_length{};
 };
 
 
+const int& IntArray::operator[](int index) const
+{
+    assert(index >= 0);
+    assert(index < m_length && "Index out of bounds");
+
+    return m_array[index];
+}
+
+int& IntArray::operator[](int index)
+{
+    return const_cast<int&>(std::as_const(*this)[index]);
+}
 
 IntArray fillArray()
 {
