@@ -18,6 +18,8 @@ private:
 
 std::ostream& operator<< (std::ostream& out, const Average& avg)
 {
+    if (avg.m_total == 0)
+        return out << 0;
     return out << (static_cast<double>(avg.m_sum) / avg.m_total);
 }
 
