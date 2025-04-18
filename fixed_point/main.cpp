@@ -17,6 +17,8 @@ public:
             if (m_fractional > 0)
                 m_fractional = -m_fractional;
         }
+
+        reduce();
     }
 
     explicit operator double() const
@@ -29,7 +31,29 @@ public:
 private:
     std::int16_t m_base{};
     std::int8_t m_fractional{};
+
+    void reduce();
 };
+
+// reduce the fractional part if it is greater than 99 
+// (for both positive and negative FixedPoint2 numbers)
+void FixedPoint2::reduce()
+{
+    while (m_fractional > 99 || m_fractional < -99)
+    {
+        if (m_fractional > 99) // positive case
+        {
+            m_fractional -= 100;
+            ++m_base;
+
+        }  
+        else if (m_fractional < -99) // negative case
+        {
+            m_fractional += 100;
+            --m_base;
+        }
+    }
+}
 
 
 std::ostream& operator<<(std::ostream& out, const FixedPoint2& fp)
