@@ -1,4 +1,5 @@
 #include <cassert>
+#include <cstddef>
 #include <iostream>
 #include <string>
 #include <string_view>
@@ -9,16 +10,22 @@ public:
     MyString(std::string_view str): m_str {str} { }
 
     friend std::ostream& operator<< (std::ostream& out, const MyString& str);
-    std::string operator() (int index, int length);
+    MyString operator() (int index, int length);
     
 private:
     std::string m_str{};
 };
 
-std::string MyString::operator() (int index, int length)
+MyString MyString::operator() (int index, int length)
 {
     assert(index >= 0 && length >= 0);
-    return m_str.substr(index, length);
+    assert(index + length <= static_cast<int>(m_str.size()) && "Substring is out of range");
+
+
+    return MyString {m_str.substr(
+        static_cast<std::string::size_type>(index),
+        static_cast<std::string::size_type>(length)
+    )};
 }
 
 
