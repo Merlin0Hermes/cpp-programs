@@ -1,3 +1,16 @@
+#include <iostream>
+#include <cstdint>
+
+class Average
+{
+public:
+    
+private:
+    std::uint32_t m_sum{};
+    int m_total{};
+};
+
+
 int main()
 {
 	Average avg{};
