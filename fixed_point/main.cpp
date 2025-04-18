@@ -1,5 +1,22 @@
 #include <iostream>
 #include <cassert>
+#include <cstdint>
+
+
+class FixedPoint2
+{
+    FixedPoint2(std::int16_t number, std::int8_t fractional)
+    :m_number(number)
+    ,m_fractional(fractional)
+    {
+    }
+
+    
+
+private:
+    std::int16_t m_number{};
+    std::int8_t m_fractional{};
+};
 
 
 
