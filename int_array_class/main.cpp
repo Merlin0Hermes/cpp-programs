@@ -47,14 +47,11 @@ private:
 
 std::ostream& operator<<(std::ostream& out, IntArray arr)
 {
-    bool space {false};
     for (int i {0}; i < arr.m_length; ++i)
     {
-        if (space)
-            out << " ";
         out << arr[i];
-        
-        space = true;
+        if (i < (arr.m_length - 1))
+            out << " ";
     }
     return out;
 }
