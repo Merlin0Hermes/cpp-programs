@@ -10,24 +10,19 @@ public:
     :m_base(base)
     ,m_fractional(fractional)
     {
+        if (m_base < 0 || m_fractional < 0)
+        {
+            if (m_base > 0)
+                m_base = -m_base;
+            if (m_fractional > 0)
+                m_fractional = -m_fractional;
+        }
     }
 
     friend std::ostream& operator<<(std::ostream& out, FixedPoint2 num);
-    operator double()
+    operator double() const
     {
-        std::int16_t temp_base(m_base);
-        std::int8_t temp_fractional{m_fractional};
-
-        if (m_base < 0 || m_fractional < 0)
-        {
-            if (m_base < 0)
-                temp_base = -temp_base;
-            if (m_fractional < 0)
-                temp_fractional = -temp_fractional;
-
-            return -double {temp_base + (temp_fractional / 100.0)};
-        }       
-        return double {temp_base + (temp_fractional / 100.0)};
+        return double {m_base + (m_fractional / 100.0)};
     }
 
 private:
