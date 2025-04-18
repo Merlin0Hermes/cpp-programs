@@ -5,18 +5,41 @@
 
 class FixedPoint2
 {
+public:
     FixedPoint2(std::int16_t number, std::int8_t fractional)
     :m_number(number)
     ,m_fractional(fractional)
     {
     }
 
-    
+    friend std::ostream& operator<<(std::ostream& out, FixedPoint2 num);
+    operator double()
+    {
+        std::int16_t temp_number(m_number);
+        std::int8_t temp_fractional{m_fractional};
+
+        if (m_number < 0 || m_fractional < 0)
+        {
+            if (m_number < 0)
+                temp_number = -temp_number;
+            if (m_fractional < 0)
+                temp_fractional = -temp_fractional;
+
+            return -double {temp_number + (temp_fractional / 100.0)};
+        }       
+        return double {temp_number + (temp_fractional / 100.0)};
+    }
 
 private:
     std::int16_t m_number{};
     std::int8_t m_fractional{};
 };
+
+std::ostream& operator<<(std::ostream& out, FixedPoint2 num)
+{
+    out << static_cast<double>(num);
+    return out;
+}
 
 
 
