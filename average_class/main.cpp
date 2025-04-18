@@ -1,15 +1,24 @@
 #include <iostream>
 #include <cstdint>
+#include <ostream>
 
 class Average
 {
 public:
+    Average(int sum = 0, int total = 0): m_sum(sum), m_total(total) { }
     
+    friend std::ostream& operator<< (std::ostream& out, const Average& avg);
+
 private:
     std::uint32_t m_sum{};
     int m_total{};
 };
 
+
+std::ostream& operator<< (std::ostream& out, const Average& avg)
+{
+    return out << (static_cast<double>(avg.m_sum) / avg.m_total);
+}
 
 int main()
 {
