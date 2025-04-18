@@ -1,4 +1,23 @@
 #include <iostream>
+#include <string>
+#include <string_view>
+
+class MyString
+{
+public:
+    MyString(std::string_view str): m_str {str} { }
+
+    friend std::ostream& operator<<(std::ostream& out, const MyString& str);
+    
+private:
+    std::string m_str{};
+};
+
+
+std::ostream& operator<<(std::ostream& out, const MyString& str)
+{   
+    return out << str.m_str;
+}
 
 
 
