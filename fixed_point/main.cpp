@@ -19,7 +19,6 @@ public:
         }
     }
 
-    friend std::ostream& operator<<(std::ostream& out, FixedPoint2 num);
     explicit operator double() const
     {
         return double {m_base + (m_fractional / 100.0)};
@@ -30,13 +29,12 @@ private:
     std::int8_t m_fractional{};
 };
 
+
 std::ostream& operator<<(std::ostream& out, FixedPoint2 num)
 {
     out << static_cast<double>(num);
     return out;
 }
-
-
 
 int main()
 {
