@@ -12,7 +12,7 @@ public:
     :m_length{ length }
     {
         assert(length > 0);
-        m_array = new int[length];
+        m_array = new int[length]{};
     }
 
     IntArray(const IntArray& source) // copy constructor
@@ -23,6 +23,7 @@ public:
     ~IntArray() // destructor
     {
         delete[] m_array;
+        m_array = nullptr;
     }
 
     const int& operator[](int index) const;
@@ -44,7 +45,7 @@ void IntArray::deep_copy(const IntArray& source)
     assert(source.m_length > 0);
 
     m_length = source.m_length;
-    m_array = new int[static_cast<std::size_t>(m_length)];
+    m_array = new int[static_cast<std::size_t>(m_length)]{};
 
     for (std::size_t i {0}; i < static_cast<std::size_t>(m_length); ++i)
         m_array[i] = source.m_array[i];
