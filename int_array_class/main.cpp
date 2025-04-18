@@ -26,8 +26,6 @@ public:
     ~IntArray() // destructor
     {
         delete[] m_array;
-        m_array = nullptr;
-        m_length = 0;
     }
 
     const int& operator[](int index) const;
