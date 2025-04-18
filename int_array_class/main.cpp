@@ -1,6 +1,7 @@
 #include <cassert>
 #include <cstddef>
 #include <iostream>
+#include <ostream>
 #include <utility>
 
 
@@ -30,15 +31,33 @@ public:
     ~IntArray()
     {
         delete[] m_array;
+        m_array = nullptr;
     }
 
     const int& operator[](int index) const;
     int& operator[](int index);
 
+    friend std::ostream& operator<<(std::ostream& out, IntArray arr);
+
 private:
     int* m_array{ nullptr };
     int m_length{};
 };
+
+
+std::ostream& operator<<(std::ostream& out, IntArray arr)
+{
+    bool space {false};
+    for (int i {0}; i < arr.m_length; ++i)
+    {
+        if (space)
+            out << " ";
+        out << arr[i];
+        
+        space = true;
+    }
+    return out;
+}
 
 
 const int& IntArray::operator[](int index) const
