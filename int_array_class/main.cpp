@@ -1,4 +1,28 @@
+#include <cassert>
 #include <iostream>
+
+
+class IntArray
+{
+public:
+    IntArray(int length)
+    :m_length{ length }
+    {
+        assert(length > 0);
+        m_array = {new int[length]{}};
+    }
+
+    ~IntArray()
+    {
+        delete[] m_array;
+    }
+
+private:
+    int* m_array{ nullptr };
+    int m_length{};
+};
+
+
 
 IntArray fillArray()
 {
