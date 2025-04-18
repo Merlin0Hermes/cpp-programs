@@ -18,8 +18,6 @@ public:
     IntArray(const IntArray& source) // copy constructor
     :m_length(source.m_length)
     {
-        if (this == &source)
-            return;
         deep_copy(source);
     }
 
