@@ -39,20 +39,8 @@ private:
 // (for both positive and negative FixedPoint2 numbers)
 void FixedPoint2::reduce()
 {
-    while (m_fractional > 99 || m_fractional < -99)
-    {
-        if (m_fractional > 99) // positive case
-        {
-            m_fractional -= 100;
-            ++m_base;
-
-        }  
-        else if (m_fractional < -99) // negative case
-        {
-            m_fractional += 100;
-            --m_base;
-        }
-    }
+    m_base += m_fractional / 100; // integer division
+    m_fractional = m_fractional % 100;
 }
 
 
