@@ -22,12 +22,11 @@ public:
         reduce();
     }
 
-    FixedPoint2(double number)
+    FixedPoint2(double n)
+    :FixedPoint2(static_cast<std::int16_t>(std::trunc(n)),
+        static_cast<std::int8_t>(std::round(n * 100) - std::trunc(n) * 100))
     {
-        int n { static_cast<int>(std::round(number * 100)) };
-        m_base = n / 100;
-        m_fractional = n % 100;
-        reduce();
+
     }
 
     explicit operator double() const
