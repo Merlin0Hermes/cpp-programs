@@ -33,6 +33,9 @@ public:
         return double {m_base + (m_fractional / 100.0)};
     }
 
+    FixedPoint2 operator-() const;
+
+    friend FixedPoint2 operator+(const FixedPoint2& fp1, const FixedPoint2& fp2);
     friend bool operator==(const FixedPoint2& fp1, const FixedPoint2& fp2);
     friend std::istream& operator>>(std::istream& in, FixedPoint2& fp);
 
@@ -67,9 +70,21 @@ std::istream& operator>>(std::istream& in, FixedPoint2& fp)
 {
     double temp{};
     in >> temp;
-    FixedPoint2{temp};
+    fp = temp;
     return in;
 }
+
+FixedPoint2 FixedPoint2::operator-() const
+{
+    return FixedPoint2 {static_cast<std::int16_t>(-m_base),
+         static_cast<std::int8_t>(-m_fractional)};
+}
+
+FixedPoint2 operator+(const FixedPoint2& fp1, const FixedPoint2& fp2)
+{   
+    return FixedPoint2{static_cast<double>(fp1) + static_cast<double>(fp2)};
+}
+
 
 
 int main()
