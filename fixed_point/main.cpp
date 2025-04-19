@@ -70,7 +70,7 @@ std::istream& operator>>(std::istream& in, FixedPoint2& fp)
 {
     double temp{};
     in >> temp;
-    fp = temp;
+    fp = FixedPoint2{temp};
     return in;
 }
 
