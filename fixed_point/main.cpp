@@ -33,7 +33,8 @@ public:
         return double {m_base + (m_fractional / 100.0)};
     }
 
-    friend bool operator==(FixedPoint2 )
+    friend bool operator==(const FixedPoint2& fp1, const FixedPoint2& fp2);
+    friend std::istream& operator>>(std::istream& in, FixedPoint2& fp);
 
 private:
     std::int16_t m_base{};
@@ -57,6 +58,18 @@ std::ostream& operator<<(std::ostream& out, const FixedPoint2& fp)
     return out;
 }
 
+bool operator==(const FixedPoint2& fp1, const FixedPoint2& fp2)
+{
+    return (fp1.m_base == fp2.m_base) && (fp1.m_fractional == fp2.m_fractional);
+}
+
+std::istream& operator>>(std::istream& in, FixedPoint2& fp)
+{
+    double temp{};
+    in >> temp;
+    FixedPoint2{temp};
+    return in;
+}
 
 
 int main()
