@@ -76,8 +76,7 @@ std::istream& operator>>(std::istream& in, FixedPoint2& fp)
 
 FixedPoint2 FixedPoint2::operator-() const
 {
-    return FixedPoint2 {static_cast<std::int16_t>(-m_base),
-         static_cast<std::int8_t>(-m_fractional)};
+    return FixedPoint2{ -static_cast<double>(*this)};
 }
 
 FixedPoint2 operator+(const FixedPoint2& fp1, const FixedPoint2& fp2)
