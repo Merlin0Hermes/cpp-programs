@@ -46,5 +46,6 @@ cmake_install.cmake
 *.kdev4
 *.kdev4.*
 *.kdev4.user
+.vscode
 
 
