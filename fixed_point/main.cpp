@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cassert>
 #include <cstdint>
+#include <cmath>
 
 
 class FixedPoint2
@@ -18,6 +19,14 @@ public:
                 m_fractional = -m_fractional;
         }
 
+        reduce();
+    }
+
+    FixedPoint2(double number)
+    {
+        int n { static_cast<int>(std::round(number * 100)) };
+        m_base = n / 100;
+        m_fractional = n % 100;
         reduce();
     }
 
