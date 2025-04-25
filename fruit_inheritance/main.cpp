@@ -32,9 +32,11 @@ public:
 
     friend std::ostream& operator<<(std::ostream& out, const Apple& a)
     {
-        out << "Apple(" << a.name() << ", " << a.color() << ", " << a.m_fiber << ")";
+        out << "Apple(" << a.name() << ", " << a.color() << ", " << a.fiber() << ")";
         return out;
     }
+
+    double fiber() const { return m_fiber; }
 
 private:
     double m_fiber{};
