@@ -21,7 +21,7 @@ private:
     std::string m_color{};
 };
 
-class Apple: Fruit
+class Apple: public Fruit
 {
 public:
     Apple(std::string_view name, std::string_view color, double fiber)
@@ -30,33 +30,33 @@ public:
     {
     }
 
-    friend std::ostream& operator<<(std::ostream& out, const Apple& a)
-    {
-        out << "Apple(" << a.name() << ", " << a.color() << ", " << a.fiber() << ")";
-        return out;
-    }
-
     double fiber() const { return m_fiber; }
 
 private:
     double m_fiber{};
 };
 
+std::ostream& operator<<(std::ostream& out, const Apple& a)
+{
+    out << "Apple(" << a.name() << ", " << a.color() << ", " << a.fiber() << ")";
+    return out;
+}
 
-class Banana: Fruit
+
+class Banana: public Fruit
 {
 public:
     Banana(std::string_view name, std::string_view color)
     :Fruit{name, color}
     {
     }
-
-    friend std::ostream& operator<<(std::ostream& out, const Banana& a)
-    {
-        out << "Banana(" << a.name() << ", " << a.color() << ")";
-        return out;
-    }
 };
+
+std::ostream& operator<<(std::ostream& out, const Banana& a)
+{
+    out << "Banana(" << a.name() << ", " << a.color() << ")";
+    return out;
+}
 
 
 int main()
