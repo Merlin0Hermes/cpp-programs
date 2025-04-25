@@ -32,7 +32,7 @@ public:
 
     friend std::ostream& operator<<(std::ostream& out, const Apple& a)
     {
-        out << "(" << a.name() << ", " << a.color() << ", " << a.m_fiber << ")";
+        out << "Apple(" << a.name() << ", " << a.color() << ", " << a.m_fiber << ")";
         return out;
     }
 
@@ -47,6 +47,12 @@ public:
     Banana(std::string_view name, std::string_view color)
     :Fruit{name, color}
     {
+    }
+
+    friend std::ostream& operator<<(std::ostream& out, const Banana& a)
+    {
+        out << "Banana(" << a.name() << ", " << a.color() << ")";
+        return out;
     }
 };
 
