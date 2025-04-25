@@ -13,6 +13,9 @@ public:
     {
     }
 
+    std::string_view name() const { return m_name; }
+    std::string_view color() const { return m_color; }
+
 private:
     std::string m_name{};
     std::string m_color{};
@@ -27,9 +30,16 @@ public:
     {
     }
 
+    friend std::ostream& operator<<(std::ostream& out, const Apple& a)
+    {
+        out << "(" << a.name() << ", " << a.color() << ", " << a.m_fiber << ")";
+        return out;
+    }
+
 private:
     double m_fiber{};
 };
+
 
 class Banana: Fruit
 {
