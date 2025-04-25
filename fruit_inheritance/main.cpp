@@ -31,6 +31,15 @@ private:
     double m_fiber{};
 };
 
+class Banana: Fruit
+{
+public:
+    Banana(std::string_view name, std::string_view color)
+    :Fruit{name, color}
+    {
+    }
+};
+
 
 int main()
 {
