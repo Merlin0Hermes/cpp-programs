@@ -5,16 +5,12 @@
 #include <iostream>
 #include "Creature.h"
 #include "Player.h"
+#include "Monster.h"
 
 int main()
 {
-    std::cout << "Enter you name: ";
-    std::string name{};
-    std::cin >> name;
-
-    Player o{name};
-    std::cout << "Welcome, " << name << "\n";
-	std::cout << "You have " << o.health() << " health and are carrying " << o.gold() << " gold.\n";
+	Monster m{ Monster::Type::orc };
+	std::cout << "A " << m.name() << " (" << m.symbol() << ") was created.\n";
 
 	return 0;
 }
