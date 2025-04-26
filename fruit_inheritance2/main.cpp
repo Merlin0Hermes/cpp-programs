@@ -28,6 +28,16 @@ public:
     }
 };
 
+class Banana: public Fruit
+{
+public:
+    Banana(std::string_view color = "yellow")
+    :Fruit{"banana", color}
+    {
+    }
+};
+
+
 int main()
 {
 	Apple a{ "red" };
