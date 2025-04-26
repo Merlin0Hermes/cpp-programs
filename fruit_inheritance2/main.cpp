@@ -29,6 +29,11 @@ public:
     :Fruit{"apple", color}
     {
     }
+protected:
+    Apple(std::string_view name, std::string_view color)
+    :Fruit{name, color}
+    {
+    }
 };
 
 class Banana: public Fruit
@@ -40,14 +45,25 @@ public:
     }
 };
 
+class GrannySmith: public Apple
+{
+public:
+    GrannySmith(std::string_view color = "green")
+    :Apple{color}
+    {
+    }
+};
+
 
 int main()
 {
 	Apple a{ "red" };
 	Banana b{};
+    GrannySmith c;
 
 	std::cout << "My " << a.name() << " is " << a.color() << ".\n";
 	std::cout << "My " << b.name() << " is " << b.color() << ".\n";
+    std::cout << "My " << c.name() << " is " << c.color() << ".\n";
 
 	return 0;
 }
