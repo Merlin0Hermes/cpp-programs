@@ -2,6 +2,7 @@
 #define MONSTER_H
 
 #include "Creature.h"
+#include "../Random.h"
 
 class Monster: public Creature
 {
@@ -18,6 +19,11 @@ public:
     explicit Monster(Type type)
     :Creature{monsters[type]}
     {
+    }
+
+    static Type random_monster()
+    {
+        return static_cast<Type>(Random::get(0, static_cast<int>(max_types) - 1));
     }
 
 private:

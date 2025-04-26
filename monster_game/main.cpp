@@ -9,8 +9,11 @@
 
 int main()
 {
-	Monster m{ Monster::Type::orc };
-	std::cout << "A " << m.name() << " (" << m.symbol() << ") was created.\n";
+	for (int i{ 0 }; i < 10; ++i)
+	{
+		Monster m{ Monster::random_monster() };
+		std::cout << "A " << m.name() << " (" << m.symbol() << ") was created.\n";
+	}
 
 	return 0;
 }
