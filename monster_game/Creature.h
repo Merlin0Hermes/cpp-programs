@@ -30,7 +30,7 @@ public:
     bool is_dead() const { return m_health <= 0; } // monster is dead if health <= 0
     void add_gold(int gold) { m_gold += gold; } // adds gold
 
-private:
+protected:
     std::string m_name{};
     char m_symbol{};
     int m_health{};
