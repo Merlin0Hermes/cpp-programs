@@ -18,6 +18,16 @@ private:
     std::string m_color{};
 };
 
+
+class Apple: public Fruit
+{
+public:
+    Apple(std::string_view color)
+    :Fruit{"apple", color}
+    {
+    }
+};
+
 int main()
 {
 	Apple a{ "red" };
