@@ -49,7 +49,7 @@ class GrannySmith: public Apple
 {
 public:
     GrannySmith(std::string_view color = "green")
-    :Apple{color}
+    :Apple{"granny smith", color}
     {
     }
 };
