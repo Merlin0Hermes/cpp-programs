@@ -23,7 +23,7 @@ public:
 
     static Type random_monster()
     {
-        return static_cast<Type>(Random::get(0, static_cast<int>(max_types) - 1));
+        return static_cast<Type>(Random::get(0, max_types - 1));
     }
 
 private:
