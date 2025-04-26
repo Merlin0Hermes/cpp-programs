@@ -15,6 +15,19 @@ public:
         max_types
     };
 
+    explicit Monster(Type type)
+    :Creature{monsters[type]}
+    {
+    }
+
+private:
+    static inline Creature monsters[] {
+        Creature{"dragon", 'D', 20, 4, 100},
+        Creature{"orc", 'o', 4, 2, 25},
+        Creature{"slime", 's', 1, 1, 10},
+    };
+
+
 };
 
 #endif
