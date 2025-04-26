@@ -11,9 +11,12 @@ namespace  PlayerDefault
     constexpr int attack_damage{1};
     constexpr int gold{0};
     constexpr int level{1};
-    constexpr int winning_level{20};
 }
 
+namespace PlayerSetting
+{
+    constexpr int winning_level{20};
+}
 
 class Player: public Creature
 {
@@ -36,7 +39,7 @@ public:
         ++m_attack_damage;
     }
 
-    bool has_won(){ return m_level == PlayerDefault::winning_level; }
+    bool has_won(){ return m_level == PlayerSetting::winning_level; }
 
 };
 
