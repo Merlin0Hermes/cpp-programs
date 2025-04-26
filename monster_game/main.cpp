@@ -4,13 +4,17 @@
 
 #include <iostream>
 #include "Creature.h"
+#include "Player.h"
 
 int main()
 {
-	Creature o{ "orc", 'o', 4, 2, 10 };
-	o.add_gold(5);
-	o.reduce_health(1);
-	std::cout << "The " << o.name() << " has " << o.health() << " health and is carrying " << o.gold() << " gold.\n";
+    std::cout << "Enter you name: ";
+    std::string name{};
+    std::cin >> name;
+
+    Player o{name};
+    std::cout << "Welcome, " << name << "\n";
+	std::cout << "You have " << o.health() << " health and are carrying " << o.gold() << " gold.\n";
 
 	return 0;
 }
