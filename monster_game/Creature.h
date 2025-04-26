@@ -7,6 +7,17 @@
 class Creature
 {
 public:
+
+    Creature(std::string_view name, char symbol, int health, int attack_damage, int gold)
+    :m_name{name}
+    ,m_symbol{symbol}
+    ,m_health{health}
+    ,m_attack_damage{attack_damage}
+    ,m_gold{gold}
+    {
+    }
+
+
     // getters
     const std::string& name() const { return m_name; }
     char symbol() const { return m_symbol; }
