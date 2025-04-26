@@ -22,7 +22,7 @@ private:
 class Apple: public Fruit
 {
 public:
-    Apple(std::string_view color)
+    Apple(std::string_view color = "red")
     :Fruit{"apple", color}
     {
     }
