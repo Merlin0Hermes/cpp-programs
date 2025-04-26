@@ -13,6 +13,9 @@ public:
     {
     }
 
+    const std::string& name() const { return m_name; }
+    const std::string& color() const { return m_color; }
+
 private:
     std::string m_name{};
     std::string m_color{};
@@ -43,8 +46,8 @@ int main()
 	Apple a{ "red" };
 	Banana b{};
 
-	std::cout << "My " << a.getName() << " is " << a.getColor() << ".\n";
-	std::cout << "My " << b.getName() << " is " << b.getColor() << ".\n";
+	std::cout << "My " << a.name() << " is " << a.color() << ".\n";
+	std::cout << "My " << b.name() << " is " << b.color() << ".\n";
 
 	return 0;
 }
