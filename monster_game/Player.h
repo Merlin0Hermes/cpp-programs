@@ -39,7 +39,7 @@ public:
         ++m_attack_damage;
     }
 
-    bool has_won(){ return m_level == PlayerSetting::winning_level; }
+    bool has_won(){ return m_level >= PlayerSetting::winning_level; }
 
 };
 
