@@ -23,10 +23,11 @@ void attack_monster(Player& p, Monster& m)
 	if (m.is_dead())
 	{
 		std::cout << "You killed the " << m.name() << ".\n";
+		p.level_up();
 		std::cout << "You are now level " << p.level() << ".\n";
+		std::cout << "Your health is restored.\n";
 		std::cout << "You found " << m.gold() << "gold." << "\n";
 		p.add_gold(m.gold());
-		p.level_up();
 		return;
 	}
 }
@@ -96,10 +97,9 @@ int main()
 		std::cout << "You died at level " << player.level() << " with " << player.gold() << " gold.\n";
 		std::cout << "Too bad you can’t take it with you!\n";
 	}
-
-	if (player.has_won())
+	else if (player.has_won())
 	{
-		std::cout << "You win!\n";
+		std::cout << "You win the game with " << player.gold() << " gold!\n";
 	}
 
 

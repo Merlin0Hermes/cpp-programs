@@ -21,6 +21,7 @@ namespace PlayerSetting
 class Player: public Creature
 {
 private:
+    int max_health{PlayerDefault::health};
     int m_level{PlayerDefault::level};
 
 public:
@@ -37,6 +38,7 @@ public:
     {
         ++m_level;
         ++m_attack_damage;
+        m_health = max_health / 3;
     }
 
     bool has_won(){ return m_level >= PlayerSetting::winning_level; }
