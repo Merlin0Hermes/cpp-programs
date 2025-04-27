@@ -6,7 +6,6 @@
 #include <cctype>
 
 #include "../Random.h"
-#include "Creature.h"
 #include "Player.h"
 #include "Monster.h"
 
@@ -25,7 +24,7 @@ void attack_monster(Player& p, Monster& m)
 		std::cout << "You killed the " << m.name() << ".\n";
 		p.level_up();
 		std::cout << "You are now level " << p.level() << ".\n";
-		std::cout << "Your health is restored.\n";
+		std::cout << "You partially healed.\n";
 		std::cout << "You found " << m.gold() << "gold." << "\n";
 		p.add_gold(m.gold());
 		return;
