@@ -36,9 +36,11 @@ public:
 
     void level_up() // increase player's level and attack damage
     {
+        constexpr int heal_factor {3};
         ++m_level;
         ++m_attack_damage;
-        m_health = max_health / 3;
+        int new_health = m_health + max_health / heal_factor;
+        (new_health > max_health) ? m_health = max_health: m_health = new_health;
     }
 
     bool has_won(){ return m_level >= PlayerSetting::winning_level; }
