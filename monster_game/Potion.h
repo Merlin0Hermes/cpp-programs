@@ -2,6 +2,7 @@
 #define POTION_H
 
 #include <string>
+#include <string_view>
 #include "../Random.h"
 
 class Potion
@@ -31,10 +32,16 @@ public:
     {
     }
 
-    const std::string& type() const
+    std::string_view type() const
     {
-        static std::string name[] {"health", "strength", "poison"};
+        static constexpr std::string_view name[] {"health", "strength", "poison"};
         return name[m_type];
+    }
+    
+    std::string_view size() const
+    {
+        static constexpr std::string_view name[] {"small", "medium", "large"};
+        return name[m_size];
     }
 
     static Potion random_potion() 
