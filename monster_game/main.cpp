@@ -13,8 +13,22 @@
 
 void attack_monster(Player& p, Monster& m)
 {
+	if (p.is_dead())
+		return;
+
+
 	std::cout << "You hit the " << m.name() << " for " << m.attack_damage() << " damage.\n";
 	m.reduce_health(p.attack_damage());
+
+	if (m.is_dead())
+	{
+		std::cout << "You killed the " << m.name() << ".\n";
+		std::cout << "You are now level " << p.level() << ".\n";
+		std::cout << "You found " << m.gold() << "gold." << "\n";
+		p.add_gold(m.gold());
+		p.level_up();
+		return;
+	}
 }
 
 
@@ -31,7 +45,7 @@ void fight_monster(Player& p)
 
 	std::cout << "You have encountered a " << m.name() << "(" << m.symbol() << ").\n";
 
-	while (true)
+	while (!p.is_dead() && !m.is_dead())
 	{
 		std::cout << "(R)un or (F)ight: ";
 		char input{};
@@ -56,17 +70,7 @@ void fight_monster(Player& p)
 			}
 		}
 
-		if (m.is_dead())
-		{
-			std::cout << "You killed the " << m.name() << ".\n";
-			std::cout << "You are now level " << p.level() << ".\n";
-			std::cout << "You found " << m.gold() << "gold." << "\n";
-			p.add_gold(m.gold());
-			p.level_up();
-			return;
-		}
-
-		if (p.has_won() || p.is_dead())
+		if (p.has_won())
 			return;
 	}
 	
