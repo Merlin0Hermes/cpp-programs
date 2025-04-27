@@ -3,17 +3,40 @@
 // implemented using inheritance
 
 #include <iostream>
+
 #include "Creature.h"
 #include "Player.h"
 #include "Monster.h"
 
+
+void fight_monsters(Player& p)
+{
+	Monster m{Monster::random_monster()};
+
+	std::cout << "You have encountered a " << m.name() << "(" << m.symbol() << ").\n";
+
+	std::cout << "(R)un or (F)ight: ";
+	char input{};
+	std::cin >> input;
+
+	
+}
+
 int main()
 {
-	for (int i{ 0 }; i < 10; ++i)
+	std::cout << "Enter your name: ";
+	std::string name{};
+	std::cin >> name;
+
+	Player player {name};
+	std::cout << "Welcome, " << name << "\n";
+
+	while (true)
 	{
-		Monster m{ Monster::random_monster() };
-		std::cout << "A " << m.name() << " (" << m.symbol() << ") was created.\n";
+		
+		fight_monsters(player);
 	}
+
 
 	return 0;
 }
