@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "Creature.h"
+#include "Potion.h"
 
 namespace  PlayerDefault 
 {
@@ -44,6 +45,11 @@ public:
     }
 
     bool has_won(){ return m_level >= PlayerSetting::winning_level; }
+
+    void drink_potion(const Potion& potion)
+    {
+        
+    }
 
 };
 
