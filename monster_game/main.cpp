@@ -34,6 +34,9 @@ void attack_monster(Player& p, Monster& m)
 
 void attack_player(Player& p, const Monster&m)
 {
+	if (m.is_dead())
+		return;
+
 	std::cout << "The " << m.name() << " hit you for " << m.attack_damage() << " damage.\n";
 	p.reduce_health(m.attack_damage());
 }
@@ -45,7 +48,7 @@ void fight_monster(Player& p)
 
 	std::cout << "You have encountered a " << m.name() << "(" << m.symbol() << ").\n";
 
-	while (!p.is_dead() && !m.is_dead())
+	while (!p.is_dead() && !m.is_dead() && !p.has_won())
 	{
 		std::cout << "(R)un or (F)ight: ";
 		char input{};
@@ -69,9 +72,6 @@ void fight_monster(Player& p)
 				return;
 			}
 		}
-
-		if (p.has_won())
-			return;
 	}
 	
 }
@@ -88,6 +88,7 @@ int main()
 	while (!player.is_dead() && !player.has_won())
 	{
 		fight_monster(player);
+		std::cout << "\n";
 	}
 
 	if (player.is_dead())
