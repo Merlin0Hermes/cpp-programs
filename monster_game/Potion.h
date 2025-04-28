@@ -51,8 +51,8 @@ public:
 
     static Potion random_potion() 
     {
-        Type rand_type {static_cast<Type>(Random::get(0, max_types))};
-        Size rand_size {static_cast<Size>(Random::get(0, max_size))};
+        Type rand_type {static_cast<Type>(Random::get(0, max_types - 1))};
+        Size rand_size {static_cast<Size>(Random::get(0, max_size - 1))};
         return Potion{rand_type, rand_size};
     }
 
