@@ -52,7 +52,7 @@ public:
     {
         Type rand_type {static_cast<Type>(Random::get(0, max_types))};
         Size rand_size {static_cast<Size>(Random::get(0, max_size))};
-        return Potion(rand_type, rand_size);
+        return Potion{rand_type, rand_size};
     }
 
     std::string name() const

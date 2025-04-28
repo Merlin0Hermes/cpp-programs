@@ -38,7 +38,7 @@ public:
 
     void level_up() // increase player's level and attack damage
     {
-        constexpr int heal_factor {4};
+        constexpr int heal_factor {3};
         ++m_level;
         ++m_attack_damage;
         add_health(max_health / heal_factor);
