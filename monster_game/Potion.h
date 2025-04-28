@@ -1,6 +1,7 @@
 #ifndef POTION_H
 #define POTION_H
 
+#include <iostream>
 #include <string>
 #include <string_view>
 #include <sstream>
@@ -36,16 +37,16 @@ public:
     Type type() const { return m_type; }
     Size size() const { return m_size; }
 
-    std::string_view type_name() const
+    std::string_view type_name(Type type) const
     {
-        static constexpr std::string_view name[] {"health", "strength", "poison"};
-        return name[m_type];
+        static constexpr std::string_view type_names[] {"health", "strength", "poison"};
+        return type_names[type];
     }
 
-    std::string_view size_name() const
+    std::string_view size_name(Size size) const
     {
-        static constexpr std::string_view name[] {"Small", "Medium", "Large"};
-        return name[m_size];
+        static constexpr std::string_view size_names[] {"Small", "Medium", "Large"};
+        return size_names[size];
     }
 
     static Potion random_potion() 
@@ -58,7 +59,7 @@ public:
     std::string name() const
     {
         std::stringstream ss{};
-        ss << size_name() << " potion of " << type_name();
+        ss << size_name(m_size) << " potion of " << type_name(m_type);
         return ss.str();
     }
 

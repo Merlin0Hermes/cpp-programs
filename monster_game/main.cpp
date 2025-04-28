@@ -32,7 +32,7 @@ void attack_monster(Player& p, Monster& m)
 		{
 			Potion potion {Potion::random_potion()};
 			std::cout << "You found a mythical potion! Do you want to drink it? [y/n]: ";
-			char input{};
+			char input{'n'};
 			std::cin >> input;
 			if (std::tolower(input) == 'y')
 			{
