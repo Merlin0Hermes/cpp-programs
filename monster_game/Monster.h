@@ -28,8 +28,8 @@ public:
 
 private:
     static inline Creature monsters[] {
-        Creature{"dragon", 'D', 20, 5, 100},
-        Creature{"orc", 'o', 7, 3, 25},
+        Creature{"dragon", 'D', 25, 8, 100},
+        Creature{"orc", 'o', 10, 3, 35},
         Creature{"slime", 's', 2, 1, 10},
     };
 
