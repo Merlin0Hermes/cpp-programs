@@ -16,7 +16,7 @@ void attack_monster(Player& p, Monster& m)
 		return;
 
 
-	std::cout << "You hit the " << m.name() << " for " << m.attack_damage() << " damage.\n";
+	std::cout << "You hit the " << m.name() << " for " << p.attack_damage() << " damage.\n";
 	m.reduce_health(p.attack_damage());
 
 	if (m.is_dead())
@@ -27,6 +27,20 @@ void attack_monster(Player& p, Monster& m)
 		std::cout << "You partially healed.\n";
 		std::cout << "You found " << m.gold() << "gold." << "\n";
 		p.add_gold(m.gold());
+
+		if (Random::get(1,3) == 2) // 33% chance to find potion
+		{
+			Potion potion {Potion::random_potion()};
+			std::cout << "You found a mythical potion! Do you want to drink it? [y/n]: ";
+			char input{};
+			std::cin >> input;
+			if (std::tolower(input) == 'y')
+			{
+				std::cout << "You drank a " << potion.name() << "\n";
+				p.drink_potion(potion);
+			}
+		}
+
 		return;
 	}
 }

@@ -3,6 +3,7 @@
 
 #include "Creature.h"
 #include "Potion.h"
+#include <iostream>
 
 namespace  PlayerDefault 
 {
@@ -37,7 +38,7 @@ public:
 
     void level_up() // increase player's level and attack damage
     {
-        constexpr int heal_factor {3};
+        constexpr int heal_factor {4};
         ++m_level;
         ++m_attack_damage;
         add_health(max_health / heal_factor);
@@ -61,8 +62,33 @@ public:
         {
             case Potion::health:
                 if (potion.size() == Potion::small)
-                    
+                    add_health(2);
+                else if (potion.size() == Potion::medium)
+                    add_health(3);
+                else if (potion.size() == Potion::large)
+                    add_health(5);
+                break;
+            
+            case Potion::strength:
+                if (potion.size() == Potion::small)
+                    m_attack_damage += 1;
+                else if (potion.size() == Potion::medium)
+                    m_attack_damage += 2;
+                else if (potion.size() == Potion::large)
+                    m_attack_damage += 3;
+                break;
 
+            case Potion::poison:
+                if (potion.size() == Potion::small)
+                    m_health -= 2;
+                else if (potion.size() == Potion::medium)
+                    m_health -= 5;
+                else if (potion.size() == Potion::large)
+                    m_health -= 10;
+                break;
+            
+            default:
+                std::cerr << "Invalid potion in drink_potion() in Player.h\n";
         }
     }
 
