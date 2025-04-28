@@ -9,7 +9,7 @@ namespace  PlayerDefault
 {
     constexpr std::string_view name{"Unknown"};
     constexpr char symbol{'@'};
-    constexpr int health{10};
+    constexpr int health{15};
     constexpr int attack_damage{1};
     constexpr int gold{0};
     constexpr int level{1};
@@ -95,7 +95,7 @@ public:
                 else if (potion.size() == Potion::large)
                     m_max_health += 4;
                 break;
-                
+
             default:
                 std::cerr << "Invalid potion in drink_potion() in Player.h\n";
         }

@@ -60,7 +60,7 @@ void fight_monster(Player& p)
 {
 	Monster m{Monster::random_monster()};
 
-	std::cout << "You have encountered a " << m.name() << "(" << m.symbol() << ").\n";
+	std::cout << "You have encountered a " << m.name() << " (" << m.symbol() << ").\n";
 
 	while (!p.is_dead() && !m.is_dead() && !p.has_won())
 	{
