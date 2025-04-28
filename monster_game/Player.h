@@ -23,7 +23,7 @@ namespace PlayerSetting
 class Player: public Creature
 {
 private:
-    int max_health{PlayerDefault::health};
+    int m_max_health{PlayerDefault::health};
     int m_level{PlayerDefault::level};
 
 public:
@@ -41,15 +41,15 @@ public:
         constexpr int heal_factor {3};
         ++m_level;
         ++m_attack_damage;
-        add_health(max_health / heal_factor);
+        add_health(m_max_health / heal_factor);
     }
 
     void add_health(int health)
     {
         int new_health {m_health + health};
 
-        if (new_health > max_health)
-            m_health = max_health;
+        if (new_health > m_max_health)
+            m_health = m_max_health;
         else
             m_health = new_health;
     }
@@ -87,6 +87,15 @@ public:
                     m_health -= 10;
                 break;
             
+            case Potion::vigor:
+                if (potion.size() == Potion::small)
+                    m_max_health += 2;
+                else if (potion.size() == Potion::medium)
+                    m_max_health += 3;
+                else if (potion.size() == Potion::large)
+                    m_max_health += 4;
+                break;
+                
             default:
                 std::cerr << "Invalid potion in drink_potion() in Player.h\n";
         }

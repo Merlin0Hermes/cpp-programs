@@ -15,6 +15,7 @@ public:
         health,
         strength,
         poison,
+        vigor,
 
         max_types
     };
@@ -39,7 +40,7 @@ public:
 
     std::string_view type_name(Type type) const
     {
-        static constexpr std::string_view type_names[] {"health", "strength", "poison"};
+        static constexpr std::string_view type_names[] {"health", "strength", "poison", "vigor"};
         return type_names[type];
     }
 
@@ -66,7 +67,6 @@ public:
 private:
     Type m_type{};
     Size m_size{};
-
 };
 
 #endif
