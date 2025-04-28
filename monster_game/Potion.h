@@ -33,6 +33,9 @@ public:
     {
     }
 
+    Type type() const { return m_type; }
+    Size size() const { return m_size; }
+
     std::string_view type_name() const
     {
         static constexpr std::string_view name[] {"health", "strength", "poison"};

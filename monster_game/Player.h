@@ -40,15 +40,30 @@ public:
         constexpr int heal_factor {3};
         ++m_level;
         ++m_attack_damage;
-        int new_health = m_health + max_health / heal_factor;
-        (new_health > max_health) ? m_health = max_health: m_health = new_health;
+        add_health(max_health / heal_factor);
+    }
+
+    void add_health(int health)
+    {
+        int new_health {m_health + health};
+
+        if (new_health > max_health)
+            m_health = max_health;
+        else
+            m_health = new_health;
     }
 
     bool has_won(){ return m_level >= PlayerSetting::winning_level; }
 
     void drink_potion(const Potion& potion)
     {
-        
+        switch(potion.type())
+        {
+            case Potion::health:
+                if (potion.size() == Potion::small)
+                    
+
+        }
     }
 
 };
