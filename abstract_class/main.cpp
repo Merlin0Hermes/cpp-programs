@@ -42,6 +42,13 @@ private:
     Point m_z;
 
 public:
+    Triangle(Point x, Point y, Point z)
+    :m_x{x}
+    ,m_y{y}
+    ,m_z{z}
+    {
+    }
+
     std::ostream& print(std::ostream& out) const override
     {
         out << "Triangle(" << m_x << ", " << m_y << ", " << m_z << ")";
@@ -61,6 +68,12 @@ private:
     int m_radius{};
 
 public:
+    Circle(Point center, int radius)
+    :m_center{center}
+    ,m_radius{radius}
+    {
+    }
+
     std::ostream& print(std::ostream& out) const override
     {
         out << "Circle(" << m_center << ", " << "radius " << m_radius << ")";
