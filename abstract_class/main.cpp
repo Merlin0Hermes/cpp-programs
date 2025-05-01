@@ -1,5 +1,5 @@
 
-#include <ostream>
+#include <iostream>
 
 class Point
 {
@@ -42,15 +42,35 @@ private:
     Point m_z;
 
 public:
-    
-    
+    std::ostream& print(std::ostream& out) const override
+    {
+        out << "Triangle(" << m_x << ", " << m_y << ", " << m_z << ")";
+        return out;
+    }
+
+    friend std::ostream& operator<<(std::ostream& out, const Triangle& t)
+    {
+        return t.print(out);
+    }
 };
 
 class Circle: public Shape
 {
 private:
     Point m_center;
-    int radius{};
+    int m_radius{};
+
+public:
+    std::ostream& print(std::ostream& out) const override
+    {
+        out << "Circle(" << m_center << ", " << "radius " << m_radius << ")";
+        return out;
+    }
+
+    friend std::ostream& operator<<(std::ostream& out, const Circle& c)
+    {
+        return c.print(out);
+    }
 };
 
 
