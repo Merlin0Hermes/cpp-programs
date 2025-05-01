@@ -86,7 +86,7 @@ int get_largest_radius(std::vector<Shape*> v)
     {
         Circle* ptr = dynamic_cast<Circle*>(s); 
         if (ptr)
-            max = std::max(dynamic_cast<Circle*>(s)->radius(), max);
+            max = std::max(ptr->radius(), max);
     }
     return max;
 }
