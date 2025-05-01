@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <vector>
+#include <memory>
 
 class Point
 {
@@ -79,12 +80,12 @@ public:
     int radius() const { return m_radius; }
 };
 
-int get_largest_radius(std::vector<Shape*> v)
+int get_largest_radius(const std::vector<std::unique_ptr<Shape>>& v)
 {
-    int max = dynamic_cast<Circle*>(v[0])->radius();
-    for (auto* s: v)
+    int max = dynamic_cast<Circle*>(v[0].get())->radius();
+    for (const auto& s: v)
     {
-        Circle* ptr = dynamic_cast<Circle*>(s); 
+        Circle* ptr = dynamic_cast<Circle*>(s.get()); 
         if (ptr)
             max = std::max(ptr->radius(), max);
     }
@@ -94,20 +95,17 @@ int get_largest_radius(std::vector<Shape*> v)
 
 int main()
 {
-	std::vector<Shape*> v{
-	  new Circle{Point{ 1, 2 }, 7},
-	  new Triangle{Point{ 1, 2 }, Point{ 3, 4 }, Point{ 5, 6 }},
-	  new Circle{Point{ 7, 8 }, 3}
-	};
+	std::vector<std::unique_ptr<Shape>> v;
+    v.reserve(3);
+    
+	v.push_back(std::make_unique<Circle> (Point{ 1, 2 }, 7));
+    v.push_back(std::make_unique<Triangle> (Point{ 1, 2 }, Point{ 3, 4 }, Point{ 5, 6 }));
+	v.push_back(std::make_unique<Circle> (Point{ 7, 8 }, 3));
 
-    for (const auto* s: v)
+    for (const auto& s: v)
         std::cout << *s << "\n";
 
 	std::cout << "The largest radius is: " << get_largest_radius(v) << '\n'; 
-
-	// delete each element in the vector here
-    for (const auto* s: v)
-        delete s;
 
 	return 0;
 }
