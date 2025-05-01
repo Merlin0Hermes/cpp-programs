@@ -54,11 +54,6 @@ public:
         out << "Triangle(" << m_p1 << ", " << m_p2 << ", " << m_p3 << ")";
         return out;
     }
-
-    friend std::ostream& operator<<(std::ostream& out, const Triangle& t)
-    {
-        return t.print(out);
-    }
 };
 
 class Circle: public Shape
@@ -78,11 +73,6 @@ public:
     {
         out << "Circle(" << m_center << ", " << "radius " << m_radius << ")";
         return out;
-    }
-
-    friend std::ostream& operator<<(std::ostream& out, const Circle& c)
-    {
-        return c.print(out);
     }
 };
 
