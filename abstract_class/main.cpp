@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <vector>
 
 class Point
 {
@@ -79,11 +80,17 @@ public:
 
 int main()
 {
-    Circle c{ Point{ 1, 2 }, 7 };
-    std::cout << c << '\n';
+	std::vector<Shape*> v{
+	  new Circle{Point{ 1, 2 }, 7},
+	  new Triangle{Point{ 1, 2 }, Point{ 3, 4 }, Point{ 5, 6 }},
+	  new Circle{Point{ 7, 8 }, 3}
+	};
 
-    Triangle t{Point{ 1, 2 }, Point{ 3, 4 }, Point{ 5, 6 }};
-    std::cout << t << '\n';
+	// print each shape in vector v on its own line here
 
-    return 0;
+	std::cout << "The largest radius is: " << getLargestRadius(v) << '\n'; // write this function
+
+	// delete each element in the vector here
+
+	return 0;
 }
