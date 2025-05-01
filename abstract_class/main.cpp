@@ -75,7 +75,21 @@ public:
         out << "Circle(" << m_center << ", " << "radius " << m_radius << ")";
         return out;
     }
+
+    int radius() const { return m_radius; }
 };
+
+int get_largest_radius(std::vector<Shape*> v)
+{
+    int max = dynamic_cast<Circle*>(v[0])->radius();
+    for (auto* s: v)
+    {
+        Circle* ptr = dynamic_cast<Circle*>(s); 
+        if (ptr)
+            max = std::max(dynamic_cast<Circle*>(s)->radius(), max);
+    }
+    return max;
+}
 
 
 int main()
@@ -86,11 +100,14 @@ int main()
 	  new Circle{Point{ 7, 8 }, 3}
 	};
 
-	// print each shape in vector v on its own line here
+    for (const auto* s: v)
+        std::cout << *s << "\n";
 
-	std::cout << "The largest radius is: " << getLargestRadius(v) << '\n'; // write this function
+	std::cout << "The largest radius is: " << get_largest_radius(v) << '\n'; 
 
 	// delete each element in the vector here
+    for (const auto* s: v)
+        delete s;
 
 	return 0;
 }
