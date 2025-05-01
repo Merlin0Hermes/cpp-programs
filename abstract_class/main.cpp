@@ -4,18 +4,18 @@
 class Point
 {
 private:
-	int m_x{};
-	int m_y{};
+	int m_p1{};
+	int m_p2{};
 
 public:
-	Point(int x, int y)
-		: m_x{ x }, m_y{ y }
+	Point(int p1, int p2)
+		: m_p1{ p1 }, m_p2{ p2 }
 	{
 	}
 
 	friend std::ostream& operator<<(std::ostream& out, const Point& p)
 	{
-		return out << "Point(" << p.m_x << ", " << p.m_y << ')';
+		return out << "Point(" << p.m_p1 << ", " << p.m_p2 << ')';
 	}
 };
 
@@ -37,21 +37,21 @@ public:
 class Triangle: public Shape
 {
 private:
-    Point m_x;
-    Point m_y;
-    Point m_z;
+    Point m_p1;
+    Point m_p2;
+    Point m_p3;
 
 public:
-    Triangle(Point x, Point y, Point z)
-    :m_x{x}
-    ,m_y{y}
-    ,m_z{z}
+    Triangle(const Point& p1, const Point& p2, const Point& p3)
+    :m_p1{p1}
+    ,m_p2{p2}
+    ,m_p3{p3}
     {
     }
 
     std::ostream& print(std::ostream& out) const override
     {
-        out << "Triangle(" << m_x << ", " << m_y << ", " << m_z << ")";
+        out << "Triangle(" << m_p1 << ", " << m_p2 << ", " << m_p3 << ")";
         return out;
     }
 
@@ -68,7 +68,7 @@ private:
     int m_radius{};
 
 public:
-    Circle(Point center, int radius)
+    Circle(const Point& center, int radius)
     :m_center{center}
     ,m_radius{radius}
     {
