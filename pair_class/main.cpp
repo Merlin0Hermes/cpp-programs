@@ -2,26 +2,6 @@
 #include <string>
 #include <string_view>
 
-template <typename T>
-class Pair1
-{
-public:
-    Pair1(T first, T second)
-    :m_first{first}
-    ,m_second{second}
-    {
-    }
-
-    T& first() { return m_first; }
-    T& second() { return m_second; }
-    const T& first() const { return m_first; }
-    const T& second() const { return m_second; }
-
-private:
-    T m_first{};
-    T m_second{};
-};
-
 
 template <typename T, typename U>
 class Pair
@@ -43,6 +23,17 @@ public:
 private:
     T m_x{};
     U m_y{};
+};
+
+
+template <typename T>
+class Pair1 : public Pair<T, T>
+{
+public:
+    Pair1(T first, T second)
+    :Pair<T,T>{first, second}
+    {
+    }
 };
 
 
