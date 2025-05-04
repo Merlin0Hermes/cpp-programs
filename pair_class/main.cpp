@@ -20,12 +20,13 @@ private:
     T m_second{};
 };
 
+
 int main()
 {
-	Pair1<int> p1 { 5, 8 };
+	Pair<int, double> p1 { 5, 6.7 };
 	std::cout << "Pair: " << p1.first() << ' ' << p1.second() << '\n';
 
-	const Pair1<double> p2 { 2.3, 4.5 };
+	const Pair<double, int> p2 { 2.3, 4 };
 	std::cout << "Pair: " << p2.first() << ' ' << p2.second() << '\n';
 
 	return 0;
