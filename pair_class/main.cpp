@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 template <typename T>
 class Pair1
@@ -42,6 +43,18 @@ private:
     T m_x{};
     U m_y{};
 };
+
+
+template <typename T>
+class StringValuePair: public Pair<std::string, T>
+{
+public:
+    StringValuePair(std::string str, T value)
+    :Pair<std::string, T>{str, value}
+    {
+    }
+};
+
 
 int main()
 {
