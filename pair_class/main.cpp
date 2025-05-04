@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <string_view>
 
 template <typename T>
 class Pair1
@@ -49,8 +50,8 @@ template <typename T>
 class StringValuePair: public Pair<std::string, T>
 {
 public:
-    StringValuePair(std::string str, T value)
-    :Pair<std::string, T>{str, value}
+    StringValuePair(std::string_view str, const T& value)
+    :Pair<std::string, T>{static_cast<std::string>(str), value}
     {
     }
 };
