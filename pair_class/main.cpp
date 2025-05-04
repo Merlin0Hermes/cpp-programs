@@ -10,8 +10,10 @@ public:
     {
     }
 
-    T first() const { return m_first; }
-    T second() const { return m_second; }
+    T& first() { return m_first; }
+    T& second() { return m_second; }
+    const T& first() const { return m_first; }
+    const T& second() const { return m_second; }
 
 private:
     T m_first{};
