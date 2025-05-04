@@ -21,6 +21,28 @@ private:
 };
 
 
+template <typename T, typename U>
+class Pair
+{
+public:
+    Pair(T x, U y)
+    :m_x{x}
+    ,m_y{y}
+    {
+    }
+
+    T& first() { return m_x; }
+    U& second() { return m_y; }
+
+    const T& first() const { return m_x; }
+    const U& second() const { return m_y; }
+
+
+private:
+    T m_x{};
+    U m_y{};
+};
+
 int main()
 {
 	Pair<int, double> p1 { 5, 6.7 };
