@@ -1,5 +1,7 @@
 #include <iostream>
 #include <numeric>
+#include <exception>
+#include <stdexcept>
 
 class Fraction
 {
@@ -12,6 +14,8 @@ public:
     :m_numerator { numerator }
     ,m_denominator { denominator }
     {
+        if (denominator == 0)
+            throw std::runtime_error{"Invalid denominator"};
         reduce();
     }
 
@@ -128,8 +132,15 @@ int main()
     int denom{};
     std::cin >> denom;
 
-    Fraction fraction {num, denom};
+    try
+    {
+        Fraction fraction {num, denom};
+        std::cout << fraction << "\n";
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << "Error: " << e.what() << "\n";
+    }
 
-    std::cout << fraction << "\n";
-
+    return 0;
 }
