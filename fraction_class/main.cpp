@@ -107,7 +107,7 @@ bool operator<(const Fraction& f1, const Fraction& f2)
 
 bool operator>(const Fraction& f1, const Fraction& f2)
 {
-    return !(f1 < f2);
+    return !(f1 < f2) && f1 != f2;
 }
 
 bool operator<=(const Fraction& f1, const Fraction& f2)
