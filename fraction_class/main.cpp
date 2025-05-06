@@ -134,8 +134,7 @@ int main()
 
     try
     {
-        Fraction fraction {num, denom};
-        std::cout << fraction << "\n";
+        std::cout << Fraction{num, denom} << "\n";
     }
     catch(const std::exception& e)
     {
